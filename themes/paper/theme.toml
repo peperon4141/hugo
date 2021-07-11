@@ -1,16 +1,14 @@
 # theme.toml template for a Hugo theme
 # See https://github.com/gohugoio/hugoThemes#themetoml for an example
 
-theme = "simple"
-title = "HUGO まとめ"
+name = "Paper"
+license = "MIT"
 licenselink = "https://github.com/nanxiaobei/hugo-paper/blob/master/LICENSE"
 description = "A simple, clean, flexible Hugo theme"
 homepage = "https://github.com/nanxiaobei/hugo-paper/"
 tags = ["Responsive", "Simple", "Clean", "Light", "White", "Blog"]
 features = ["Responsive", "One Column", "Blog"]
 min_version = "0.57.1"
-baseURL = "https://hugo.choihack.com/"
-copyright = "© - 2021 - Hugoまとめ"
 
 [author]
   name = "nanxiaobei"
@@ -21,17 +19,3 @@ copyright = "© - 2021 - Hugoまとめ"
   name = ""
   homepage = ""
   repo = ""
-
-[[menu.main]]
-  name = "TOP"
-  pre = "<i class='fa fa-heart'></i>"
-  weight = -110
-  identifier = "TOP"
-  url = "/"
-
-[[menu.main]]
-  name = "投稿"
-  pre = "<i class='fa fa-road'></i>"
-  weight = -100
-  identifier = "ABOUT"
-  url = "/post"

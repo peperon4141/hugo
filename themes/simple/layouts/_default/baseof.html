@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  {{ partial "head.html" . }}
+
+  {{ partial "header.html" . }}
+
+  <body class="{{ if eq .Kind `page` }}single{{ else }}list{{ if .IsHome }} home{{ end }}{{ end }}"></body>
+    {{ block "main" . }}{{ end }}
+  </body>
+
+  {{ partial "footer.html" . }}
+</html>

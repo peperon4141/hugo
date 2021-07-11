@@ -1,0 +1,14 @@
+{{- define "breadcrumb" }}
+  {{- if .node.Parent }}
+    <!-- 親要素があれば再帰的に親を呼び出す -->
+    {{- template "breadcrumb" (dict "node" .node.Parent "start" .start) }}
+  {{- else if not .node.IsHome }}
+    {{- template "breadcrumb" (dict "node" .node.Site.Home "start" .start) }}
+  {{- end }}
+
+  {{- if eq .node .start }}
+    <li class="breadcrumb-item active">{{ .node.LinkTitle }}</li>
+  {{- else }}
+    <li class="breadcrumb-item"><a href="{{ .node.Permalink }}" >{{ .node.LinkTitle }}</a></li>
+  {{- end }}
+{{- end }}
