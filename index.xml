@@ -133,21 +133,6 @@ title = &amp;quot;TOML Example&amp;quot; [test] a = 1 [[table]] b = 2 [[table]] 
     </item>
     
     <item>
-      <title>Config</title>
-      <link>https://hugo.choihack.com/post/test/config.toml%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/</link>
-      <pubDate>Sun, 11 Jul 2021 12:45:54 +0900</pubDate>
-      
-      <guid>https://hugo.choihack.com/post/test/config.toml%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/</guid>
-      <description>コンフィグファイルの種類 Hugoではいくつかのコンフィグファイルの種類が定義でき、好きな形式で書くことができます。
- config.toml config.yaml config.json  ここでは、TOML形式で定義したコンフィグファイルの説明を行います。
-config.tomlファイルの読み方 TOMLとJSONファイルを変換できるサイトがあるので、一度確認すると意味がわかりやすいです。 TOML
-参考にTOMLをJSONに変換したものを載せます。
-TOML
-title = &amp;quot;TOML Example&amp;quot; [test] a = 1 [[table]] b = 2 [[table]] c = 3 [table3.inner] d = 4 [[table2.description]] e = 5 JSON
-{ &amp;quot;title&amp;quot;: &amp;quot;TOML Example&amp;quot;, &amp;quot;test&amp;quot;: { &amp;quot;a&amp;quot;: 1 }, &amp;quot;table&amp;quot;: [ { &amp;quot;b&amp;quot;: 2 }, { &amp;quot;c&amp;quot;: 3 } ], &amp;quot;table3&amp;quot;: { &amp;quot;inner&amp;quot;: { &amp;quot;d&amp;quot;: 4 } }, &amp;quot;table2&amp;quot;: { &amp;quot;description&amp;quot;: [ { &amp;quot;e&amp;quot;: 5 } ] } } TOMLで[[&amp;lt;PARAM_NAME&amp;gt;]]のように2重の括弧で囲むと、配列として定義されることがわかります。</description>
-    </item>
-    
-    <item>
       <title>サイト作成</title>
       <link>https://hugo.choihack.com/blog/%E3%82%B5%E3%82%A4%E3%83%88%E4%BD%9C%E6%88%90/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
