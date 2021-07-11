@@ -2,9 +2,9 @@
   <!-- ナビゲーション -->
   <nav class="nav">
     {{- if .IsHome }}
-      <h1 class="logo"><a href="{{ "" | absURL }}">{{ .Site.Title }}</a></h1>
+      <h1 class="logo"><a href="{{ "" | absURL }}">{{ $.Site.Title }}</a></h1>
     {{- else }}
-      <p class="logo"><a href="{{ "" | absURL }}">{{ .Site.Title }}</a></p>
+      <p class="logo"><a href="{{ "" | absURL }}">{{ $.Site.Title }}</a></p>
     {{- end }}
 
     {{- if .Site.Menus.main }}
