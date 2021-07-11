@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="">
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Config - HUGOまとめ</title>
+  
+  <meta name="description" content="コンフィグファイルの種類 Hugoではいくつかのコンフィグファイルの種類が定義でき、好きな形式で書くことができます。
+ config.toml config.yaml config.json  ここでは、TOML形式で定義したコンフィグファイルの説明を行います。
+config.tomlファイルの読み方 TOMLとJSONファイルを変換できるサイトがあるので、一度確認すると意味がわかりやすいです。 TOML
+参考にTOMLをJSONに変換したものを載せます。
+TOML
+title = &quot;TOML Example&quot; [test] a = 1 [[table]] b = 2 [[table]] c = 3 [table3.inner] d = 4 [[table2.description]] e = 5 JSON
+{ &quot;title&quot;: &quot;TOML Example&quot;, &quot;test&quot;: { &quot;a&quot;: 1 }, &quot;table&quot;: [ { &quot;b&quot;: 2 }, { &quot;c&quot;: 3 } ], &quot;table3&quot;: { &quot;inner&quot;: { &quot;d&quot;: 4 } }, &quot;table2&quot;: { &quot;description&quot;: [ { &quot;e&quot;: 5 } ] } } TOMLで[[&lt;PARAM_NAME&gt;]]のように2重の括弧で囲むと、配列として定義されることがわかります。">
+  <meta name="author" content="">
+  
+  <link href="https://hugo.choihack.com/an-old-hope.min.css" rel="stylesheet">
+  <link href="https://hugo.choihack.com/style.css" rel="stylesheet">
+  <link href="https://hugo.choihack.com/custom.css" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" href="https://hugo.choihack.com/apple-touch-icon.png">
+  <link rel="icon" href="https://hugo.choihack.com/favicon.ico">
+  <meta name="generator" content="Hugo 0.79.0" />
+  
+  
+</head>
+
+  <header class="header">
+  
+  <nav class="nav">
+      <p class="logo"><a href="https://hugo.choihack.com/">HUGOまとめ</a></p>
+      <ul class="menu">
+        <li>
+          <a href="/">TOP</a>
+        </li>
+        <li>
+          <a href="/post">投稿</a>
+        </li>
+      </ul>
+  </nav>
+
+  
+  <nav class="nav breadcrumb">
+    <ul class="menu">
+    <li class="breadcrumb-item"><a href="https://hugo.choihack.com/" >HUGOまとめ</a></li>
+    <li class="breadcrumb-item"><a href="https://hugo.choihack.com/post/" >Posts</a></li>
+    <li class="breadcrumb-item active">Config</li>
+    </ul>
+  </nav>
+</header>
+
+  <body class="dark single"></body>
+    
+<main class="main">
+  <article class="post-single">
+    <header class="post-header">
+      <h1 class="post-title">Config</h1>
+      <div class="post-meta">July 11, 2021</div>
+    </header>
+    <div class="post-content"><h2 id="コンフィグファイルの種類">コンフィグファイルの種類</h2>
+<p>Hugoではいくつかのコンフィグファイルの種類が定義でき、好きな形式で書くことができます。</p>
+<ul>
+<li>config.toml</li>
+<li>config.yaml</li>
+<li>config.json</li>
+</ul>
+<p>ここでは、TOML形式で定義したコンフィグファイルの説明を行います。</p>
+<h2 id="configtomlファイルの読み方">config.tomlファイルの読み方</h2>
+<p>TOMLとJSONファイルを変換できるサイトがあるので、一度確認すると意味がわかりやすいです。
+<a href="https://binarymuse.github.io/toml-node/">TOML</a></p>
+<p>参考にTOMLをJSONに変換したものを載せます。</p>
+<p>TOML</p>
+<pre><code>title = &quot;TOML Example&quot;
+
+[test]
+  a = 1
+
+[[table]]
+  b = 2
+
+[[table]]
+  c = 3
+
+[table3.inner]
+  d = 4
+
+[[table2.description]]
+  e = 5
+</code></pre><p>JSON</p>
+<pre><code>{
+  &quot;title&quot;: &quot;TOML Example&quot;,
+  &quot;test&quot;: {
+    &quot;a&quot;: 1
+  },
+  &quot;table&quot;: [
+    {
+      &quot;b&quot;: 2
+    },
+    {
+      &quot;c&quot;: 3
+    }
+  ],
+  &quot;table3&quot;: {
+    &quot;inner&quot;: {
+      &quot;d&quot;: 4
+    }
+  },
+  &quot;table2&quot;: {
+    &quot;description&quot;: [
+      {
+        &quot;e&quot;: 5
+      }
+    ]
+  }
+}
+</code></pre><p>TOMLで<code>[[&lt;PARAM_NAME&gt;]]</code>のように2重の括弧で囲むと、配列として定義されることがわかります。<br>
+また、パラメータ名を<code>.</code>区切りにすることで階層構造を表現できます。</p>
+<h2 id="独自定義の変数">独自定義の変数</h2>
+<pre><code>baseURL = &quot;https://example.com/&quot;
+languageCode = &quot;ja-jp&quot;
+title = &quot;Hugoまとめ&quot;
+
+[params]
+  subtitle = &quot;コツコツとHugoについてナレッジを記載します。&quot;
+</code></pre><p>Hugoで独自変数をコンフィグファイルに記載する場合は、<code>[params]</code>の部分に記載します。<br>
+使用する場合は<code>$.Site.Params.subtitle</code>のように使います。<br>
+<code>$</code>を省略して、<code>.Site.Params.subtitle</code>としたり、<code>$.Site.Params.Subtitle</code>変数名の頭文字を大文字にしても構いません。</p>
+<h2 id="参照">参照</h2>
+<ul>
+<li><a href="https://gohugo.io/getting-started/configuration/">Configure Hugo</a></li>
+<li><a href="https://gohugo.io/variables/site/">Site Variables</a></li>
+</ul>
+</div>
+    
+  </article>
+</main>
+  </body>
+
+  <footer class="footer">
+  <p class="text-center">© - 2021 - Hugoまとめ</p>
+</footer>
+
+
+<script src="https://hugo.choihack.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+</html>

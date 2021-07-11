@@ -5,13 +5,29 @@
     <link>https://hugo.choihack.com/</link>
     <description>Recent content on HUGOまとめ</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>© - 2021 - Hugoまとめ</copyright><atom:link href="https://hugo.choihack.com/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© - 2021 - Hugoまとめ</copyright>
+    <lastBuildDate>Sun, 11 Jul 2021 12:45:54 +0900</lastBuildDate><atom:link href="https://hugo.choihack.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Config</title>
+      <link>https://hugo.choihack.com/post/config.toml%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/</link>
+      <pubDate>Sun, 11 Jul 2021 12:45:54 +0900</pubDate>
+      
+      <guid>https://hugo.choihack.com/post/config.toml%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/</guid>
+      <description>コンフィグファイルの種類 Hugoではいくつかのコンフィグファイルの種類が定義でき、好きな形式で書くことができます。
+ config.toml config.yaml config.json  ここでは、TOML形式で定義したコンフィグファイルの説明を行います。
+config.tomlファイルの読み方 TOMLとJSONファイルを変換できるサイトがあるので、一度確認すると意味がわかりやすいです。 TOML
+参考にTOMLをJSONに変換したものを載せます。
+TOML
+title = &amp;quot;TOML Example&amp;quot; [test] a = 1 [[table]] b = 2 [[table]] c = 3 [table3.inner] d = 4 [[table2.description]] e = 5 JSON
+{ &amp;quot;title&amp;quot;: &amp;quot;TOML Example&amp;quot;, &amp;quot;test&amp;quot;: { &amp;quot;a&amp;quot;: 1 }, &amp;quot;table&amp;quot;: [ { &amp;quot;b&amp;quot;: 2 }, { &amp;quot;c&amp;quot;: 3 } ], &amp;quot;table3&amp;quot;: { &amp;quot;inner&amp;quot;: { &amp;quot;d&amp;quot;: 4 } }, &amp;quot;table2&amp;quot;: { &amp;quot;description&amp;quot;: [ { &amp;quot;e&amp;quot;: 5 } ] } } TOMLで[[&amp;lt;PARAM_NAME&amp;gt;]]のように2重の括弧で囲むと、配列として定義されることがわかります。</description>
+    </item>
+    
     <item>
       <title>サイト作成</title>
-      <link>https://hugo.choihack.com/post/default/</link>
+      <link>https://hugo.choihack.com/post/%E3%82%B5%E3%82%A4%E3%83%88%E4%BD%9C%E6%88%90/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hugo.choihack.com/post/default/</guid>
+      <guid>https://hugo.choihack.com/post/%E3%82%B5%E3%82%A4%E3%83%88%E4%BD%9C%E6%88%90/</guid>
       <description>Hugoとは Hugoは静的サイトジェネレーターと呼ばれ、Markdown形式のコンテンツからHTMLを作成してくれます。
 HugoはGoogle製のGo言語で作成されており、サイト作成の速度が非常に高速です。
 この記事では、MacOSでの環境構築について説明します。
@@ -30,15 +46,6 @@ hugo new post/first-post.md と実行すると、content/post/first-post.mdに�
 --- title: &amp;quot;My First Post&amp;quot; date: 2019-03-26T08:47:11+01:00 draft: true --- 中にはこのような情報が記載されており、記事の詳細情報を定義することができます。
 Hugoを起動する hugo server -D このコマンドで起動できます。
 通常 http://localhost:1313/ にアクセスすると立ち上げたサーバーにアクセスできます。</description>
-    </item>
-    
-    <item>
-      <title>タイトル</title>
-      <link>https://hugo.choihack.com/post/default2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hugo.choihack.com/post/default2/</guid>
-      <description>テスト 今日はなんの日</description>
     </item>
     
   </channel>

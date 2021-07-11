@@ -53,15 +53,21 @@
   <h2>投稿一覧</h2>
     <article class="post-entry">
       <header class="entry-header">
-        <h2>タイトル</h2>
+        <h2>Config</h2>
       </header>
       <section class="entry-content">
-      <p>テスト 今日はなんの日...</p>
+      <p>コンフィグファイルの種類 Hugoではいくつかのコンフィグファイルの種類が定義でき、好きな形式で書くことができます。
+ config.toml config.yaml config.json  ここでは、TOML形式で定義したコンフィグファイルの説明を行います。
+config.tomlファイルの読み方 TOMLとJSONファイルを変換できるサイトがあるので、一度確認すると意味がわかりやすいです。 TOML
+参考にTOMLをJSONに変換したものを載せます。
+TOML
+title = &#34;TOML Example&#34; [test] a = 1 [[table]] b = 2 [[table]] c = 3 [table3.inner] d = 4 [[table2.description]] e = 5 JSON
+{ &#34;title&#34;: &#34;TOML Example&#34;, &#34;test&#34;: { &#34;a&#34;: 1 }, &#34;table&#34;: [ { &#34;b&#34;: 2 }, { &#34;c&#34;: 3 } ], &#34;table3&#34;: { &#34;inner&#34;: { &#34;d&#34;: 4 } }, &#34;table2&#34;: { &#34;description&#34;: [ { &#34;e&#34;: 5 } ] } } TOMLで[[&lt;PARAM_NAME&gt;]]のように2重の括弧で囲むと、配列として定義されることがわかります。...</p>
       </section>
       <footer class="entry-footer">
-        <time>0001-01-01</time>
+        <time>2021-07-11</time>
       </footer>
-      <a class="entry-link" href="https://hugo.choihack.com/post/default2/"></a>
+      <a class="entry-link" href="https://hugo.choihack.com/post/config.toml%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/"></a>
     </article>
     <article class="post-entry">
       <header class="entry-header">
@@ -90,7 +96,7 @@ Hugoを起動する hugo server -D このコマンドで起動できます。
       <footer class="entry-footer">
         <time>0001-01-01</time>
       </footer>
-      <a class="entry-link" href="https://hugo.choihack.com/post/default/"></a>
+      <a class="entry-link" href="https://hugo.choihack.com/post/%E3%82%B5%E3%82%A4%E3%83%88%E4%BD%9C%E6%88%90/"></a>
     </article>
 
   
