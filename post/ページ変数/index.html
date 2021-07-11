@@ -8,17 +8,17 @@
   
   <title>ページ変数 - HUGOまとめ</title>
   
-  <meta name="description" content="はじめに ページ毎の変数は、フロントマターで定義されるか、コンテンツのファイルの場所から生成されるか、コンテンツ本体から生成されます。
+  <meta name="description" content="はじめに ページ毎の変数は、 フロントマター で定義されるか、コンテンツのファイルの場所から生成されるか、コンテンツ本体から生成されます。
 この記事では、ページレベル変数のリストの一部をまとめました。
-ページ変数 多くの変数は、フロントマターで定義されている変数です。
+ページ変数 多くの変数は、 フロントマター で定義されている変数です。
 その中の一部を説明します。
- .Kind: page、home、section、taxonomy、term、RSS、sitemap、robotsTXT、404などページの種類 .LinkTitle: ページのリンクを設定。設定されていれば、titleより優先的に使用される .Next: 次のregular page .Prev: 前のregular page .Site: Site Variables .Type: Content Types タイプが未設定ならcontent/&lt;TYPE&gt;のフォルダ名がタイプになる  .Pages変数 regular pageはpostページかcontentページです。
+ .Kind: page、home、section、taxonomy、term、RSS、sitemap、robotsTXT、404などページの種類 .LinkTitle: ページのリンクを設定。設定されていれば、titleより優先的に使用される .Next: 次のregular page .Prev: 前のregular page .Site: Site Variables  .Type: Content Types タイプが未設定ならcontent/&lt;TYPE&gt;のフォルダ名がタイプになる  .Pages変数 regular pageはpostページかcontentページです。
 一方、list pageはregular pageか他のlist pageを一覧化します。
 （例: homepage、section page、taxonomy term page、taxonomypage）
 記事をツリー状にした場合、末端がregular page、幹がlist pageです。
  .Site.Pages: サイト内の全ページ。セクションやtaxonomyページも含む .Site.RegularPages: サイト内の全通常ページ  以下の変数は、現在のスコープだけを返します。
  .Pages: 現在のページのスコープのregular pageとセクションページ。.Data.Pagesのエイリアスです。(第一階層のみ) .RegularPages: 現在のページのスコープのregular page。入れ子になっているものは除く .RegularPagesRecursive: 現在のページ以下の全てのregular page。入れ子になっているものを含む  regular pageから.Pagesや.RegularPagesを使用しても、空が返ります。
-セクション変数と関数  .Parent: ページのセクションや、セクションの親セクション .Section: 現在の記事が属するセクション .Sections: 現在の配下のセクション  参考  Page Variables  ">
+セクション変数と関数  .Parent: ページのセクションや、セクションの親セクション .Section: 現在の記事が属するセクション .">
   <meta name="author" content="">
   
   <link href="https://hugo.choihack.com/an-old-hope.min.css" rel="stylesheet">
@@ -67,18 +67,26 @@
       <div class="post-meta">2021.07.11</div>
     </header>
     <div class="post-content"><h2 id="はじめに">はじめに</h2>
-<p>ページ毎の変数は、<a href="/post/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%83%9E%E3%82%BF%E3%83%BC/">フロントマター</a>で定義されるか、コンテンツのファイルの場所から生成されるか、コンテンツ本体から生成されます。<br>
+<p>ページ毎の変数は、
+<a href="/post/%e3%83%95%e3%83%ad%e3%83%b3%e3%83%88%e3%83%9e%e3%82%bf%e3%83%bc/">フロントマター</a>
+で定義されるか、コンテンツのファイルの場所から生成されるか、コンテンツ本体から生成されます。<br>
 この記事では、ページレベル変数のリストの一部をまとめました。</p>
 <h2 id="ページ変数">ページ変数</h2>
-<p>多くの変数は、<a href="/post/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%83%9E%E3%82%BF%E3%83%BC/">フロントマター</a>で定義されている変数です。<br>
+<p>多くの変数は、
+<a href="/post/%e3%83%95%e3%83%ad%e3%83%b3%e3%83%88%e3%83%9e%e3%82%bf%e3%83%bc/">フロントマター</a>
+で定義されている変数です。<br>
 その中の一部を説明します。</p>
 <ul>
 <li><code>.Kind</code>: page、home、section、taxonomy、term、RSS、sitemap、robotsTXT、404などページの種類</li>
 <li><code>.LinkTitle</code>: ページのリンクを設定。設定されていれば、titleより優先的に使用される</li>
 <li><code>.Next</code>: 次のregular page</li>
 <li><code>.Prev</code>: 前のregular page</li>
-<li><code>.Site</code>: <a href="https://gohugo.io/variables/site/">Site Variables</a></li>
-<li><code>.Type</code>: <a href="https://gohugo.io/variables/site/">Content Types</a> タイプが未設定なら<code>content/&lt;TYPE&gt;</code>のフォルダ名がタイプになる</li>
+<li><code>.Site</code>: 
+<a href="https://gohugo.io/variables/site/" target="_blank">Site Variables</a>
+</li>
+<li><code>.Type</code>: 
+<a href="https://gohugo.io/variables/site/" target="_blank">Content Types</a>
+ タイプが未設定なら<code>content/&lt;TYPE&gt;</code>のフォルダ名がタイプになる</li>
 </ul>
 <h2 id="pages変数"><code>.Pages</code>変数</h2>
 <p class="info">regular pageは<code>post</code>ページか<code>content</code>ページです。<br>
@@ -104,7 +112,9 @@
 </ul>
 <h2 id="参考">参考</h2>
 <ul>
-<li><a href="https://gohugo.io/variables/page/">Page Variables</a></li>
+<li>
+<a href="https://gohugo.io/variables/page/" target="_blank">Page Variables</a>
+</li>
 </ul>
 </div>
 
