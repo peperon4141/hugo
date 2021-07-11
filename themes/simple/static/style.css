@@ -1,11 +1,3 @@
-/*
- * Paper
- * A simple, clean, flexible Hugo theme
- * https://github.com/nanxiaobei/hugo-paper
- * Designed by MR.LEE (https://mrlee.me/)
- * Updated in 2020.6.12
- */
-
 /* Theme
 -------------------------------------------------- */
 :root {
@@ -141,7 +133,7 @@ img {
   display: block;
   max-width: 100%;
 }
-/* Header
+/* Navigation
 -------------------------------------------------- */
 .nav {
   display: flex;
@@ -155,8 +147,7 @@ img {
   display: block;
   line-height: var(--header-height);
 }
-.logo,
-.menu {
+.logo, .menu {
   margin-left: var(--gap);
   margin-right: var(--gap);
 }
@@ -176,6 +167,20 @@ img {
 .menu a {
   font-size: 16px;
 }
+
+/* Breadcrumbs
+-------------------------------------------------- */
+.breadcrumb ul * {
+  display: inline-block;
+  margin: auto !important;
+}
+.breadcrumb li:not(:last-child) a::after {
+  content: "  >  ";
+  word-break: keep-all;
+  white-space: nowrap;
+}
+
+
 /* Main
 -------------------------------------------------- */
 .main {
@@ -213,32 +218,6 @@ img {
 }
 /* Post entry
 -------------------------------------------------- */
-.first-entry {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 320px;
-  margin-bottom: var(--header-height);
-}
-.first-entry .entry-header {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-}
-.first-entry .entry-header h2 {
-  font-size: 40px;
-}
-.first-entry .entry-content {
-  margin-top: 14px;
-  margin-bottom: 14px;
-  font-size: 16px;
-  -webkit-line-clamp: 3;
-}
-.first-entry .entry-footer {
-  font-size: 14px;
-}
 .post-entry {
   position: relative;
   margin-bottom: var(--gap);
@@ -514,6 +493,7 @@ img {
   color: var(--primary);
   border-bottom: 1px solid var(--primary);
 }
+
 /* 404
 -------------------------------------------------- */
 .not-found {

@@ -4,7 +4,7 @@
 
   {{ partial "header.html" . }}
 
-  <body class="{{ if eq .Kind `page` }}single{{ else }}list{{ if .IsHome }} home{{ end }}{{ end }}"></body>
+  <body class="dark {{ if eq .Kind `page` }}single{{ else }}list{{ if .IsHome }} home{{ end }}{{ end }}"></body>
     {{ block "main" . }}{{ end }}
   </body>
 

@@ -1,7 +1,7 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
-linkTitle: "投稿"
+linkTitle: "{{ replace .Name "-" " " | title }}"
 ---
 
 
