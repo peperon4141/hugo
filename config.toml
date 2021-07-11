@@ -6,6 +6,7 @@ title = "HUGOまとめ"
 description = "こつこつHUGOのナレッジを貯めて行くブログ"
 baseURL = "https://hugo.choihack.com/"
 copyright = "© - 2021 - Hugoまとめ"
+paginate = 2
 
 [[menu.main]]
   name = "TOP"
@@ -20,3 +21,6 @@ copyright = "© - 2021 - Hugoまとめ"
   weight = -100
   identifier = "ABOUT"
   url = "/post"
+
+[markup.goldmark.parser.attribute]
+  block = true

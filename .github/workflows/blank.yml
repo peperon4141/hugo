@@ -32,7 +32,7 @@ jobs:
           curl -L https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-64bit.tar.gz | tar -xz
           sudo mv hugo /usr/local/bin/hugo
         env:
-          HUGO_VERSION: 0.79.0
+          HUGO_VERSION: 0.85.0
               
       - name: Hugo build
         run: hugo
