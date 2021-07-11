@@ -9,6 +9,19 @@
     </header>
     <div class="post-content">{{ .Content }}</div>
 
+    <!-- 前のページ、次のページ -->
+    <div class="prev-next">
+      {{ with .PrevInSection }}
+        <span>＜</span>
+        <a class="prev" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+      {{ end }}
+  
+      {{ with .NextInSection }}
+        <a class="next" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+        <span>＞</span>
+      {{ end }}
+    </div>
+
     <!-- フッター - タグ一覧 -->
     {{- if .Params.tags }}
     <footer class="post-footer">

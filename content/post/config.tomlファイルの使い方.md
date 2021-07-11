@@ -1,7 +1,7 @@
 ---
-title: "Config"
+title: "config.tomlファイルの使い方"
 date: 2021-07-11T12:45:54+09:00
-linkTitle: "Config"
+linkTitle: "config.tomlファイルの使い方"
 description: "Config.tomlファイルの書き方について説明します。"
 ---
 
