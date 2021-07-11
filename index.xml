@@ -6,7 +6,117 @@
     <description>Recent content on HUGOまとめ</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© - 2021 - Hugoまとめ</copyright>
-    <lastBuildDate>Sun, 11 Jul 2021 12:45:54 +0900</lastBuildDate><atom:link href="https://hugo.choihack.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Jul 2021 18:32:36 +0900</lastBuildDate><atom:link href="https://hugo.choihack.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ページ変数</title>
+      <link>https://hugo.choihack.com/post/%E3%83%9A%E3%83%BC%E3%82%B8%E5%A4%89%E6%95%B0/</link>
+      <pubDate>Sun, 11 Jul 2021 18:32:36 +0900</pubDate>
+      
+      <guid>https://hugo.choihack.com/post/%E3%83%9A%E3%83%BC%E3%82%B8%E5%A4%89%E6%95%B0/</guid>
+      <description>はじめに ページ毎の変数は、フロントマターで定義されるか、コンテンツのファイルの場所から生成されるか、コンテンツ本体から生成されます。
+この記事では、ページレベル変数のリストの一部をまとめました。
+ページ変数 多くの変数は、フロントマターで定義されている変数です。
+その中の一部を説明します。
+ .Kind: page、home、section、taxonomy、term、RSS、sitemap、robotsTXT、404などページの種類 .LinkTitle: ページのリンクを設定。設定されていれば、titleより優先的に使用される .Next: 次のregular page .Prev: 前のregular page .Site: Site Variables .Type: Content Types タイプが未設定ならcontent/&amp;lt;TYPE&amp;gt;のフォルダ名がタイプになる  .Pages変数 regular pageはpostページかcontentページです。
+一方、list pageはregular pageか他のlist pageを一覧化します。
+（例: homepage、section page、taxonomy term page、taxonomypage）
+記事をツリー状にした場合、末端がregular page、幹がlist pageです。
+ .Site.Pages: サイト内の全ページ。セクションやtaxonomyページも含む .Site.RegularPages: サイト内の全通常ページ  以下の変数は、現在のスコープだけを返します。
+ .Pages: 現在のページのスコープのregular pageとセクションページ。.Data.Pagesのエイリアスです。(第一階層のみ) .RegularPages: 現在のページのスコープのregular page。入れ子になっているものは除く .RegularPagesRecursive: 現在のページ以下の全てのregular page。入れ子になっているものを含む  regular pageから.Pagesや.RegularPagesを使用しても、空が返ります。
+セクション変数と関数  .Parent: ページのセクションや、セクションの親セクション .Section: 現在の記事が属するセクション .Sections: 現在の配下のセクション  参考  Page Variables  </description>
+    </item>
+    
+    <item>
+      <title>フロントマター</title>
+      <link>https://hugo.choihack.com/post/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%83%9E%E3%82%BF%E3%83%BC/</link>
+      <pubDate>Sun, 11 Jul 2021 17:06:18 +0900</pubDate>
+      
+      <guid>https://hugo.choihack.com/post/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%83%9E%E3%82%BF%E3%83%BC/</guid>
+      <description>はじめに Hugoで記事を書く際に、各投稿の先頭に投稿の情報を記載できます。
+この情報のことをフロントマター（FrontMatter）と言います。
+フォーマット フロントマターはどんな記号で囲まれているかで、フォーマットの指定ができます。
+ TOML: +++ YAML: --- JSON: {}  中身はkeyvalueのペアで指定できます。
+TOMLの場合はdate = &amp;quot;2021-07-11&amp;quot;のように=で繋ぎます。
+定義済み変数 フロントマターには定義済み変数と独自定義変数が存在します。
+定義済み変数の一部は以下のようになっています。
+ date: 投稿日付 description: コンテンツの説明 draft: trueなら下書き段階 images: 対象のページに関連する画像のパス配列。_internal/twitter_cards.htmlなどで使用される keywords: メタキーワード lastmod: 最終更新日付 linkTitle: コンテンツのリンク生成時に使用されるURL。Hugoはtitleの前にlinkTitleを使用する series: ページが属するシリーズ名 slug: 出力URLの末尾に表示される weight: 順番を並べ替える際に、小さいほど優先される  独自定義変数 include_toc = true このように定義した場合、.Params.include_tocで使用できます。
+参考  Front Matter  </description>
+    </item>
+    
+    <item>
+      <title>Markdownでclass属性やid属性を付ける</title>
+      <link>https://hugo.choihack.com/blog/markdown%E3%81%A7class%E5%B1%9E%E6%80%A7%E3%82%84id%E5%B1%9E%E6%80%A7%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B/</link>
+      <pubDate>Sun, 11 Jul 2021 14:01:14 +0900</pubDate>
+      
+      <guid>https://hugo.choihack.com/blog/markdown%E3%81%A7class%E5%B1%9E%E6%80%A7%E3%82%84id%E5%B1%9E%E6%80%A7%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B/</guid>
+      <description>はじめに 通常Markdownで記載していると、独自のclass属性やid属性が指定できません。
+ただし、だからと言って直接HTMLを記載するとMarkdownで書くというメリットが失われます。
+Markdownで書きつつ、class属性やid属性を付ける方法を説明します。
+markup.goldmark.parser.attribute 装飾したいMarkdown要素の後に{}で囲んだ属性リストを追加することで、独自の属性を追加できます。
+この機能を使用するためにはconfig.tomlに以下の設定が必要です。
+[markup.goldmark.parser.attribute] block = true ただし、この機能はv0.81.0からHugoに追加された機能です。
+例えば以下のMarkdownを変換してみます。
+この文章は警告です。 { .warn } &amp;lt;p class=&amp;quot;warn&amp;quot;&amp;gt;この文章は警告です。&amp;lt;/p&amp;gt; 参考  Configure Markup  </description>
+    </item>
+    
+    <item>
+      <title>Markdownでclass属性やid属性を付ける</title>
+      <link>https://hugo.choihack.com/post/markdown%E3%81%A7class%E5%B1%9E%E6%80%A7%E3%82%84id%E5%B1%9E%E6%80%A7%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B/</link>
+      <pubDate>Sun, 11 Jul 2021 14:01:14 +0900</pubDate>
+      
+      <guid>https://hugo.choihack.com/post/markdown%E3%81%A7class%E5%B1%9E%E6%80%A7%E3%82%84id%E5%B1%9E%E6%80%A7%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B/</guid>
+      <description>はじめに 通常Markdownで記載していると、独自のclass属性やid属性が指定できません。
+ただし、だからと言って直接HTMLを記載するとMarkdownで書くというメリットが失われます。
+Markdownで書きつつ、class属性やid属性を付ける方法を説明します。
+markup.goldmark.parser.attribute 装飾したいMarkdown要素の後に{}で囲んだ属性リストを追加することで、独自の属性を追加できます。
+この機能を使用するためにはconfig.tomlに以下の設定が必要です。
+[markup.goldmark.parser.attribute] block = true ただし、この機能はv0.81.0からHugoに追加された機能です。
+例えば以下のMarkdownを変換してみます。
+この文章は警告です。 { .warn } &amp;lt;p class=&amp;quot;warn&amp;quot;&amp;gt;この文章は警告です。&amp;lt;/p&amp;gt; 参考  Configure Markup  </description>
+    </item>
+    
+    <item>
+      <title>ページネーション作成方法</title>
+      <link>https://hugo.choihack.com/blog/%E3%83%9A%E3%83%BC%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%90%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sun, 11 Jul 2021 13:16:06 +0900</pubDate>
+      
+      <guid>https://hugo.choihack.com/blog/%E3%83%9A%E3%83%BC%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%90%E6%96%B9%E6%B3%95/</guid>
+      <description>はじめに Hugoはトップページ、セクションペページ、Taxonomyページのページネーションに対応しています。
+where関数やSQLライクなfirst,last,afterなどのパラメータを使うことで真価を発揮します。
+また、投稿の並べ替えも簡単にできます。
+ページネーション設定 config.tomlに記載することでいくつかのページネーションの設定ができます。
+ paginate
+初期値: 10
+この設定で何ページを１つにグルーピングするかを設定します。
+例えば、5を設定すると、5ページごとに1つにグルーピングされたページネーションが作れます。 paginatePath
+初期値: page
+ページ作成後にどのフォルダ名に配置するかを定義します。
+例えばpaginatePath = &amp;quot;test&amp;quot;にすると、通常public/page/1に作成されるページがpublic/test/1ディレクトリに出力されます。  ページをグルーピングする .Paginatorや.Paginateを使用することで簡単にグルーピングを作成できます。
+トップページとリストページ(taxonomy一覧やsectionリストなど)でのみ使用できます。
+single.htmlではページネーション機能は使用できないので、代わりに「次のページ」「前のページ」のようなリンクを表示します。
+.Paginatorや.Paginateを同じページで複数回呼び出す場合、whereなどで別のページを絞り込んでも同じページになります。
+理由は一度関数が呼び出されると結果がキャッシュされるからです。
+グルーピングを作成する方法は２つあります。
+ 最も簡単な方法は.Paginator.Pagesを使う方法です。
+この方法ではそのページ以下の全てのページが表示されます。 {{ range .Paginator.Pages }} {{ .Title }} {{ end }}  別の分類や順序でページを取得したい場合は、.Paginateを使用します。 {{ range (.Paginate .RegularPagesRecursive).Pages }} {{ .Title }} {{ end }}   用例まとめ 用例１ content/post/以下にある投稿記事を５件ずつ日付の新しい方からグルーピングする。
+{{ $paginator := .Paginate (where .Site.RegularPages.ByDate.Reverse &amp;quot;Section&amp;quot; &amp;quot;post&amp;quot;) 5 }} {{ range $paginator.</description>
+    </item>
+    
+    <item>
+      <title>Config</title>
+      <link>https://hugo.choihack.com/blog/config.toml%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/</link>
+      <pubDate>Sun, 11 Jul 2021 12:45:54 +0900</pubDate>
+      
+      <guid>https://hugo.choihack.com/blog/config.toml%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/</guid>
+      <description>コンフィグファイルの種類 Hugoではいくつかのコンフィグファイルの種類が定義でき、好きな形式で書くことができます。
+ config.toml config.yaml config.json  ここでは、TOML形式で定義したコンフィグファイルの説明を行います。
+config.tomlファイルの読み方 TOMLとJSONファイルを変換できるサイトがあるので、一度確認すると意味がわかりやすいです。 TOML
+参考にTOMLをJSONに変換したものを載せます。
+TOML
+title = &amp;quot;TOML Example&amp;quot; [test] a = 1 [[table]] b = 2 [[table]] c = 3 [table3.inner] d = 4 [[table2.description]] e = 5 JSON
+{ &amp;quot;title&amp;quot;: &amp;quot;TOML Example&amp;quot;, &amp;quot;test&amp;quot;: { &amp;quot;a&amp;quot;: 1 }, &amp;quot;table&amp;quot;: [ { &amp;quot;b&amp;quot;: 2 }, { &amp;quot;c&amp;quot;: 3 } ], &amp;quot;table3&amp;quot;: { &amp;quot;inner&amp;quot;: { &amp;quot;d&amp;quot;: 4 } }, &amp;quot;table2&amp;quot;: { &amp;quot;description&amp;quot;: [ { &amp;quot;e&amp;quot;: 5 } ] } } TOMLで[[&amp;lt;PARAM_NAME&amp;gt;]]のように2重の括弧で囲むと、配列として定義されることがわかります。</description>
+    </item>
+    
     <item>
       <title>Config</title>
       <link>https://hugo.choihack.com/post/config.toml%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/</link>
@@ -20,6 +130,47 @@ config.tomlファイルの読み方 TOMLとJSONファイルを変換できるサ
 TOML
 title = &amp;quot;TOML Example&amp;quot; [test] a = 1 [[table]] b = 2 [[table]] c = 3 [table3.inner] d = 4 [[table2.description]] e = 5 JSON
 { &amp;quot;title&amp;quot;: &amp;quot;TOML Example&amp;quot;, &amp;quot;test&amp;quot;: { &amp;quot;a&amp;quot;: 1 }, &amp;quot;table&amp;quot;: [ { &amp;quot;b&amp;quot;: 2 }, { &amp;quot;c&amp;quot;: 3 } ], &amp;quot;table3&amp;quot;: { &amp;quot;inner&amp;quot;: { &amp;quot;d&amp;quot;: 4 } }, &amp;quot;table2&amp;quot;: { &amp;quot;description&amp;quot;: [ { &amp;quot;e&amp;quot;: 5 } ] } } TOMLで[[&amp;lt;PARAM_NAME&amp;gt;]]のように2重の括弧で囲むと、配列として定義されることがわかります。</description>
+    </item>
+    
+    <item>
+      <title>Config</title>
+      <link>https://hugo.choihack.com/post/test/config.toml%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/</link>
+      <pubDate>Sun, 11 Jul 2021 12:45:54 +0900</pubDate>
+      
+      <guid>https://hugo.choihack.com/post/test/config.toml%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/</guid>
+      <description>コンフィグファイルの種類 Hugoではいくつかのコンフィグファイルの種類が定義でき、好きな形式で書くことができます。
+ config.toml config.yaml config.json  ここでは、TOML形式で定義したコンフィグファイルの説明を行います。
+config.tomlファイルの読み方 TOMLとJSONファイルを変換できるサイトがあるので、一度確認すると意味がわかりやすいです。 TOML
+参考にTOMLをJSONに変換したものを載せます。
+TOML
+title = &amp;quot;TOML Example&amp;quot; [test] a = 1 [[table]] b = 2 [[table]] c = 3 [table3.inner] d = 4 [[table2.description]] e = 5 JSON
+{ &amp;quot;title&amp;quot;: &amp;quot;TOML Example&amp;quot;, &amp;quot;test&amp;quot;: { &amp;quot;a&amp;quot;: 1 }, &amp;quot;table&amp;quot;: [ { &amp;quot;b&amp;quot;: 2 }, { &amp;quot;c&amp;quot;: 3 } ], &amp;quot;table3&amp;quot;: { &amp;quot;inner&amp;quot;: { &amp;quot;d&amp;quot;: 4 } }, &amp;quot;table2&amp;quot;: { &amp;quot;description&amp;quot;: [ { &amp;quot;e&amp;quot;: 5 } ] } } TOMLで[[&amp;lt;PARAM_NAME&amp;gt;]]のように2重の括弧で囲むと、配列として定義されることがわかります。</description>
+    </item>
+    
+    <item>
+      <title>サイト作成</title>
+      <link>https://hugo.choihack.com/blog/%E3%82%B5%E3%82%A4%E3%83%88%E4%BD%9C%E6%88%90/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hugo.choihack.com/blog/%E3%82%B5%E3%82%A4%E3%83%88%E4%BD%9C%E6%88%90/</guid>
+      <description>Hugoとは Hugoは静的サイトジェネレーターと呼ばれ、Markdown形式のコンテンツからHTMLを作成してくれます。
+HugoはGoogle製のGo言語で作成されており、サイト作成の速度が非常に高速です。
+この記事では、MacOSでの環境構築について説明します。
+Hugoインストール Homebrewを使用すると簡単にインストールできます。
+$ brew install hugo 無事インストールが完了していると、以下のコマンドでバージョンが表示されるはずです。
+$ hugo version Hugo Static Site Generator v0.79.0/extended darwin/amd64 BuildDate: unknown 新しいサイトの作成 $ hugo new site new_site_name このコマンドを実行することで、new_site_nameというフォルダー名で新しいサイトが作成できます。
+テーマの追加 Hugoはテーマという仕組みで、簡単にサイトのデザインを使用できます。
+テーマファイルは、themes/theme_nameディレクトリに保存されます。
+git init(gitの初期化)を実行した後に以下を実行します。
+git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke submodule addはgitのリポジトリ内に、子供のリポジトリを追加するコマンドです。
+https://github.com/theNewDynamic/gohugo-theme-ananke.gitで定義されているHugoのテーマファイルを、ローカルのthemes/anankeディレクトリに保存しています。
+submoduleとして追加しなくても、ダウンロードしてきたテーマファイルを配置しても構いません。
+完了した後theme = &amp;quot;ananke&amp;quot;のようにconfig.tomlファイルに追加することでテーマを使用できます。
+投稿の追加 投稿はcontent/&amp;lt;CATEGORY&amp;gt;/&amp;lt;FILE&amp;gt;.&amp;lt;FORMAT&amp;gt;という形式で保存します。
+hugo new post/first-post.md と実行すると、content/post/first-post.mdに投稿んぼ雛形が追加されます。
+--- title: &amp;quot;My First Post&amp;quot; date: 2019-03-26T08:47:11+01:00 draft: true --- 中にはこのような情報が記載されており、記事の詳細情報を定義することができます。
+Hugoを起動する hugo server -D このコマンドで起動できます。
+通常 http://localhost:1313/ にアクセスすると立ち上げたサーバーにアクセスできます。</description>
     </item>
     
     <item>

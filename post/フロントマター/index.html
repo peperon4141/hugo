@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="">
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>フロントマター - HUGOまとめ</title>
+  
+  <meta name="description" content="はじめに Hugoで記事を書く際に、各投稿の先頭に投稿の情報を記載できます。
+この情報のことをフロントマター（FrontMatter）と言います。
+フォーマット フロントマターはどんな記号で囲まれているかで、フォーマットの指定ができます。
+ TOML: &#43;&#43;&#43; YAML: --- JSON: {}  中身はkeyvalueのペアで指定できます。
+TOMLの場合はdate = &quot;2021-07-11&quot;のように=で繋ぎます。
+定義済み変数 フロントマターには定義済み変数と独自定義変数が存在します。
+定義済み変数の一部は以下のようになっています。
+ date: 投稿日付 description: コンテンツの説明 draft: trueなら下書き段階 images: 対象のページに関連する画像のパス配列。_internal/twitter_cards.htmlなどで使用される keywords: メタキーワード lastmod: 最終更新日付 linkTitle: コンテンツのリンク生成時に使用されるURL。Hugoはtitleの前にlinkTitleを使用する series: ページが属するシリーズ名 slug: 出力URLの末尾に表示される weight: 順番を並べ替える際に、小さいほど優先される  独自定義変数 include_toc = true このように定義した場合、.Params.include_tocで使用できます。
+参考  Front Matter  ">
+  <meta name="author" content="">
+  
+  <link href="https://hugo.choihack.com/an-old-hope.min.css" rel="stylesheet">
+  <link href="https://hugo.choihack.com/style.css" rel="stylesheet">
+  <link href="https://hugo.choihack.com/custom.css" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" href="https://hugo.choihack.com/apple-touch-icon.png">
+  <link rel="icon" href="https://hugo.choihack.com/favicon.ico">
+  <meta name="generator" content="Hugo 0.85.0" />
+  
+  
+</head>
+
+  <header class="header">
+  
+  <nav class="nav">
+      <p class="logo"><a href="https://hugo.choihack.com/">HUGOまとめ</a></p>
+      <ul class="menu">
+        <li>
+          <a href="/">TOP</a>
+        </li>
+        <li>
+          <a href="/post">投稿</a>
+        </li>
+      </ul>
+  </nav>
+
+  
+  <nav class="nav breadcrumb">
+    <ul class="menu">
+    <li class="breadcrumb-item"><a href="https://hugo.choihack.com/" >HUGOまとめ</a></li>
+    <li class="breadcrumb-item"><a href="https://hugo.choihack.com/post/" >Posts</a></li>
+    <li class="breadcrumb-item active">フロントマター</li>
+    </ul>
+  </nav>
+</header>
+
+  <body class="dark single"></body>
+    
+<main class="main">
+  <article class="post-single">
+
+    
+    <header class="post-header">
+      <h1 class="post-title">フロントマター</h1>
+      <div class="post-meta">2021.07.11</div>
+    </header>
+    <div class="post-content"><h2 id="はじめに">はじめに</h2>
+<p>Hugoで記事を書く際に、各投稿の先頭に投稿の情報を記載できます。<br>
+この情報のことをフロントマター（FrontMatter）と言います。</p>
+<h2 id="フォーマット">フォーマット</h2>
+<p>フロントマターはどんな記号で囲まれているかで、フォーマットの指定ができます。</p>
+<ul>
+<li>TOML: <code>+++</code></li>
+<li>YAML: <code>---</code></li>
+<li>JSON: <code>{}</code></li>
+</ul>
+<p>中身はkeyvalueのペアで指定できます。<br>
+TOMLの場合は<code>date = &quot;2021-07-11&quot;</code>のように<code>=</code>で繋ぎます。</p>
+<h2 id="定義済み変数">定義済み変数</h2>
+<p>フロントマターには定義済み変数と独自定義変数が存在します。<br>
+定義済み変数の一部は以下のようになっています。</p>
+<ul>
+<li>date: 投稿日付</li>
+<li>description: コンテンツの説明</li>
+<li>draft: trueなら下書き段階</li>
+<li>images: 対象のページに関連する画像のパス配列。<code>_internal/twitter_cards.html</code>などで使用される</li>
+<li>keywords: メタキーワード</li>
+<li>lastmod: 最終更新日付</li>
+<li>linkTitle: コンテンツのリンク生成時に使用されるURL。Hugoは<code>title</code>の前に<code>linkTitle</code>を使用する</li>
+<li>series: ページが属するシリーズ名</li>
+<li>slug: 出力URLの末尾に表示される</li>
+<li>weight: 順番を並べ替える際に、小さいほど優先される</li>
+</ul>
+<h2 id="独自定義変数">独自定義変数</h2>
+<pre><code>include_toc = true
+</code></pre><p>このように定義した場合、<code>.Params.include_toc</code>で使用できます。</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://gohugo.io/content-management/front-matter/">Front Matter</a></li>
+</ul>
+</div>
+
+    
+
+    
+
+  </article>
+</main>
+  </body>
+
+  <footer class="footer">
+  <p class="text-center">© - 2021 - Hugoまとめ</p>
+</footer>
+
+
+<script src="https://hugo.choihack.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+</html>

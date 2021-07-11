@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="">
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>ページ変数 - HUGOまとめ</title>
+  
+  <meta name="description" content="はじめに ページ毎の変数は、フロントマターで定義されるか、コンテンツのファイルの場所から生成されるか、コンテンツ本体から生成されます。
+この記事では、ページレベル変数のリストの一部をまとめました。
+ページ変数 多くの変数は、フロントマターで定義されている変数です。
+その中の一部を説明します。
+ .Kind: page、home、section、taxonomy、term、RSS、sitemap、robotsTXT、404などページの種類 .LinkTitle: ページのリンクを設定。設定されていれば、titleより優先的に使用される .Next: 次のregular page .Prev: 前のregular page .Site: Site Variables .Type: Content Types タイプが未設定ならcontent/&lt;TYPE&gt;のフォルダ名がタイプになる  .Pages変数 regular pageはpostページかcontentページです。
+一方、list pageはregular pageか他のlist pageを一覧化します。
+（例: homepage、section page、taxonomy term page、taxonomypage）
+記事をツリー状にした場合、末端がregular page、幹がlist pageです。
+ .Site.Pages: サイト内の全ページ。セクションやtaxonomyページも含む .Site.RegularPages: サイト内の全通常ページ  以下の変数は、現在のスコープだけを返します。
+ .Pages: 現在のページのスコープのregular pageとセクションページ。.Data.Pagesのエイリアスです。(第一階層のみ) .RegularPages: 現在のページのスコープのregular page。入れ子になっているものは除く .RegularPagesRecursive: 現在のページ以下の全てのregular page。入れ子になっているものを含む  regular pageから.Pagesや.RegularPagesを使用しても、空が返ります。
+セクション変数と関数  .Parent: ページのセクションや、セクションの親セクション .Section: 現在の記事が属するセクション .Sections: 現在の配下のセクション  参考  Page Variables  ">
+  <meta name="author" content="">
+  
+  <link href="https://hugo.choihack.com/an-old-hope.min.css" rel="stylesheet">
+  <link href="https://hugo.choihack.com/style.css" rel="stylesheet">
+  <link href="https://hugo.choihack.com/custom.css" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" href="https://hugo.choihack.com/apple-touch-icon.png">
+  <link rel="icon" href="https://hugo.choihack.com/favicon.ico">
+  <meta name="generator" content="Hugo 0.85.0" />
+  
+  
+</head>
+
+  <header class="header">
+  
+  <nav class="nav">
+      <p class="logo"><a href="https://hugo.choihack.com/">HUGOまとめ</a></p>
+      <ul class="menu">
+        <li>
+          <a href="/">TOP</a>
+        </li>
+        <li>
+          <a href="/post">投稿</a>
+        </li>
+      </ul>
+  </nav>
+
+  
+  <nav class="nav breadcrumb">
+    <ul class="menu">
+    <li class="breadcrumb-item"><a href="https://hugo.choihack.com/" >HUGOまとめ</a></li>
+    <li class="breadcrumb-item"><a href="https://hugo.choihack.com/post/" >Posts</a></li>
+    <li class="breadcrumb-item active">ページ変数</li>
+    </ul>
+  </nav>
+</header>
+
+  <body class="dark single"></body>
+    
+<main class="main">
+  <article class="post-single">
+
+    
+    <header class="post-header">
+      <h1 class="post-title">ページ変数</h1>
+      <div class="post-meta">2021.07.11</div>
+    </header>
+    <div class="post-content"><h2 id="はじめに">はじめに</h2>
+<p>ページ毎の変数は、<a href="/post/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%83%9E%E3%82%BF%E3%83%BC/">フロントマター</a>で定義されるか、コンテンツのファイルの場所から生成されるか、コンテンツ本体から生成されます。<br>
+この記事では、ページレベル変数のリストの一部をまとめました。</p>
+<h2 id="ページ変数">ページ変数</h2>
+<p>多くの変数は、<a href="/post/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%83%9E%E3%82%BF%E3%83%BC/">フロントマター</a>で定義されている変数です。<br>
+その中の一部を説明します。</p>
+<ul>
+<li><code>.Kind</code>: page、home、section、taxonomy、term、RSS、sitemap、robotsTXT、404などページの種類</li>
+<li><code>.LinkTitle</code>: ページのリンクを設定。設定されていれば、titleより優先的に使用される</li>
+<li><code>.Next</code>: 次のregular page</li>
+<li><code>.Prev</code>: 前のregular page</li>
+<li><code>.Site</code>: <a href="https://gohugo.io/variables/site/">Site Variables</a></li>
+<li><code>.Type</code>: <a href="https://gohugo.io/variables/site/">Content Types</a> タイプが未設定なら<code>content/&lt;TYPE&gt;</code>のフォルダ名がタイプになる</li>
+</ul>
+<h2 id="pages変数"><code>.Pages</code>変数</h2>
+<p class="info">regular pageは<code>post</code>ページか<code>content</code>ページです。<br>
+一方、list pageはregular pageか他のlist pageを一覧化します。<br>
+（例: homepage、section page、taxonomy term page、taxonomypage）<br>
+記事をツリー状にした場合、末端がregular page、幹がlist pageです。</p>
+<ul>
+<li><code>.Site.Pages</code>: サイト内の全ページ。セクションやtaxonomyページも含む</li>
+<li><code>.Site.RegularPages</code>: サイト内の全通常ページ</li>
+</ul>
+<p>以下の変数は、現在のスコープだけを返します。</p>
+<ul>
+<li><code>.Pages</code>: 現在のページのスコープのregular pageとセクションページ。<code>.Data.Pages</code>のエイリアスです。(第一階層のみ)</li>
+<li><code>.RegularPages</code>: 現在のページのスコープのregular page。入れ子になっているものは除く</li>
+<li><code>.RegularPagesRecursive</code>: 現在のページ以下の全てのregular page。入れ子になっているものを含む</li>
+</ul>
+<p class="info">regular pageから<code>.Pages</code>や<code>.RegularPages</code>を使用しても、空が返ります。</p>
+<h2 id="セクション変数と関数">セクション変数と関数</h2>
+<ul>
+<li><code>.Parent</code>: ページのセクションや、セクションの親セクション</li>
+<li><code>.Section</code>: 現在の記事が属するセクション</li>
+<li><code>.Sections</code>: 現在の配下のセクション</li>
+</ul>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://gohugo.io/variables/page/">Page Variables</a></li>
+</ul>
+</div>
+
+    
+
+    
+
+  </article>
+</main>
+  </body>
+
+  <footer class="footer">
+  <p class="text-center">© - 2021 - Hugoまとめ</p>
+</footer>
+
+
+<script src="https://hugo.choihack.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+</html>

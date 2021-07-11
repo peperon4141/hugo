@@ -17,7 +17,7 @@
   
   <link rel="apple-touch-icon" href="https://hugo.choihack.com/apple-touch-icon.png">
   <link rel="icon" href="https://hugo.choihack.com/favicon.ico">
-  <meta name="generator" content="Hugo 0.79.0" />
+  <meta name="generator" content="Hugo 0.85.0" />
   
   <link rel="alternate" type="application/rss+xml" href="https://hugo.choihack.com/categories/index.xml" title="HUGOまとめ" />
   
@@ -52,6 +52,85 @@
   
   
   <h2>投稿一覧</h2>
+    <article class="post-entry">
+      <header class="entry-header">
+        <h2>ページ変数</h2>
+      </header>
+      <section class="entry-content">
+      <p>はじめに ページ毎の変数は、フロントマターで定義されるか、コンテンツのファイルの場所から生成されるか、コンテンツ本体から生成されます。
+この記事では、ページレベル変数のリストの一部をまとめました。
+ページ変数 多くの変数は、フロントマターで定義されている変数です。
+その中の一部を説明します。
+ .Kind: page、home、section、taxonomy、term、RSS、sitemap、robotsTXT、404などページの種類 .LinkTitle: ページのリンクを設定。設定されていれば、titleより優先的に使用される .Next: 次のregular page .Prev: 前のregular page .Site: Site Variables .Type: Content Types タイプが未設定ならcontent/&lt;TYPE&gt;のフォルダ名がタイプになる  .Pages変数 regular pageはpostページかcontentページです。
+一方、list pageはregular pageか他のlist pageを一覧化します。
+（例: homepage、section page、taxonomy term page、taxonomypage）
+記事をツリー状にした場合、末端がregular page、幹がlist pageです。
+ .Site.Pages: サイト内の全ページ。セクションやtaxonomyページも含む .Site.RegularPages: サイト内の全通常ページ  以下の変数は、現在のスコープだけを返します。
+ .Pages: 現在のページのスコープのregular pageとセクションページ。.Data.Pagesのエイリアスです。(第一階層のみ) .RegularPages: 現在のページのスコープのregular page。入れ子になっているものは除く .RegularPagesRecursive: 現在のページ以下の全てのregular page。入れ子になっているものを含む  regular pageから.Pagesや.RegularPagesを使用しても、空が返ります。
+セクション変数と関数  .Parent: ページのセクションや、セクションの親セクション .Section: 現在の記事が属するセクション .Sections: 現在の配下のセクション  参考  Page Variables  ...</p>
+      </section>
+      <footer class="entry-footer">
+        <time>2021-07-11</time>
+      </footer>
+      <a class="entry-link" href="https://hugo.choihack.com/post/%E3%83%9A%E3%83%BC%E3%82%B8%E5%A4%89%E6%95%B0/"></a>
+    </article>
+    <article class="post-entry">
+      <header class="entry-header">
+        <h2>フロントマター</h2>
+      </header>
+      <section class="entry-content">
+      <p>はじめに Hugoで記事を書く際に、各投稿の先頭に投稿の情報を記載できます。
+この情報のことをフロントマター（FrontMatter）と言います。
+フォーマット フロントマターはどんな記号で囲まれているかで、フォーマットの指定ができます。
+ TOML: &#43;&#43;&#43; YAML: --- JSON: {}  中身はkeyvalueのペアで指定できます。
+TOMLの場合はdate = &#34;2021-07-11&#34;のように=で繋ぎます。
+定義済み変数 フロントマターには定義済み変数と独自定義変数が存在します。
+定義済み変数の一部は以下のようになっています。
+ date: 投稿日付 description: コンテンツの説明 draft: trueなら下書き段階 images: 対象のページに関連する画像のパス配列。_internal/twitter_cards.htmlなどで使用される keywords: メタキーワード lastmod: 最終更新日付 linkTitle: コンテンツのリンク生成時に使用されるURL。Hugoはtitleの前にlinkTitleを使用する series: ページが属するシリーズ名 slug: 出力URLの末尾に表示される weight: 順番を並べ替える際に、小さいほど優先される  独自定義変数 include_toc = true このように定義した場合、.Params.include_tocで使用できます。
+参考  Front Matter  ...</p>
+      </section>
+      <footer class="entry-footer">
+        <time>2021-07-11</time>
+      </footer>
+      <a class="entry-link" href="https://hugo.choihack.com/post/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%83%9E%E3%82%BF%E3%83%BC/"></a>
+    </article>
+    <article class="post-entry">
+      <header class="entry-header">
+        <h2>Markdownでclass属性やid属性を付ける</h2>
+      </header>
+      <section class="entry-content">
+      <p>はじめに 通常Markdownで記載していると、独自のclass属性やid属性が指定できません。
+ただし、だからと言って直接HTMLを記載するとMarkdownで書くというメリットが失われます。
+Markdownで書きつつ、class属性やid属性を付ける方法を説明します。
+markup.goldmark.parser.attribute 装飾したいMarkdown要素の後に{}で囲んだ属性リストを追加することで、独自の属性を追加できます。
+この機能を使用するためにはconfig.tomlに以下の設定が必要です。
+[markup.goldmark.parser.attribute] block = true ただし、この機能はv0.81.0からHugoに追加された機能です。
+例えば以下のMarkdownを変換してみます。
+この文章は警告です。 { .warn } &lt;p class=&#34;warn&#34;&gt;この文章は警告です。&lt;/p&gt; 参考  Configure Markup  ...</p>
+      </section>
+      <footer class="entry-footer">
+        <time>2021-07-11</time>
+      </footer>
+      <a class="entry-link" href="https://hugo.choihack.com/post/markdown%E3%81%A7class%E5%B1%9E%E6%80%A7%E3%82%84id%E5%B1%9E%E6%80%A7%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B/"></a>
+    </article>
+    <article class="post-entry">
+      <header class="entry-header">
+        <h2>Config</h2>
+      </header>
+      <section class="entry-content">
+      <p>コンフィグファイルの種類 Hugoではいくつかのコンフィグファイルの種類が定義でき、好きな形式で書くことができます。
+ config.toml config.yaml config.json  ここでは、TOML形式で定義したコンフィグファイルの説明を行います。
+config.tomlファイルの読み方 TOMLとJSONファイルを変換できるサイトがあるので、一度確認すると意味がわかりやすいです。 TOML
+参考にTOMLをJSONに変換したものを載せます。
+TOML
+title = &#34;TOML Example&#34; [test] a = 1 [[table]] b = 2 [[table]] c = 3 [table3.inner] d = 4 [[table2.description]] e = 5 JSON
+{ &#34;title&#34;: &#34;TOML Example&#34;, &#34;test&#34;: { &#34;a&#34;: 1 }, &#34;table&#34;: [ { &#34;b&#34;: 2 }, { &#34;c&#34;: 3 } ], &#34;table3&#34;: { &#34;inner&#34;: { &#34;d&#34;: 4 } }, &#34;table2&#34;: { &#34;description&#34;: [ { &#34;e&#34;: 5 } ] } } TOMLで[[&lt;PARAM_NAME&gt;]]のように2重の括弧で囲むと、配列として定義されることがわかります。...</p>
+      </section>
+      <footer class="entry-footer">
+        <time>2021-07-11</time>
+      </footer>
+      <a class="entry-link" href="https://hugo.choihack.com/post/test/config.toml%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/"></a>
+    </article>
     <article class="post-entry">
       <header class="entry-header">
         <h2>Config</h2>
