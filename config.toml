@@ -23,4 +23,4 @@ paginate = 4
   url = "/post"
 
 [markup.goldmark.parser.attribute]
-  block = true
+  block = true # 要素にclassやidを付けれるようにする

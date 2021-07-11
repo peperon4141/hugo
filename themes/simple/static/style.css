@@ -344,6 +344,7 @@ img {
 .post-content ul,
 .post-content ol {
   padding-left: 20px;
+  margin-left: 8px;
 }
 .post-content li {
   margin-top: 5px;
