@@ -512,11 +512,11 @@ ol {
 }
 .prev-next .prev::before {
   content: "<";
-  left: 0;
+  left: -1rem;
 }
 .prev-next .next::after {
   content: ">";
-  right: 0;
+  right: -1rem;
 }
 
 /* Footer
