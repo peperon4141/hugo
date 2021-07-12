@@ -4,7 +4,7 @@
   --gap: 24px;
   --content-gap: 40px;
   --nav-width: 1024px;
-  --main-width: 640px;
+  --main-width: 800px;
   --header-height: 60px;
   --footer-height: 60px;
   --radius: 8px;
@@ -138,6 +138,10 @@ img {
   display: block;
   max-width: 100%;
 }
+ul,
+ol {
+  list-style: none;
+}
 /* Navigation
 -------------------------------------------------- */
 .nav {
@@ -152,7 +156,8 @@ img {
   display: block;
   line-height: var(--header-height);
 }
-.logo, .menu {
+.logo,
+.menu {
   margin-left: var(--gap);
   margin-right: var(--gap);
 }
@@ -163,7 +168,6 @@ img {
 .menu {
   display: flex;
   list-style: none;
-  word-break: keep-all;
   overflow-x: auto;
 }
 .menu li + li {
@@ -179,14 +183,16 @@ img {
   max-width: calc(var(--nav-width) + var(--gap) * 2);
   margin-left: auto;
   margin-right: auto;
-  list-style: none;
+  overflow-x: auto;
+}
+.breadcrumb * {
+  white-space: nowrap;
 }
 .breadcrumb ul {
-  list-style: none;
   display: flex;
   margin-left: var(--gap);
 }
-.breadcrumb li:not(:last-child)::after {
+.breadcrumb li + li::before {
   content: " > ";
   margin: 0 1rem;
 }
@@ -203,6 +209,9 @@ img {
   margin-left: auto;
   margin-right: auto;
   padding: var(--gap);
+}
+.main h2 {
+  margin-bottom: 12px;
 }
 .page-header {
   margin-bottom: 24px;
@@ -232,8 +241,6 @@ img {
 /* Post entry
 -------------------------------------------------- */
 .post-entry {
-  position: relative;
-  margin-bottom: var(--gap);
   padding: var(--gap);
   background: var(--entry);
   border-radius: var(--radius);
@@ -265,11 +272,8 @@ img {
   font-size: 13px;
 }
 .entry-link {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  display: inline-block;
+  padding-bottom: var(--gap);
 }
 /* Post single
 -------------------------------------------------- */
@@ -345,6 +349,7 @@ img {
 .post-content ol {
   padding-left: 20px;
   margin-left: 8px;
+  list-style: initial;
 }
 .post-content li {
   margin-top: 5px;
@@ -489,9 +494,30 @@ img {
 .prev-next {
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
-.prev { margin-right: auto; }
-.next { margin-left: auto; }
+.prev-next .prev, .prev-next .next {
+  width: calc((100% - var(--gap)) / 2);
+}
+.prev-next .prev {
+  margin-right: auto;
+}
+.prev-next .next {
+  margin-left: auto;
+}
+.prev-next .prev::before, .prev-next .next::after {
+  position: absolute;
+  display: inline-block;
+  top: calc(50% - 1rem);
+}
+.prev-next .prev::before {
+  content: "<";
+  left: 0;
+}
+.prev-next .next::after {
+  content: ">";
+  right: 0;
+}
 
 /* Footer
 -------------------------------------------------- */

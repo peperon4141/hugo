@@ -12,13 +12,15 @@
     <!-- 前のページ、次のページ -->
     <div class="prev-next">
       {{ with .PrevInSection }}
-        <span>＜</span>
-        <a class="prev" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+        <a class="prev" href="{{ .Permalink }}">
+          {{ partial "article_card.html" .}}
+        </a>
       {{ end }}
   
       {{ with .NextInSection }}
-        <a class="next" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
-        <span>＞</span>
+        <a class="next" href="{{ .Permalink }}">
+          {{ partial "article_card.html" .}}
+        </a>
       {{ end }}
     </div>
 

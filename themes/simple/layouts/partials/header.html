@@ -1,18 +1,12 @@
 <header class="header">
-  <!-- ナビゲーション -->
+  <!-- Navigation -->
   <nav class="nav">
-    {{- if .IsHome }}
-      <h1 class="logo"><a href="{{ "" | absURL }}">{{ $.Site.Title }}</a></h1>
-    {{- else }}
-      <p class="logo"><a href="{{ "" | absURL }}">{{ $.Site.Title }}</a></p>
-    {{- end }}
+    <h1 class="logo"><a href="{{ "" | absURL }}">{{ $.Site.Title }}</a></h1>
 
     {{- if .Site.Menus.main }}
       <ul class="menu">
         {{- range .Site.Menus.main }}
-        <li>
-          <a href="{{ .URL }}">{{ .Name }}</a>
-        </li>
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
         {{- end }}
       </ul>
     {{- end }}
@@ -21,7 +15,23 @@
   <!-- パンくずリスト -->
   <nav class="breadcrumb">
     <ul>
-      {{- template "breadcrumb" (dict "node" . "start" .) }}
+      {{- template "breadcrumb" (dict "currentPage" . "startPage" .) }}
     </ul>
   </nav>
+  {{- define "breadcrumb" }}
+    {{- if .currentPage.Parent }}
+      <!-- 親がある場合、親を表示数する -->
+      {{- template "breadcrumb" (dict "currentPage" .currentPage.Parent "startPage" .startPage) }}
+    {{- else if not .currentPage.IsHome }}
+      <!-- 親がなく現在のページがホームページではない場合、ホームを表示する -->
+      {{- template "breadcrumb" (dict "currentPage" .currentPage.Site.Home "startPage" .startPage) }}
+    {{- end }}
+
+    <!-- 現在のページとスタートのページが同じであれば、activeのclassを付けて名前を表示する -->
+    {{- if eq .currentPage .startPage }}
+      <li class="active">{{ .currentPage.LinkTitle }}</li>
+    {{- else }}
+      <li><a href="{{ .currentPage.Permalink }}" >{{ .currentPage.LinkTitle }}</a></li>
+    {{- end }}
+  {{- end }}
 </header>
