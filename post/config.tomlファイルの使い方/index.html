@@ -31,23 +31,27 @@ title = &quot;TOML Example&quot; [test] a = 1 [[table]] b = 2 [[table]] c = 3 [t
   <header class="header">
   
   <nav class="nav">
-      <p class="logo"><a href="https://hugo.choihack.com/">HUGOまとめ</a></p>
+    <h1 class="logo"><a href="https://hugo.choihack.com/">HUGOまとめ</a></h1>
       <ul class="menu">
-        <li>
-          <a href="/">TOP</a>
-        </li>
-        <li>
-          <a href="/post">投稿</a>
-        </li>
+        <li><a href="/">TOP</a></li>
+        <li><a href="/post">投稿</a></li>
       </ul>
   </nav>
 
   
   <nav class="breadcrumb">
     <ul>
-    <li class="breadcrumb-item"><a href="https://hugo.choihack.com/" >TOP</a></li>
-    <li class="breadcrumb-item"><a href="https://hugo.choihack.com/post/" >投稿</a></li>
-    <li class="breadcrumb-item active">config.tomlファイルの使い方</li>
+      
+      
+
+    
+      <li><a href="https://hugo.choihack.com/" >TOP</a></li>
+
+    
+      <li><a href="https://hugo.choihack.com/post/" >投稿</a></li>
+
+    
+      <li class="active">config.tomlファイルの使い方</li>
     </ul>
   </nav>
 </header>
@@ -146,13 +150,59 @@ title = &quot;Hugoまとめ&quot;
     
     <div class="prev-next">
       
-        <span>＜</span>
-        <a class="prev" href="https://hugo.choihack.com/post/%E3%82%B5%E3%82%A4%E3%83%88%E4%BD%9C%E6%88%90/">サイト作成</a>
+        <a class="prev" href="https://hugo.choihack.com/post/%E3%82%B5%E3%82%A4%E3%83%88%E4%BD%9C%E6%88%90/">
+          <article class="post-entry">
+  <header class="entry-header">
+    <h2>サイト作成</h2>
+  </header>
+  <section class="entry-content">
+    <p>Hugoとは Hugoは静的サイトジェネレーターと呼ばれ、Markdown形式のコンテンツからHTMLを作成してくれます。
+HugoはGoogle製のGo言語で作成されており、サイト作成の速度が非常に高速です。
+この記事では、MacOSでの環境構築について説明します。
+Hugoインストール Homebrewを使用すると簡単にインストールできます。
+$ brew install hugo 無事インストールが完了していると、以下のコマンドでバージョンが表示されるはずです。
+$ hugo version Hugo Static Site Generator v0.79.0/extended darwin/amd64 BuildDate: unknown 新しいサイトの作成 $ hugo new site new_site_name このコマンドを実行することで、new_site_nameというフォルダー名で新しいサイトが作成できます。
+テーマの追加 Hugoはテーマという仕組みで、簡単にサイトのデザインを使用できます。
+テーマファイルは、themes/theme_nameディレクトリに保存されます。
+git init(gitの初期化)を実行した後に以下を実行します。
+git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke submodule addはgitのリポジトリ内に、子供のリポジトリを追加するコマンドです。
+https://github.com/theNewDynamic/gohugo-theme-ananke.gitで定義されているHugoのテーマファイルを、ローカルのthemes/anankeディレクトリに保存しています。
+submoduleとして追加しなくても、ダウンロードしてきたテーマファイルを配置しても構いません。
+完了した後theme = &#34;ananke&#34;のようにconfig.tomlファイルに追加することでテーマを使用できます。
+投稿の追加 投稿はcontent/&lt;CATEGORY&gt;/&lt;FILE&gt;.&lt;FORMAT&gt;という形式で保存します。
+hugo new post/first-post.md と実行すると、content/post/first-post.mdに投稿んぼ雛形が追加されます。
+--- title: &#34;My First Post&#34; date: 2019-03-26T08:47:11&#43;01:00 draft: true --- 中にはこのような情報が記載されており、記事の詳細情報を定義することができます。
+Hugoを起動する hugo server -D このコマンドで起動できます。
+通常 http://localhost:1313/ にアクセスすると立ち上げたサーバーにアクセスできます。...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2021-07-11</time>
+  </footer>
+</article>
+        </a>
       
   
       
-        <a class="next" href="https://hugo.choihack.com/post/markdown%E3%81%A7class%E5%B1%9E%E6%80%A7%E3%82%84id%E5%B1%9E%E6%80%A7%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B/">Markdownでclass属性やid属性を付ける</a>
-        <span>＞</span>
+        <a class="next" href="https://hugo.choihack.com/post/markdown%E3%81%A7class%E5%B1%9E%E6%80%A7%E3%82%84id%E5%B1%9E%E6%80%A7%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B/">
+          <article class="post-entry">
+  <header class="entry-header">
+    <h2>Markdownでclass属性やid属性を付ける</h2>
+  </header>
+  <section class="entry-content">
+    <p>はじめに 通常Markdownで記載していると、独自のclass属性やid属性が指定できません。
+ただし、だからと言って直接HTMLを記載するとMarkdownで書くというメリットが失われます。
+Markdownで書きつつ、class属性やid属性を付ける方法を説明します。
+markup.goldmark.parser.attribute 装飾したいMarkdown要素の後に{}で囲んだ属性リストを追加することで、独自の属性を追加できます。
+この機能を使用するためにはconfig.tomlに以下の設定が必要です。
+[markup.goldmark.parser.attribute] block = true ただし、この機能はv0.81.0からHugoに追加された機能です。
+例えば以下のMarkdownを変換してみます。
+この文章は警告です。 { .warn } &lt;p class=&#34;warn&#34;&gt;この文章は警告です。&lt;/p&gt; 参考   Configure Markup   ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2021-07-11</time>
+  </footer>
+</article>
+        </a>
       
     </div>
 

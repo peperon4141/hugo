@@ -32,23 +32,27 @@ markup.goldmark.parser.attribute 装飾したいMarkdown要素の後に{}で囲�
   <header class="header">
   
   <nav class="nav">
-      <p class="logo"><a href="https://hugo.choihack.com/">HUGOまとめ</a></p>
+    <h1 class="logo"><a href="https://hugo.choihack.com/">HUGOまとめ</a></h1>
       <ul class="menu">
-        <li>
-          <a href="/">TOP</a>
-        </li>
-        <li>
-          <a href="/post">投稿</a>
-        </li>
+        <li><a href="/">TOP</a></li>
+        <li><a href="/post">投稿</a></li>
       </ul>
   </nav>
 
   
   <nav class="breadcrumb">
     <ul>
-    <li class="breadcrumb-item"><a href="https://hugo.choihack.com/" >TOP</a></li>
-    <li class="breadcrumb-item"><a href="https://hugo.choihack.com/post/" >投稿</a></li>
-    <li class="breadcrumb-item active">Markdownでclass属性やid属性を付ける</li>
+      
+      
+
+    
+      <li><a href="https://hugo.choihack.com/" >TOP</a></li>
+
+    
+      <li><a href="https://hugo.choihack.com/post/" >投稿</a></li>
+
+    
+      <li class="active">Markdownでclass属性やid属性を付ける</li>
     </ul>
   </nav>
 </header>
@@ -88,13 +92,49 @@ markup.goldmark.parser.attribute 装飾したいMarkdown要素の後に{}で囲�
     
     <div class="prev-next">
       
-        <span>＜</span>
-        <a class="prev" href="https://hugo.choihack.com/post/config.toml%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/">config.tomlファイルの使い方</a>
+        <a class="prev" href="https://hugo.choihack.com/post/config.toml%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/">
+          <article class="post-entry">
+  <header class="entry-header">
+    <h2>config.tomlファイルの使い方</h2>
+  </header>
+  <section class="entry-content">
+    <p>コンフィグファイルの種類 Hugoではいくつかのコンフィグファイルの種類が定義でき、好きな形式で書くことができます。
+ config.toml config.yaml config.json  ここでは、TOML形式で定義したコンフィグファイルの説明を行います。
+config.tomlファイルの読み方 TOMLとJSONファイルを変換できるサイトがあるので、一度確認すると意味がわかりやすいです。
+TOML 参考にTOMLをJSONに変換したものを載せます。
+TOML
+title = &#34;TOML Example&#34; [test] a = 1 [[table]] b = 2 [[table]] c = 3 [table3.inner] d = 4 [[table2.description]] e = 5 JSON
+{ &#34;title&#34;: &#34;TOML Example&#34;, &#34;test&#34;: { &#34;a&#34;: 1 }, &#34;table&#34;: [ { &#34;b&#34;: 2 }, { &#34;c&#34;: 3 } ], &#34;table3&#34;: { &#34;inner&#34;: { &#34;d&#34;: 4 } }, &#34;table2&#34;: { &#34;description&#34;: [ { &#34;e&#34;: 5 } ] } } TOMLで[[&lt;PARAM_NAME&gt;]]のように2重の括弧で囲むと、配列として定義されることがわかります。...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2021-07-11</time>
+  </footer>
+</article>
+        </a>
       
   
       
-        <a class="next" href="https://hugo.choihack.com/post/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%83%9E%E3%82%BF%E3%83%BC/">フロントマター</a>
-        <span>＞</span>
+        <a class="next" href="https://hugo.choihack.com/post/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%83%9E%E3%82%BF%E3%83%BC/">
+          <article class="post-entry">
+  <header class="entry-header">
+    <h2>フロントマター</h2>
+  </header>
+  <section class="entry-content">
+    <p>はじめに Hugoで記事を書く際に、各投稿の先頭に投稿の情報を記載できます。
+この情報のことをフロントマター（FrontMatter）と言います。
+フォーマット フロントマターはどんな記号で囲まれているかで、フォーマットの指定ができます。
+ TOML: &#43;&#43;&#43; YAML: --- JSON: {}  中身はkeyvalueのペアで指定できます。
+TOMLの場合はdate = &#34;2021-07-11&#34;のように=で繋ぎます。
+定義済み変数 フロントマターには定義済み変数と独自定義変数が存在します。
+定義済み変数の一部は以下のようになっています。
+ date: 投稿日付 description: コンテンツの説明 draft: trueなら下書き段階 images: 対象のページに関連する画像のパス配列。_internal/twitter_cards.htmlなどで使用される keywords: メタキーワード lastmod: 最終更新日付 linkTitle: コンテンツのリンク生成時に使用されるURL。Hugoはtitleの前にlinkTitleを使用する series: ページが属するシリーズ名 slug: 出力URLの末尾に表示される weight: 順番を並べ替える際に、小さいほど優先される  独自定義変数 include_toc = true このように定義した場合、.Params.include_tocで使用できます。
+参考   Front Matter   ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2021-07-11</time>
+  </footer>
+</article>
+        </a>
       
     </div>
 

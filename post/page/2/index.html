@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="">
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title> - HUGOまとめ</title>
+  
+  <meta name="description" content="">
+  <meta name="author" content="">
+  
+  <link href="https://hugo.choihack.com/an-old-hope.min.css" rel="stylesheet">
+  <link href="https://hugo.choihack.com/style.css" rel="stylesheet">
+  <link href="https://hugo.choihack.com/custom.css" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" href="https://hugo.choihack.com/apple-touch-icon.png">
+  <link rel="icon" href="https://hugo.choihack.com/favicon.ico">
+  <meta name="generator" content="Hugo 0.85.0" />
+  
+  <link rel="alternate" type="application/rss+xml" href="https://hugo.choihack.com/post/index.xml" title="HUGOまとめ" />
+  
+</head>
+
+  <header class="header">
+  
+  <nav class="nav">
+    <h1 class="logo"><a href="https://hugo.choihack.com/">HUGOまとめ</a></h1>
+      <ul class="menu">
+        <li><a href="/">TOP</a></li>
+        <li><a href="/post">投稿</a></li>
+      </ul>
+  </nav>
+
+  
+  <nav class="breadcrumb">
+    <ul>
+      
+
+    
+      <li><a href="https://hugo.choihack.com/" >TOP</a></li>
+
+    
+      <li class="active">投稿</li>
+    </ul>
+  </nav>
+</header>
+
+  <body class="dark list"></body>
+    
+<main class="main">
+  
+  
+  <h2>投稿一覧</h2>
+    <a class="entry-link" href="https://hugo.choihack.com/post/%E3%82%B5%E3%82%A4%E3%83%88%E4%BD%9C%E6%88%90/">
+      <article class="post-entry">
+  <header class="entry-header">
+    <h2>サイト作成</h2>
+  </header>
+  <section class="entry-content">
+    <p>Hugoとは Hugoは静的サイトジェネレーターと呼ばれ、Markdown形式のコンテンツからHTMLを作成してくれます。
+HugoはGoogle製のGo言語で作成されており、サイト作成の速度が非常に高速です。
+この記事では、MacOSでの環境構築について説明します。
+Hugoインストール Homebrewを使用すると簡単にインストールできます。
+$ brew install hugo 無事インストールが完了していると、以下のコマンドでバージョンが表示されるはずです。
+$ hugo version Hugo Static Site Generator v0.79.0/extended darwin/amd64 BuildDate: unknown 新しいサイトの作成 $ hugo new site new_site_name このコマンドを実行することで、new_site_nameというフォルダー名で新しいサイトが作成できます。
+テーマの追加 Hugoはテーマという仕組みで、簡単にサイトのデザインを使用できます。
+テーマファイルは、themes/theme_nameディレクトリに保存されます。
+git init(gitの初期化)を実行した後に以下を実行します。
+git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke submodule addはgitのリポジトリ内に、子供のリポジトリを追加するコマンドです。
+https://github.com/theNewDynamic/gohugo-theme-ananke.gitで定義されているHugoのテーマファイルを、ローカルのthemes/anankeディレクトリに保存しています。
+submoduleとして追加しなくても、ダウンロードしてきたテーマファイルを配置しても構いません。
+完了した後theme = &#34;ananke&#34;のようにconfig.tomlファイルに追加することでテーマを使用できます。
+投稿の追加 投稿はcontent/&lt;CATEGORY&gt;/&lt;FILE&gt;.&lt;FORMAT&gt;という形式で保存します。
+hugo new post/first-post.md と実行すると、content/post/first-post.mdに投稿んぼ雛形が追加されます。
+--- title: &#34;My First Post&#34; date: 2019-03-26T08:47:11&#43;01:00 draft: true --- 中にはこのような情報が記載されており、記事の詳細情報を定義することができます。
+Hugoを起動する hugo server -D このコマンドで起動できます。
+通常 http://localhost:1313/ にアクセスすると立ち上げたサーバーにアクセスできます。...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2021-07-11</time>
+  </footer>
+</article>
+    </a>
+
+  
+    <nav class="pagination">
+      <a class="prev" href="/post/">← 前の投稿</a>
+    </nav>
+</main>
+  </body>
+
+  <footer class="footer">
+  <p class="text-center">© - 2021 - Hugoまとめ</p>
+</footer>
+
+
+<script src="https://hugo.choihack.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+</html>
