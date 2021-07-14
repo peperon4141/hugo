@@ -267,6 +267,9 @@ ol {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
+.entry-content b {
+  color: var(--primary);
+}
 .entry-footer {
   color: var(--secondary);
   font-size: 13px;
@@ -585,4 +588,10 @@ ol {
   background-color: var(--entry);
   padding: 16px;
   border-radius: var(--radius);
+  color: var(--primary);
+}
+
+#result > * {
+  display: inline-block;
+  margin-bottom: 20px 0;
 }

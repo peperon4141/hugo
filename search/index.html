@@ -55,37 +55,25 @@
 <script src="data.js"></script>
 
 <main class="main">
-  
-  <input type="text" class="search-bar" onkeyup="search(this.value)" autocomplete="off" autofocus placeholder="検索ワード" />
-  
-  <span id="inputWord"></span>
-  
-  <span id="resultCount"></span>
-  
+  <input type="text" class="search-bar" onInput="search()" autocomplete="off" autofocus placeholder="検索ワード" />
+  <div id="result-count"></div>
   <div id="result"></div>
   
   <script>
-  
-  function search(query) {
-    
-    var resultHtmls = searchData(query)
-    
+  function search() {
+    var query = document.querySelector('.search-bar').value
+    var resultHtmls = searchBy(query)
     updateSearchResults(resultHtmls)
-    
     updateSearchResultCount(resultHtmls.length, data.length)
   }
   
-  function searchData(query) {
-    var resultHtmls = [];
-  
-    query = query.trim();
-    if (query.length < 1) {
-      return resultHtmls;
-    }
+  function searchBy(query) {
+    query = query.trim()
+    if (query.length < 1) return []
 
-    var re = new RegExp(query, 'i');
+    var resultHtmls = []
     data.forEach(function({url, title, body, date}) {
-      var pos = body.search(re)
+      var pos = body.search(new RegExp(query, 'i'))
       if (pos != -1) {
         var startPos = pos
         var endPos = pos + query.length
@@ -98,25 +86,23 @@
   
   function buildEntryHtml(url, title, body, date, startPos, endPos) {
     return `
-<div>
-  <a href="${url}">
-    <article class="post-entry">
-    <header class="entry-header">
-      <h2>${title}</h2>
-    </header>
-    <section class="entry-content">
-      <p>${excerpt(body, startPos, endPos)}...</p>
-    </section>
-    <footer class="entry-footer">
-      <time>${date}</time>
-    </footer>
-    </article>
-  </a>
-</div>
+<a href="${url}" style="margin-bottom: 20px;">
+  <article class="post-entry">
+  <header class="entry-header">
+    <h2>${title}</h2>
+  </header>
+  <section class="entry-content">
+    <p>${excerpt(body, startPos, endPos)}...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>${date}</time>
+  </footer>
+  </article>
+</a>
 `
   }
   
-  // 検索で見つけた場所を中心に文字列を切り出す
+  
   function excerpt(body, startPos, endPos) {
     return [
       body.substring(startPos - 30, startPos),
@@ -133,13 +119,12 @@
   
   
   function updateSearchResultCount(searchedResultCount, total) {
-    var el = document.getElementById('resultCount');
+    var el = document.getElementById('result-count');
     el.innerHTML = '<b>' + searchedResultCount + '</b> 件見つかりました（' + total + '件中）';
   }
 
-  function getParsedQueryParams() {
-    var query = window.location.search.substring(1);
-    var params = query.split('&');
+  function getQueryParams() {
+    var params = window.location.search.split(/(\?|&)/);
     var parsedParams = {}
     params.forEach(function(param) {
       var [key, value] = param.split('=');
@@ -149,8 +134,9 @@
 }
 
   window.onload = function() {
-    var params = getParsedQueryParams()
+    var params = getQueryParams()
     document.querySelector('.search-bar').value = params.query || ''
+    search()
   }
   </script>
 </main>
