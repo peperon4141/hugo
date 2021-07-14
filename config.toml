@@ -6,21 +6,22 @@ title = "HUGOまとめ"
 description = "こつこつHUGOのナレッジを貯めて行くブログ"
 baseURL = "https://hugo.choihack.com/"
 copyright = "© - 2021 - Hugoまとめ"
-paginate = 4
+paginate = 5
 
 [[menu.main]]
   name = "TOP"
-  pre = "<i class='fa fa-heart'></i>"
   weight = -110
-  identifier = "TOP"
   url = "/"
 
 [[menu.main]]
   name = "投稿"
-  pre = "<i class='fa fa-road'></i>"
   weight = -100
-  identifier = "ABOUT"
   url = "/post"
+
+[[menu.main]]
+  name = "検索"
+  weight = -90
+  url = "/search"
 
 [markup.goldmark.parser.attribute]
   block = true # 要素にclassやidを付けれるようにする

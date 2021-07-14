@@ -577,3 +577,12 @@ ol {
 .warn::before { content: "!"; background-color: var(--warn-deep); }
 .info { background-color: var(--info); }
 .info::before { content: "i"; background-color: var(--info-deep); }
+
+/* Search
+-------------------------------------------------- */
+.search-bar {
+  width: 100%;
+  background-color: var(--entry);
+  padding: 16px;
+  border-radius: var(--radius);
+}
