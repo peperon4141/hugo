@@ -39,6 +39,7 @@
       <ul class="menu">
         <li><a href="/">TOP</a></li>
         <li><a href="/post">投稿</a></li>
+        <li><a href="/search">検索</a></li>
       </ul>
   </nav>
 
@@ -148,6 +149,26 @@ TOMLの場合はdate = &#34;2021-07-11&#34;のように=で繋ぎます。
         </a>
       
   
+      
+        <a class="next" href="https://hugo.choihack.com/post/404%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B/">
+          <article class="post-entry">
+  <header class="entry-header">
+    <h2>404ページを作成する</h2>
+  </header>
+  <section class="entry-content">
+    <p>はじめに 404ステータスとは、ページが見つからない場合に返すステータスのことです。
+Hugoでは存在しないページ用のHTMLも独自定義できます。
+作成方法 /layouts/404.htmlにページを作成します。
+{{ define &#34;main&#34;}} &lt;main id=&#34;main&#34;&gt; &lt;div&gt; &lt;h1 id=&#34;title&#34;&gt;&lt;a href=&#34;{{ &#34;/&#34; | relURL }}&#34;&gt;Go Home&lt;/a&gt;&lt;/h1&gt; &lt;/div&gt; &lt;/main&gt; {{ end }} 動作確認 http://localhost:1313/404.html にアクセスして確認します。
+ローカルでの確認の注意点として、ローカルは上記のリンクを直接開く必要があります。
+GitHubPagesなどのサービスを利用している場合は、存在しないURLにアクセスされた場合は、404.htmlにリダイレクトしてくれます。
+参考   Custom 404 Page   ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2021-07-13</time>
+  </footer>
+</article>
+        </a>
       
     </div>
 

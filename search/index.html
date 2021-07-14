@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="">
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Searches - HUGOまとめ</title>
+  
+  <meta name="description" content="">
+  <meta name="author" content="">
+  
+  <link href="https://hugo.choihack.com/an-old-hope.min.css" rel="stylesheet">
+  <link href="https://hugo.choihack.com/style.css" rel="stylesheet">
+  <link href="https://hugo.choihack.com/custom.css" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" href="https://hugo.choihack.com/apple-touch-icon.png">
+  <link rel="icon" href="https://hugo.choihack.com/favicon.ico">
+  <meta name="generator" content="Hugo 0.85.0" />
+  
+  <link rel="alternate" type="application/rss+xml" href="https://hugo.choihack.com/search/index.xml" title="HUGOまとめ" />
+  
+</head>
+
+  <header class="header">
+  
+  <nav class="nav">
+    <h1 class="logo"><a href="https://hugo.choihack.com/">HUGOまとめ</a></h1>
+      <ul class="menu">
+        <li><a href="/">TOP</a></li>
+        <li><a href="/post">投稿</a></li>
+        <li><a href="/search">検索</a></li>
+      </ul>
+  </nav>
+
+  
+  <nav class="breadcrumb">
+    <ul>
+      
+
+    
+      <li><a href="https://hugo.choihack.com/" >TOP</a></li>
+
+    
+      <li class="active">Searches</li>
+    </ul>
+  </nav>
+</header>
+
+  <body class="dark list"></body>
+    
+
+
+<script src="data.js"></script>
+
+<main class="main">
+  
+  <input type="text" class="search-bar" onkeyup="search(this.value)" autocomplete="off" autofocus placeholder="検索ワード" />
+  
+  <span id="inputWord"></span>
+  
+  <span id="resultCount"></span>
+  
+  <div id="result"></div>
+  
+  <script>
+  
+  function search(query) {
+    
+    var resultHtmls = searchData(query)
+    
+    updateSearchResults(resultHtmls)
+    
+    updateSearchResultCount(resultHtmls.length, data.length)
+  }
+  
+  function searchData(query) {
+    var resultHtmls = [];
+  
+    query = query.trim();
+    if (query.length < 1) {
+      return resultHtmls;
+    }
+
+    var re = new RegExp(query, 'i');
+    data.forEach(function({url, title, body, date}) {
+      var pos = body.search(re)
+      if (pos != -1) {
+        var startPos = pos
+        var endPos = pos + query.length
+        var html = buildEntryHtml(url, title, body, date, startPos, endPos)
+        resultHtmls.push(html)
+      }
+    })
+    return resultHtmls
+  }
+  
+  function buildEntryHtml(url, title, body, date, startPos, endPos) {
+    return `
+<div>
+  <a href="${url}">
+    <article class="post-entry">
+    <header class="entry-header">
+      <h2>${title}</h2>
+    </header>
+    <section class="entry-content">
+      <p>${excerpt(body, startPos, endPos)}...</p>
+    </section>
+    <footer class="entry-footer">
+      <time>${date}</time>
+    </footer>
+    </article>
+  </a>
+</div>
+`
+  }
+  
+  // 検索で見つけた場所を中心に文字列を切り出す
+  function excerpt(body, startPos, endPos) {
+    return [
+      body.substring(startPos - 30, startPos),
+      '<b>', body.substring(startPos, endPos), '</b>',
+      body.substring(endPos, endPos + 200)
+    ].join('')
+  }
+  
+  
+  function updateSearchResults(htmls) {
+    var el = document.getElementById('result');
+    el.innerHTML = htmls.join('');
+  }
+  
+  
+  function updateSearchResultCount(searchedResultCount, total) {
+    var el = document.getElementById('resultCount');
+    el.innerHTML = '<b>' + searchedResultCount + '</b> 件見つかりました（' + total + '件中）';
+  }
+
+  function getParsedQueryParams() {
+    var query = window.location.search.substring(1);
+    var params = query.split('&');
+    var parsedParams = {}
+    params.forEach(function(param) {
+      var [key, value] = param.split('=');
+      parsedParams[decodeURIComponent(key)] = decodeURIComponent(value)
+    })
+    return parsedParams
+}
+
+  window.onload = function() {
+    var params = getParsedQueryParams()
+    document.querySelector('.search-bar').value = params.query || ''
+  }
+  </script>
+</main>
+
+
+  </body>
+
+  <footer class="footer">
+  <p class="text-center">© - 2021 - Hugoまとめ</p>
+</footer>
+
+
+<script src="https://hugo.choihack.com/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+</html>
