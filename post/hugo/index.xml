@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HUGOまとめ</title>
-    <link>https://tech.choihack.com/</link>
+    <link>https://tech.choihack.com/post/hugo/</link>
     <description>Recent content on HUGOまとめ</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© - 2021 - Hugoまとめ</copyright>
-    <lastBuildDate>Sun, 11 Jul 2021 23:23:10 +0900</lastBuildDate><atom:link href="https://tech.choihack.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Jul 2021 23:23:10 +0900</lastBuildDate><atom:link href="https://tech.choihack.com/post/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugoでテーマ作成する前に抑えて置きたいこと</title>
       <link>https://tech.choihack.com/post/hugo/hugo%E3%81%A7%E3%83%86%E3%83%BC%E3%83%9E%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E5%89%8D%E3%81%AB%E6%8A%91%E3%81%88%E3%81%A6%E7%BD%AE%E3%81%8D%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8/</link>
@@ -35,15 +35,6 @@ Hugoでは存在しないページ用のHTMLも独自定義できます。
 ローカルでの確認の注意点として、ローカルは上記のリンクを直接開く必要があります。
 GitHubPagesなどのサービスを利用している場合は、存在しないURLにアクセスされた場合は、404.htmlにリダイレクトしてくれます。
 参考   Custom 404 Page   </description>
-    </item>
-    
-    <item>
-      <title>Varnish入門</title>
-      <link>https://tech.choihack.com/post/varnish/varnish%E5%85%A5%E9%96%80/</link>
-      <pubDate>Tue, 13 Jul 2021 23:51:01 +0900</pubDate>
-      
-      <guid>https://tech.choihack.com/post/varnish/varnish%E5%85%A5%E9%96%80/</guid>
-      <description>はじめに Varnish入門 </description>
     </item>
     
     <item>
@@ -137,15 +128,6 @@ hugo new post/first-post.md と実行すると、content/post/first-post.mdに�
 --- title: &amp;quot;My First Post&amp;quot; date: 2019-03-26T08:47:11+01:00 draft: true --- 中にはこのような情報が記載されており、記事の詳細情報を定義することができます。
 Hugoを起動する hugo server -D このコマンドで起動できます。
 通常 http://localhost:1313/ にアクセスすると立ち上げたサーバーにアクセスできます。</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://tech.choihack.com/search/data.js</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tech.choihack.com/search/data.js</guid>
-      <description></description>
     </item>
     
   </channel>
