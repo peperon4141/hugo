@@ -564,7 +564,8 @@ ol {
 -------------------------------------------------- */
 .warn, .info {
   position: relative;
-  padding: 4px;
+  padding: 12px;
+  border-radius: var(--radius);
 }
 .warn::before, .info::before {  
   display: block;
