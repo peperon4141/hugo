@@ -2,6 +2,12 @@
 
 var data = [
   {
+    url: "https://tech.choihack.com/post/hugo/%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%BB%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA%E6%95%B0%E3%81%AE%E5%8F%96%E5%BE%97/",
+    title: "ページ・セクション・カテゴリ数の取得",
+    date: "2021-07-18T16:34:14+09:00",
+    body: "ページ・セクション・カテゴリ数の取得 はじめに Hugoでページのデータを取得する方法をまとめました。 取得方法 サイト内の全記事数 {{ len .Site.RegularPages }} サイト内の全ページ数 {{ len .Site.Pages }} ホームページから下層のページ、そして、カテゴリやタグページも含まれる。 現在の階層の記事数 {{ len .RegularPages }} 現在の階層のページ数 {{ len .Pages }} ページにはセクションページも含まれる。 現在の階層以下の全ての記事数 {{ len .RegularPagesRecursive }} ただし、listページでのみ使用できる。 現在の階層のセクション数を取得 {{ len .Sections }} サイト内の全カテゴリ数 {{ len .Site.Taxonomies.categories }} サイト内の全タグ数 {{ len .Site.Taxonomies.tags }}"
+  },
+  {
     url: "https://tech.choihack.com/post/hugo/hugo%E3%81%A7%E3%83%86%E3%83%BC%E3%83%9E%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E5%89%8D%E3%81%AB%E6%8A%91%E3%81%88%E3%81%A6%E7%BD%AE%E3%81%8D%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8/",
     title: "Hugoでテーマ作成する前に抑えて置きたいこと",
     date: "2021-07-14T00:04:43+09:00",
@@ -12,12 +18,6 @@ var data = [
     title: "404ページを作成する",
     date: "2021-07-13T23:51:01+09:00",
     body: "404ページを作成する はじめに 404ステータスとは、ページが見つからない場合に返すステータスのことです。 Hugoでは存在しないページ用のHTMLも独自定義できます。 作成方法 /layouts/404.htmlにページを作成します。 {{ define \u0026quot;main\u0026quot;}} \u0026lt;main id=\u0026quot;main\u0026quot;\u0026gt; \u0026lt;div\u0026gt; \u0026lt;h1 id=\u0026quot;title\u0026quot;\u0026gt;\u0026lt;a href=\u0026quot;{{ \u0026quot;/\u0026quot; | relURL }}\u0026quot;\u0026gt;Go Home\u0026lt;/a\u0026gt;\u0026lt;/h1\u0026gt; \u0026lt;/div\u0026gt; \u0026lt;/main\u0026gt; {{ end }} 動作確認 http://localhost:1313/404.html にアクセスして確認します。 ローカルでの確認の注意点として、ローカルは上記のリンクを直接開く必要があります。 GitHubPagesなどのサービスを利用している場合は、存在しないURLにアクセスされた場合は、404.htmlにリダイレクトしてくれます。 参考 Custom 404 Page"
-  },
-  {
-    url: "https://tech.choihack.com/post/varnish/varnish%E5%85%A5%E9%96%80/",
-    title: "Varnish入門",
-    date: "2021-07-13T23:51:01+09:00",
-    body: "Varnish入門 はじめに Varnish入門"
   },
   {
     url: "https://tech.choihack.com/post/hugo/",
@@ -39,6 +39,12 @@ var data = [
   },
   {
     url: "https://tech.choihack.com/post/",
+    title: "",
+    date: "2021-07-11T23:23:10+09:00",
+    body: ""
+  },
+  {
+    url: "https://tech.choihack.com/search/",
     title: "",
     date: "2021-07-11T23:23:10+09:00",
     body: ""
@@ -84,12 +90,6 @@ var data = [
     title: "Categories",
     date: "0001-01-01T00:00:00Z",
     body: "Categories"
-  },
-  {
-    url: "https://tech.choihack.com/search/",
-    title: "Searches",
-    date: "0001-01-01T00:00:00Z",
-    body: "Searches"
   },
   {
     url: "https://tech.choihack.com/tags/",

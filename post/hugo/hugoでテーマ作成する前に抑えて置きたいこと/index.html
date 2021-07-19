@@ -125,6 +125,24 @@ GitHubPagesなどのサービスを利用している場合は、存在しない
       
   
       
+        <a class="next" href="https://tech.choihack.com/post/hugo/%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%BB%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA%E6%95%B0%E3%81%AE%E5%8F%96%E5%BE%97/">
+          <article class="post-entry">
+  <header class="entry-header">
+    <h2>ページ・セクション・カテゴリ数の取得</h2>
+  </header>
+  <section class="entry-content">
+    <p>はじめに Hugoでページのデータを取得する方法をまとめました。
+取得方法 サイト内の全記事数 {{ len .Site.RegularPages }} サイト内の全ページ数 {{ len .Site.Pages }} ホームページから下層のページ、そして、カテゴリやタグページも含まれる。
+現在の階層の記事数 {{ len .RegularPages }} 現在の階層のページ数 {{ len .Pages }} ページにはセクションページも含まれる。
+現在の階層以下の全ての記事数 {{ len .RegularPagesRecursive }} ただし、listページでのみ使用できる。
+現在の階層のセクション数を取得 {{ len .Sections }} サイト内の全カテゴリ数 {{ len .Site.Taxonomies.categories }} サイト内の全タグ数 {{ len .Site.Taxonomies.tags }} ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2021-07-18</time>
+  </footer>
+</article>
+        </a>
+      
     </div>
 
     

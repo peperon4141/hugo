@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Searches on HUGOまとめ</title>
+    <title>HUGOまとめ</title>
     <link>https://tech.choihack.com/search/</link>
-    <description>Recent content in Searches on HUGOまとめ</description>
+    <description>Recent content on HUGOまとめ</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>© - 2021 - Hugoまとめ</copyright><atom:link href="https://tech.choihack.com/search/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© - 2021 - Hugoまとめ</copyright>
+    <lastBuildDate>Sun, 11 Jul 2021 23:23:10 +0900</lastBuildDate><atom:link href="https://tech.choihack.com/search/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
       <link>https://tech.choihack.com/search/data.js</link>
