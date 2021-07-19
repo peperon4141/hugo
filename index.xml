@@ -8,6 +8,26 @@
     <copyright>© - 2021 - Hugoまとめ</copyright>
     <lastBuildDate>Sun, 11 Jul 2021 23:23:10 +0900</lastBuildDate><atom:link href="https://tech.choihack.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Git submoduleを理解する</title>
+      <link>https://tech.choihack.com/post/git_submodule%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B/</link>
+      <pubDate>Tue, 20 Jul 2021 07:32:10 +0900</pubDate>
+      
+      <guid>https://tech.choihack.com/post/git_submodule%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B/</guid>
+      <description>はじめに Git submoduleとは外部のGitリポジトリを、自分のリポジトリのサブディレクトリとして登録する仕組みです。
+コマンドの使い方 頻出するコマンドをまとめます。
+今回はサンプルとして、MainroadというHugoのテーマを使います。
+ローカルワークスペースのthemes/mainroadディレクトリ以下に追加していきます。
+追加 git submodule add &amp;lt;リポジトリのURL&amp;gt; &amp;lt;ローカルのサブディレクトリ&amp;gt;
+git submodule add https://github.com/Vimux/Mainroad.git themes/mainroad themes/mainroad以下にmainroadがクローンされます。
+更新 git submodule update
+削除 git submodule deinit -f &amp;lt;サブモジュール&amp;gt;: s
+git rm -f &amp;lt;サブモジュール&amp;gt;: gitの管理から削除
+rm -rf .git/modules/&amp;lt;サブモジュール&amp;gt;: .gitからgit情報を削除
+git submodule deinit themes/mainroad git rm -f themes/mainroad rm -rf .git/modules/themes/mainroad submoduleを追加したときに起こっていること submoduleを理解するために、どんなことが起こっているのかを整理しておきましょう。
+追加されたファイルを確認 $ git status 8:18:14 ☁ master ☂ ✚ ✭ On branch master Changes to be committed: (use &amp;quot;git restore --staged &amp;lt;file&amp;gt;.</description>
+    </item>
+    
+    <item>
       <title>ページ・セクション・カテゴリ数の取得</title>
       <link>https://tech.choihack.com/post/hugo/%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%BB%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA%E6%95%B0%E3%81%AE%E5%8F%96%E5%BE%97/</link>
       <pubDate>Sun, 18 Jul 2021 16:34:14 +0900</pubDate>

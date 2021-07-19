@@ -54,6 +54,30 @@
   
   
   <h2>投稿一覧</h2>
+    <a class="entry-link" href="https://tech.choihack.com/post/git_submodule%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B/">
+      <article class="post-entry">
+  <header class="entry-header">
+    <h2>Git submoduleを理解する</h2>
+  </header>
+  <section class="entry-content">
+    <p>はじめに Git submoduleとは外部のGitリポジトリを、自分のリポジトリのサブディレクトリとして登録する仕組みです。
+コマンドの使い方 頻出するコマンドをまとめます。
+今回はサンプルとして、MainroadというHugoのテーマを使います。
+ローカルワークスペースのthemes/mainroadディレクトリ以下に追加していきます。
+追加 git submodule add &lt;リポジトリのURL&gt; &lt;ローカルのサブディレクトリ&gt;
+git submodule add https://github.com/Vimux/Mainroad.git themes/mainroad themes/mainroad以下にmainroadがクローンされます。
+更新 git submodule update
+削除 git submodule deinit -f &lt;サブモジュール&gt;: s
+git rm -f &lt;サブモジュール&gt;: gitの管理から削除
+rm -rf .git/modules/&lt;サブモジュール&gt;: .gitからgit情報を削除
+git submodule deinit themes/mainroad git rm -f themes/mainroad rm -rf .git/modules/themes/mainroad submoduleを追加したときに起こっていること submoduleを理解するために、どんなことが起こっているのかを整理しておきましょう。
+追加されたファイルを確認 $ git status 8:18:14 ☁ master ☂ ✚ ✭ On branch master Changes to be committed: (use &#34;git restore --staged &lt;file&gt;....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2021-07-20</time>
+  </footer>
+</article>
+    </a>
     <a class="entry-link" href="https://tech.choihack.com/post/hugo/%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%BB%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA%E6%95%B0%E3%81%AE%E5%8F%96%E5%BE%97/">
       <article class="post-entry">
   <header class="entry-header">
@@ -126,27 +150,6 @@ GitHubPagesなどのサービスを利用している場合は、存在しない
  .Site.Pages: サイト内の全ページ。セクションやtaxonomyページも含む .Site.RegularPages: サイト内の全通常ページ  以下の変数は、現在のスコープだけを返します。
  .Pages: 現在のページのスコープのregular pageとセクションページ。.Data.Pagesのエイリアスです。(第一階層のみ) .RegularPages: 現在のページのスコープのregular page。入れ子になっているものは除く .RegularPagesRecursive: 現在のページ以下の全てのregular page。入れ子になっているものを含む  regular pageから.Pagesや.RegularPagesを使用しても、空が返ります。
 セクション変数と関数  .Parent: ページのセクションや、セクションの親セクション .Section: 現在の記事が属するセクション ....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2021-07-11</time>
-  </footer>
-</article>
-    </a>
-    <a class="entry-link" href="https://tech.choihack.com/post/hugo/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%83%9E%E3%82%BF%E3%83%BC/">
-      <article class="post-entry">
-  <header class="entry-header">
-    <h2>フロントマター</h2>
-  </header>
-  <section class="entry-content">
-    <p>はじめに Hugoで記事を書く際に、各投稿の先頭に投稿の情報を記載できます。
-この情報のことをフロントマター（FrontMatter）と言います。
-フォーマット フロントマターはどんな記号で囲まれているかで、フォーマットの指定ができます。
- TOML: &#43;&#43;&#43; YAML: --- JSON: {}  中身はkeyvalueのペアで指定できます。
-TOMLの場合はdate = &#34;2021-07-11&#34;のように=で繋ぎます。
-定義済み変数 フロントマターには定義済み変数と独自定義変数が存在します。
-定義済み変数の一部は以下のようになっています。
- date: 投稿日付 description: コンテンツの説明 draft: trueなら下書き段階 images: 対象のページに関連する画像のパス配列。_internal/twitter_cards.htmlなどで使用される keywords: メタキーワード lastmod: 最終更新日付 linkTitle: コンテンツのリンク生成時に使用されるURL。Hugoはtitleの前にlinkTitleを使用する series: ページが属するシリーズ名 slug: 出力URLの末尾に表示される weight: 順番を並べ替える際に、小さいほど優先される  独自定義変数 include_toc = true このように定義した場合、.Params.include_tocで使用できます。
-参考   Front Matter   ...</p>
   </section>
   <footer class="entry-footer">
     <time>2021-07-11</time>
