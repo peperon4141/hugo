@@ -1,7 +1,9 @@
 {{ define "main" }}
 <main class="main">
   <!-- 記事一覧 -->
-  {{- $paginator := .Paginate (where .Site.RegularPages.ByDate.Reverse "Type" "post") }}
+
+  {{- $pages := cond (eq .Kind `section`) .RegularPagesRecursive.ByDate.Reverse .Site.RegularPages.ByDate.Reverse }}
+  {{- $paginator := .Paginate ($pages) }}
   
   <h2>投稿一覧</h2>
   {{- range $index, $page := $paginator.Pages }}

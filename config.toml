@@ -14,13 +14,18 @@ paginate = 5
   url = "/"
 
 [[menu.main]]
-  name = "投稿"
+  name = "Hugo"
   weight = -100
-  url = "/post"
+  url = "/post/hugo"
+
+[[menu.main]]
+  name = "GAS"
+  weight = -90
+  url = "/post/gas"
 
 [[menu.main]]
   name = "検索"
-  weight = -90
+  weight = -80
   url = "/search"
 
 [markup.goldmark.parser.attribute]
