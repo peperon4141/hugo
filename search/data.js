@@ -8,6 +8,12 @@ var data = [
     body: "Git submoduleを理解する はじめに Git submoduleとは外部のGitリポジトリを、自分のリポジトリのサブディレクトリとして登録する仕組みです。 コマンドの使い方 頻出するコマンドをまとめます。 今回はサンプルとして、MainroadというHugoのテーマを使います。 ローカルワークスペースのthemes/mainroadディレクトリ以下に追加していきます。 追加 git submodule add \u0026lt;リポジトリのURL\u0026gt; \u0026lt;ローカルのサブディレクトリ\u0026gt; git submodule add https://github.com/Vimux/Mainroad.git themes/mainroad themes/mainroad以下にmainroadがクローンされます。 更新 git submodule update 削除 git submodule deinit -f \u0026lt;サブモジュール\u0026gt;: s git rm -f \u0026lt;サブモジュール\u0026gt;: gitの管理から削除 rm -rf .git/modules/\u0026lt;サブモジュール\u0026gt;: .gitからgit情報を削除 git submodule deinit themes/mainroad git rm -f themes/mainroad rm -rf .git/modules/themes/mainroad submoduleを追加したときに起こっていること submoduleを理解するために、どんなことが起こっているのかを整理しておきましょう。 追加されたファイルを確認 $ git status 8:18:14 ☁ master ☂ ✚ ✭ On branch master Changes to be committed: (use \u0026quot;git restore --staged \u0026lt;file\u0026gt;...\u0026quot; to unstage) new file: .gitmodules new file: themes/mainroad .gitmodulesファイルとthemes/mainroadディレクトリが追加されていることがわかります。 .gitmodulesファイルの中身 .gitmodulesの中身は以下のようになっています。 [submodule \u0026quot;themes/mainroad\u0026quot;] path = themes/mainroad url = https://github.com/Vimux/Mainroad.git path: ローカルのパス url: submoduleとして読み込んだリポジトリのURL .gitディレクトリ内への情報の追加 通常Gitを使っていると、.gitディレクトリが追加され、中にはcommitやconfigなどの情報が保存されます。 submoduleの場合は、modules以下に同様の情報が追加されます。 今回のサンプルの場合は、.git/modules/mainroadディレクトリに情報が追加されます。 差分チェック $ git diff --cached 8:18:29 ☁ master ☂ ✚ ✭ diff --git a/.gitmodules b/.gitmodules new file mode 100644 index 0000000..537ffba --- /dev/null +++ b/.gitmodules @@ -0,0 +1,3 @@ +[submodule \u0026quot;themes/mainroad\u0026quot;] + path = themes/mainroad + url = https://github.com/Vimux/Mainroad.git diff --git a/themes/mainroad b/themes/mainroad new file mode 160000 index 0000000..043befb --- /dev/null +++ b/themes/mainroad @@ -0,0 +1 @@ +Subproject commit 043befbc585e5a1d7859cfd1f1700d9a5a09cca8 Subproject commit 043befbc585e5a1d7859cfd1f1700d9a5a09cca8が重要です。 mainroadの043befbc585e5a1d7859cfd1f1700d9a5a09cca8コミットを themes/mainroadディレクトリにsubdmouleとして登録した という意味です。 さいごに 参照: Git submodule の基礎"
   },
   {
+    url: "https://tech.choihack.com/post/gas/gas%E3%81%A7linebot%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/",
+    title: "GASでLINEBotを作成する方法",
+    date: "2021-07-19T08:45:56+09:00",
+    body: "GASでLINEBotを作成する方法 はじめに いい家計簿アプリが見つからなかったので、GASを使って家計簿アプリを作成してみました。 この記事では全ての手順は解説せず、注意点だけを備忘録的に記載します。 LINEの設定 LINE Developersアカウントを作成 以下からアカウントを作成する。 https://developers.line.biz/ja/ プロバイダー作成 LINE Developersの画面から、プロバイダーを作成する。 プロバイダーとはサービスを提供する組織や個人のこと。 Webhookの利用を有効化 Webhookの利用が初期状態では無効なので有効化する。 GASのウェブアプリがデプロイ済みであれば、URLも設定して検証を行う。 グループ・複数人チャットへの参加を許可する PUSH_MESSAGEのAPIを利用する場合、そのLINEグループのGroupIDが必要となる。 LINEグループへBotを追加するには、Botが承認を有効にする必要があるので、「グループ・複数人チャットへの参加を許可する」を有効にしておく。 GASの設定 ログの設定 LINE Botを作成するに当たり、GASのdoPost関数を利用します。 しかし、doPostはログを確認できません。 正確に言うと、エディタから実行した場合はログが見れますが、外部から実行された場合そのログは確認できません。 外部から実行された場合でもログを確認するためには、Google Cloud Platform (GCP) と紐付ける必要があります。 裏技的に、スプレッドシートをログ代わりにすることも可能です。"
+  },
+  {
     url: "https://tech.choihack.com/post/hugo/%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%BB%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA%E6%95%B0%E3%81%AE%E5%8F%96%E5%BE%97/",
     title: "ページ・セクション・カテゴリ数の取得",
     date: "2021-07-18T16:34:14+09:00",
@@ -24,6 +30,12 @@ var data = [
     title: "404ページを作成する",
     date: "2021-07-13T23:51:01+09:00",
     body: "404ページを作成する はじめに 404ステータスとは、ページが見つからない場合に返すステータスのことです。 Hugoでは存在しないページ用のHTMLも独自定義できます。 作成方法 /layouts/404.htmlにページを作成します。 {{ define \u0026quot;main\u0026quot;}} \u0026lt;main id=\u0026quot;main\u0026quot;\u0026gt; \u0026lt;div\u0026gt; \u0026lt;h1 id=\u0026quot;title\u0026quot;\u0026gt;\u0026lt;a href=\u0026quot;{{ \u0026quot;/\u0026quot; | relURL }}\u0026quot;\u0026gt;Go Home\u0026lt;/a\u0026gt;\u0026lt;/h1\u0026gt; \u0026lt;/div\u0026gt; \u0026lt;/main\u0026gt; {{ end }} 動作確認 http://localhost:1313/404.html にアクセスして確認します。 ローカルでの確認の注意点として、ローカルは上記のリンクを直接開く必要があります。 GitHubPagesなどのサービスを利用している場合は、存在しないURLにアクセスされた場合は、404.htmlにリダイレクトしてくれます。 参考 Custom 404 Page"
+  },
+  {
+    url: "https://tech.choihack.com/post/gas/",
+    title: "",
+    date: "2021-07-11T23:23:10+09:00",
+    body: ""
   },
   {
     url: "https://tech.choihack.com/post/hugo/",

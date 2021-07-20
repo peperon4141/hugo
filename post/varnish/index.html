@@ -29,7 +29,8 @@
     <h1 class="logo"><a href="https://tech.choihack.com/">HUGOまとめ</a></h1>
       <ul class="menu">
         <li><a href="/">TOP</a></li>
-        <li><a href="/post">投稿</a></li>
+        <li><a href="/post/hugo">Hugo</a></li>
+        <li><a href="/post/gas">GAS</a></li>
         <li><a href="/search">検索</a></li>
       </ul>
   </nav>
@@ -52,119 +53,14 @@
   </nav>
 </header>
 
-  <body class="dark list"></body>
+  <body class="dark section"></body>
     
 <main class="main">
   
   
   <h2>投稿一覧</h2>
-    <a class="entry-link" href="https://tech.choihack.com/post/git_submodule%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B/">
-      <article class="post-entry">
-  <header class="entry-header">
-    <h2>Git submoduleを理解する</h2>
-  </header>
-  <section class="entry-content">
-    <p>はじめに Git submoduleとは外部のGitリポジトリを、自分のリポジトリのサブディレクトリとして登録する仕組みです。
-コマンドの使い方 頻出するコマンドをまとめます。
-今回はサンプルとして、MainroadというHugoのテーマを使います。
-ローカルワークスペースのthemes/mainroadディレクトリ以下に追加していきます。
-追加 git submodule add &lt;リポジトリのURL&gt; &lt;ローカルのサブディレクトリ&gt;
-git submodule add https://github.com/Vimux/Mainroad.git themes/mainroad themes/mainroad以下にmainroadがクローンされます。
-更新 git submodule update
-削除 git submodule deinit -f &lt;サブモジュール&gt;: s
-git rm -f &lt;サブモジュール&gt;: gitの管理から削除
-rm -rf .git/modules/&lt;サブモジュール&gt;: .gitからgit情報を削除
-git submodule deinit themes/mainroad git rm -f themes/mainroad rm -rf .git/modules/themes/mainroad submoduleを追加したときに起こっていること submoduleを理解するために、どんなことが起こっているのかを整理しておきましょう。
-追加されたファイルを確認 $ git status 8:18:14 ☁ master ☂ ✚ ✭ On branch master Changes to be committed: (use &#34;git restore --staged &lt;file&gt;....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2021-07-20</time>
-  </footer>
-</article>
-    </a>
-    <a class="entry-link" href="https://tech.choihack.com/post/hugo/%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%BB%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA%E6%95%B0%E3%81%AE%E5%8F%96%E5%BE%97/">
-      <article class="post-entry">
-  <header class="entry-header">
-    <h2>ページ・セクション・カテゴリ数の取得</h2>
-  </header>
-  <section class="entry-content">
-    <p>はじめに Hugoでページのデータを取得する方法をまとめました。
-取得方法 サイト内の全記事数 {{ len .Site.RegularPages }} サイト内の全ページ数 {{ len .Site.Pages }} ホームページから下層のページ、そして、カテゴリやタグページも含まれる。
-現在の階層の記事数 {{ len .RegularPages }} 現在の階層のページ数 {{ len .Pages }} ページにはセクションページも含まれる。
-現在の階層以下の全ての記事数 {{ len .RegularPagesRecursive }} ただし、listページでのみ使用できる。
-現在の階層のセクション数を取得 {{ len .Sections }} サイト内の全カテゴリ数 {{ len .Site.Taxonomies.categories }} サイト内の全タグ数 {{ len .Site.Taxonomies.tags }} ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2021-07-18</time>
-  </footer>
-</article>
-    </a>
-    <a class="entry-link" href="https://tech.choihack.com/post/hugo/hugo%E3%81%A7%E3%83%86%E3%83%BC%E3%83%9E%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E5%89%8D%E3%81%AB%E6%8A%91%E3%81%88%E3%81%A6%E7%BD%AE%E3%81%8D%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8/">
-      <article class="post-entry">
-  <header class="entry-header">
-    <h2>Hugoでテーマ作成する前に抑えて置きたいこと</h2>
-  </header>
-  <section class="entry-content">
-    <p>はじめに 私はHugoでテーマを作成していますが、よく探さないと記載されていなかったり、あやふやなまま使っていた書き方がありました。
-そこでそれらをまとめてみました。
-Hugoのテンプレートのハイフンの有無 以下のように、{{}}内に-を書いていたり、いなかったりするテーマを見かけます。
-&lt;div&gt; {{- .Title -}} &lt;/div&gt; この出力結果は以下です。
-&lt;div&gt;Hello, World!&lt;/div&gt; &lt;div&gt; {{ .Title }} &lt;/div&gt; このようにハイフンがない場合は以下のようになります。
-&lt;div&gt; Hello, World! &lt;/div&gt; なので、前後のwhitespaceが消えます。
- Whitespace 参考   Introduction to Hugo Templating   ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2021-07-14</time>
-  </footer>
-</article>
-    </a>
-    <a class="entry-link" href="https://tech.choihack.com/post/hugo/404%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B/">
-      <article class="post-entry">
-  <header class="entry-header">
-    <h2>404ページを作成する</h2>
-  </header>
-  <section class="entry-content">
-    <p>はじめに 404ステータスとは、ページが見つからない場合に返すステータスのことです。
-Hugoでは存在しないページ用のHTMLも独自定義できます。
-作成方法 /layouts/404.htmlにページを作成します。
-{{ define &#34;main&#34;}} &lt;main id=&#34;main&#34;&gt; &lt;div&gt; &lt;h1 id=&#34;title&#34;&gt;&lt;a href=&#34;{{ &#34;/&#34; | relURL }}&#34;&gt;Go Home&lt;/a&gt;&lt;/h1&gt; &lt;/div&gt; &lt;/main&gt; {{ end }} 動作確認 http://localhost:1313/404.html にアクセスして確認します。
-ローカルでの確認の注意点として、ローカルは上記のリンクを直接開く必要があります。
-GitHubPagesなどのサービスを利用している場合は、存在しないURLにアクセスされた場合は、404.htmlにリダイレクトしてくれます。
-参考   Custom 404 Page   ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2021-07-13</time>
-  </footer>
-</article>
-    </a>
-    <a class="entry-link" href="https://tech.choihack.com/post/hugo/%E3%83%9A%E3%83%BC%E3%82%B8%E5%A4%89%E6%95%B0/">
-      <article class="post-entry">
-  <header class="entry-header">
-    <h2>ページ変数</h2>
-  </header>
-  <section class="entry-content">
-    <p>はじめに ページ毎の変数は、 フロントマター で定義されるか、コンテンツのファイルの場所から生成されるか、コンテンツ本体から生成されます。
-この記事では、ページレベル変数のリストの一部をまとめました。
-ページ変数 多くの変数は、 フロントマター で定義されている変数です。
-その中の一部を説明します。
- .Kind: page、home、section、taxonomy、term、RSS、sitemap、robotsTXT、404などページの種類 .LinkTitle: ページのリンクを設定。設定されていれば、titleより優先的に使用される .Next: 次のregular page .Prev: 前のregular page .Site: Site Variables  .Type: Content Types タイプが未設定ならcontent/&lt;TYPE&gt;のフォルダ名がタイプになる  .Pages変数 regular pageはpostページかcontentページです。
-一方、list pageはregular pageか他のlist pageを一覧化します。
-（例: homepage、section page、taxonomy term page、taxonomypage）
-記事をツリー状にした場合、末端がregular page、幹がlist pageです。
- .Site.Pages: サイト内の全ページ。セクションやtaxonomyページも含む .Site.RegularPages: サイト内の全通常ページ  以下の変数は、現在のスコープだけを返します。
- .Pages: 現在のページのスコープのregular pageとセクションページ。.Data.Pagesのエイリアスです。(第一階層のみ) .RegularPages: 現在のページのスコープのregular page。入れ子になっているものは除く .RegularPagesRecursive: 現在のページ以下の全てのregular page。入れ子になっているものを含む  regular pageから.Pagesや.RegularPagesを使用しても、空が返ります。
-セクション変数と関数  .Parent: ページのセクションや、セクションの親セクション .Section: 現在の記事が属するセクション ....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2021-07-11</time>
-  </footer>
-</article>
-    </a>
 
   
-    <nav class="pagination">
-      <a class="next" href="/post/varnish/page/2/">次の投稿 →</a>
-    </nav>
 </main>
   </body>
 

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HUGOまとめ</title>
+    <link>https://tech.choihack.com/post/gas/</link>
+    <description>Recent content on HUGOまとめ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>© - 2021 - Hugoまとめ</copyright>
+    <lastBuildDate>Sun, 11 Jul 2021 23:23:10 +0900</lastBuildDate><atom:link href="https://tech.choihack.com/post/gas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GASでLINEBotを作成する方法</title>
+      <link>https://tech.choihack.com/post/gas/gas%E3%81%A7linebot%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Mon, 19 Jul 2021 08:45:56 +0900</pubDate>
+      
+      <guid>https://tech.choihack.com/post/gas/gas%E3%81%A7linebot%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/</guid>
+      <description>はじめに いい家計簿アプリが見つからなかったので、GASを使って家計簿アプリを作成してみました。
+この記事では全ての手順は解説せず、注意点だけを備忘録的に記載します。
+LINEの設定 LINE Developersアカウントを作成 以下からアカウントを作成する。
+https://developers.line.biz/ja/
+プロバイダー作成 LINE Developersの画面から、プロバイダーを作成する。
+プロバイダーとはサービスを提供する組織や個人のこと。
+Webhookの利用を有効化 Webhookの利用が初期状態では無効なので有効化する。
+GASのウェブアプリがデプロイ済みであれば、URLも設定して検証を行う。
+グループ・複数人チャットへの参加を許可する PUSH_MESSAGEのAPIを利用する場合、そのLINEグループのGroupIDが必要となる。
+LINEグループへBotを追加するには、Botが承認を有効にする必要があるので、「グループ・複数人チャットへの参加を許可する」を有効にしておく。
+GASの設定 ログの設定 LINE Botを作成するに当たり、GASのdoPost関数を利用します。
+しかし、doPostはログを確認できません。
+正確に言うと、エディタから実行した場合はログが見れますが、外部から実行された場合そのログは確認できません。
+外部から実行された場合でもログを確認するためには、Google Cloud Platform (GCP) と紐付ける必要があります。
+裏技的に、スプレッドシートをログ代わりにすることも可能です。</description>
+    </item>
+    
+  </channel>
+</rss>

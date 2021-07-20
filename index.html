@@ -29,7 +29,8 @@
     <h1 class="logo"><a href="https://tech.choihack.com/">HUGOまとめ</a></h1>
       <ul class="menu">
         <li><a href="/">TOP</a></li>
-        <li><a href="/post">投稿</a></li>
+        <li><a href="/post/hugo">Hugo</a></li>
+        <li><a href="/post/gas">GAS</a></li>
         <li><a href="/search">検索</a></li>
       </ul>
   </nav>
@@ -44,7 +45,7 @@
   </nav>
 </header>
 
-  <body class="dark list home"></body>
+  <body class="dark home"></body>
     
 <main class="main">
   
@@ -71,6 +72,33 @@ git submodule deinit themes/mainroad git rm -f themes/mainroad rm -rf .git/modul
   </section>
   <footer class="entry-footer">
     <time>2021-07-20</time>
+  </footer>
+</article>
+    </a>
+    <a class="entry-link" href="https://tech.choihack.com/post/gas/gas%E3%81%A7linebot%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/">
+      <article class="post-entry">
+  <header class="entry-header">
+    <h2>GASでLINEBotを作成する方法</h2>
+  </header>
+  <section class="entry-content">
+    <p>はじめに いい家計簿アプリが見つからなかったので、GASを使って家計簿アプリを作成してみました。
+この記事では全ての手順は解説せず、注意点だけを備忘録的に記載します。
+LINEの設定 LINE Developersアカウントを作成 以下からアカウントを作成する。
+https://developers.line.biz/ja/
+プロバイダー作成 LINE Developersの画面から、プロバイダーを作成する。
+プロバイダーとはサービスを提供する組織や個人のこと。
+Webhookの利用を有効化 Webhookの利用が初期状態では無効なので有効化する。
+GASのウェブアプリがデプロイ済みであれば、URLも設定して検証を行う。
+グループ・複数人チャットへの参加を許可する PUSH_MESSAGEのAPIを利用する場合、そのLINEグループのGroupIDが必要となる。
+LINEグループへBotを追加するには、Botが承認を有効にする必要があるので、「グループ・複数人チャットへの参加を許可する」を有効にしておく。
+GASの設定 ログの設定 LINE Botを作成するに当たり、GASのdoPost関数を利用します。
+しかし、doPostはログを確認できません。
+正確に言うと、エディタから実行した場合はログが見れますが、外部から実行された場合そのログは確認できません。
+外部から実行された場合でもログを確認するためには、Google Cloud Platform (GCP) と紐付ける必要があります。
+裏技的に、スプレッドシートをログ代わりにすることも可能です。...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2021-07-19</time>
   </footer>
 </article>
     </a>
@@ -126,29 +154,6 @@ GitHubPagesなどのサービスを利用している場合は、存在しない
   </section>
   <footer class="entry-footer">
     <time>2021-07-13</time>
-  </footer>
-</article>
-    </a>
-    <a class="entry-link" href="https://tech.choihack.com/post/hugo/%E3%83%9A%E3%83%BC%E3%82%B8%E5%A4%89%E6%95%B0/">
-      <article class="post-entry">
-  <header class="entry-header">
-    <h2>ページ変数</h2>
-  </header>
-  <section class="entry-content">
-    <p>はじめに ページ毎の変数は、 フロントマター で定義されるか、コンテンツのファイルの場所から生成されるか、コンテンツ本体から生成されます。
-この記事では、ページレベル変数のリストの一部をまとめました。
-ページ変数 多くの変数は、 フロントマター で定義されている変数です。
-その中の一部を説明します。
- .Kind: page、home、section、taxonomy、term、RSS、sitemap、robotsTXT、404などページの種類 .LinkTitle: ページのリンクを設定。設定されていれば、titleより優先的に使用される .Next: 次のregular page .Prev: 前のregular page .Site: Site Variables  .Type: Content Types タイプが未設定ならcontent/&lt;TYPE&gt;のフォルダ名がタイプになる  .Pages変数 regular pageはpostページかcontentページです。
-一方、list pageはregular pageか他のlist pageを一覧化します。
-（例: homepage、section page、taxonomy term page、taxonomypage）
-記事をツリー状にした場合、末端がregular page、幹がlist pageです。
- .Site.Pages: サイト内の全ページ。セクションやtaxonomyページも含む .Site.RegularPages: サイト内の全通常ページ  以下の変数は、現在のスコープだけを返します。
- .Pages: 現在のページのスコープのregular pageとセクションページ。.Data.Pagesのエイリアスです。(第一階層のみ) .RegularPages: 現在のページのスコープのregular page。入れ子になっているものは除く .RegularPagesRecursive: 現在のページ以下の全てのregular page。入れ子になっているものを含む  regular pageから.Pagesや.RegularPagesを使用しても、空が返ります。
-セクション変数と関数  .Parent: ページのセクションや、セクションの親セクション .Section: 現在の記事が属するセクション ....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2021-07-11</time>
   </footer>
 </article>
     </a>
