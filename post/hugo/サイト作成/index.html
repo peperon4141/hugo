@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="">
-  
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-  <title>サイト作成 - HUGOまとめ</title>
-  
-  <meta name="description" content="Hugoとは Hugoは静的サイトジェネレーターと呼ばれ、Markdown形式のコンテンツからHTMLを作成してくれます。
+<!doctype html><html lang><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>サイト作成 - こつこつナレッジ</title><meta name=description content="Hugoとは Hugoは静的サイトジェネレーターと呼ばれ、Markdown形式のコンテンツからHTMLを作成してくれます。
 HugoはGoogle製のGo言語で作成されており、サイト作成の速度が非常に高速です。
 この記事では、MacOSでの環境構築について説明します。
 Hugoインストール Homebrewを使用すると簡単にインストールできます。
@@ -20,158 +10,28 @@ git init(gitの初期化)を実行した後に以下を実行します。
 git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke submodule addはgitのリポジトリ内に、子供のリポジトリを追加するコマンドです。
 https://github.com/theNewDynamic/gohugo-theme-ananke.gitで定義されているHugoのテーマファイルを、ローカルのthemes/anankeディレクトリに保存しています。
 submoduleとして追加しなくても、ダウンロードしてきたテーマファイルを配置しても構いません。
-完了した後theme = &quot;ananke&quot;のようにconfig.tomlファイルに追加することでテーマを使用できます。
-投稿の追加 投稿はcontent/&lt;CATEGORY&gt;/&lt;FILE&gt;.&lt;FORMAT&gt;という形式で保存します。
+完了した後theme = &#34;ananke&#34;のようにconfig.tomlファイルに追加することでテーマを使用できます。
+投稿の追加 投稿はcontent/<CATEGORY>/<FILE>.<FORMAT>という形式で保存します。
 hugo new post/first-post.md と実行すると、content/post/first-post.mdに投稿んぼ雛形が追加されます。
---- title: &quot;My First Post&quot; date: 2019-03-26T08:47:11&#43;01:00 draft: true --- 中にはこのような情報が記載されており、記事の詳細情報を定義することができます。
+--- title: &#34;My First Post&#34; date: 2019-03-26T08:47:11+01:00 draft: true --- 中にはこのような情報が記載されており、記事の詳細情報を定義することができます。
 Hugoを起動する hugo server -D このコマンドで起動できます。
-通常 http://localhost:1313/ にアクセスすると立ち上げたサーバーにアクセスできます。">
-  <meta name="author" content="">
-  
-  <link href="https://tech.choihack.com/an-old-hope.min.css" rel="stylesheet">
-  <link href="https://tech.choihack.com/style.css" rel="stylesheet">
-  <link href="https://tech.choihack.com/custom.css" rel="stylesheet">
-  
-  <link rel="apple-touch-icon" href="https://tech.choihack.com/apple-touch-icon.png">
-  <link rel="icon" href="https://tech.choihack.com/favicon.ico">
-  <meta name="generator" content="Hugo 0.85.0" />
-  
-  
-</head>
-
-  <header class="header">
-  
-  <nav class="nav">
-    <h1 class="logo"><a href="https://tech.choihack.com/">HUGOまとめ</a></h1>
-      <ul class="menu">
-        <li><a href="/">TOP</a></li>
-        <li><a href="/post/hugo">Hugo</a></li>
-        <li><a href="/post/gas">GAS</a></li>
-        <li><a href="/search">検索</a></li>
-      </ul>
-  </nav>
-
-  
-  <nav class="breadcrumb">
-    <ul>
-      
-      
-      
-
-    
-      <li><a href="https://tech.choihack.com/" >TOP</a></li>
-
-    
-      <li><a href="https://tech.choihack.com/post/" >投稿</a></li>
-
-    
-      <li><a href="https://tech.choihack.com/post/hugo/" >Hugo</a></li>
-
-    
-      <li class="active">サイト作成</li>
-    </ul>
-  </nav>
-</header>
-
-  <body class="dark page"></body>
-    
-<main class="main">
-  <article class="post-single">
-
-    
-    <header class="post-header">
-      <h1 class="post-title">サイト作成</h1>
-      <div class="post-meta">2021.07.11</div>
-    </header>
-    <div class="post-content"><h2 id="hugoとは">Hugoとは</h2>
-<p>Hugoは静的サイトジェネレーターと呼ばれ、Markdown形式のコンテンツからHTMLを作成してくれます。<br>
-HugoはGoogle製のGo言語で作成されており、サイト作成の速度が非常に高速です。<br>
-この記事では、MacOSでの環境構築について説明します。</p>
-<h2 id="hugoインストール">Hugoインストール</h2>
-<p>Homebrewを使用すると簡単にインストールできます。</p>
-<pre><code>$ brew install hugo
-</code></pre><p>無事インストールが完了していると、以下のコマンドでバージョンが表示されるはずです。</p>
-<pre><code>$ hugo version
+通常 http://localhost:1313/ にアクセスすると立ち上げたサーバーにアクセスできます。"><meta name=author content><link rel=stylesheet href=https://tech.choihack.com/scss/style.a1c07ff09977aa847ea32d7ab05ba0cca0e0f582011a9794e629bcd0e019d6ca.css><link href=https://tech.choihack.com/custom.css rel=stylesheet><link rel=apple-touch-icon href=https://tech.choihack.com/apple-touch-icon.png><link rel=icon href=https://tech.choihack.com/favicon.ico><meta name=generator content="Hugo 0.85.0"></head><header class=header><nav class=nav><h1 class=logo><a href=https://tech.choihack.com/>こつこつナレッジ</a></h1><ul class=menu><li><a href=/>TOP</a></li><li><a href=/post/hugo>Hugo</a></li><li><a href=/post/gas>GAS</a></li><li><a href=/search>検索</a></li></ul></nav><nav class=breadcrumb><ul><li><a href=https://tech.choihack.com/>TOP</a></li><li><a href=https://tech.choihack.com/post/>投稿</a></li><li><a href=https://tech.choihack.com/post/hugo/>Hugo</a></li><li class=active>サイト作成</li></ul></nav></header><body class="dark page"></body><main class=post><article><header class=post-header><h1 class=post-title>サイト作成</h1><div class=post-meta>2021.07.11</div></header><div class=post-content><h2 id=hugoとは>Hugoとは</h2><p>Hugoは静的サイトジェネレーターと呼ばれ、Markdown形式のコンテンツからHTMLを作成してくれます。<br>HugoはGoogle製のGo言語で作成されており、サイト作成の速度が非常に高速です。<br>この記事では、MacOSでの環境構築について説明します。</p><h2 id=hugoインストール>Hugoインストール</h2><p>Homebrewを使用すると簡単にインストールできます。</p><pre><code>$ brew install hugo
+</code></pre><p>無事インストールが完了していると、以下のコマンドでバージョンが表示されるはずです。</p><pre><code>$ hugo version
 Hugo Static Site Generator v0.79.0/extended darwin/amd64 BuildDate: unknown
-</code></pre><h2 id="新しいサイトの作成">新しいサイトの作成</h2>
-<pre><code>$ hugo new site new_site_name
-</code></pre><p>このコマンドを実行することで、<code>new_site_name</code>というフォルダー名で新しいサイトが作成できます。</p>
-<h2 id="テーマの追加">テーマの追加</h2>
-<p>Hugoはテーマという仕組みで、簡単にサイトのデザインを使用できます。<br>
-テーマファイルは、<code>themes/theme_name</code>ディレクトリに保存されます。</p>
-<p><code>git init</code>(gitの初期化)を実行した後に以下を実行します。</p>
-<pre><code>git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
-</code></pre><p><code>submodule add</code>はgitのリポジトリ内に、子供のリポジトリを追加するコマンドです。<br>
-<code>https://github.com/theNewDynamic/gohugo-theme-ananke.git</code>で定義されているHugoのテーマファイルを、ローカルの<code>themes/ananke</code>ディレクトリに保存しています。<br>
-submoduleとして追加しなくても、ダウンロードしてきたテーマファイルを配置しても構いません。</p>
-<p>完了した後<code>theme = &quot;ananke&quot;</code>のようにconfig.tomlファイルに追加することでテーマを使用できます。</p>
-<h2 id="投稿の追加">投稿の追加</h2>
-<p>投稿は<code>content/&lt;CATEGORY&gt;/&lt;FILE&gt;.&lt;FORMAT&gt;</code>という形式で保存します。</p>
-<pre><code>hugo new post/first-post.md
-</code></pre><p>と実行すると、<code>content/post/first-post.md</code>に投稿んぼ雛形が追加されます。</p>
-<pre><code>---
+</code></pre><h2 id=新しいサイトの作成>新しいサイトの作成</h2><pre><code>$ hugo new site new_site_name
+</code></pre><p>このコマンドを実行することで、<code>new_site_name</code>というフォルダー名で新しいサイトが作成できます。</p><h2 id=テーマの追加>テーマの追加</h2><p>Hugoはテーマという仕組みで、簡単にサイトのデザインを使用できます。<br>テーマファイルは、<code>themes/theme_name</code>ディレクトリに保存されます。</p><p><code>git init</code>(gitの初期化)を実行した後に以下を実行します。</p><pre><code>git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
+</code></pre><p><code>submodule add</code>はgitのリポジトリ内に、子供のリポジトリを追加するコマンドです。<br><code>https://github.com/theNewDynamic/gohugo-theme-ananke.git</code>で定義されているHugoのテーマファイルを、ローカルの<code>themes/ananke</code>ディレクトリに保存しています。<br>submoduleとして追加しなくても、ダウンロードしてきたテーマファイルを配置しても構いません。</p><p>完了した後<code>theme = "ananke"</code>のようにconfig.tomlファイルに追加することでテーマを使用できます。</p><h2 id=投稿の追加>投稿の追加</h2><p>投稿は<code>content/&lt;CATEGORY>/&lt;FILE>.&lt;FORMAT></code>という形式で保存します。</p><pre><code>hugo new post/first-post.md
+</code></pre><p>と実行すると、<code>content/post/first-post.md</code>に投稿んぼ雛形が追加されます。</p><pre><code>---
 title: &quot;My First Post&quot;
 date: 2019-03-26T08:47:11+01:00
 draft: true
 ---
-</code></pre><p>中にはこのような情報が記載されており、記事の詳細情報を定義することができます。</p>
-<h2 id="hugoを起動する">Hugoを起動する</h2>
-<pre><code>hugo server -D
-</code></pre><p>このコマンドで起動できます。<br>
-通常 http://localhost:1313/ にアクセスすると立ち上げたサーバーにアクセスできます。</p>
-<h2 id="ビルドする">ビルドする</h2>
-<p>以下のコマンドでサイトをビルドできます。<br>
-初期状態では<code>public</code>ディレクトリにサイトが作成されます。</p>
-<pre><code>hugo 
-</code></pre><h2 id="参考">参考</h2>
-<p>
-<a href="https://gohugo.io/getting-started/quick-start/" target="_blank">QuickStart</a>
-</p>
-</div>
-
-    
-    <div class="prev-next">
-      
-  
-      
-        <a class="next" href="https://tech.choihack.com/post/hugo/config.toml%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/">
-          <article class="post-entry">
-  <header class="entry-header">
-    <h2>config.tomlファイルの使い方</h2>
-  </header>
-  <section class="entry-content">
-    <p>コンフィグファイルの種類 Hugoではいくつかのコンフィグファイルの種類が定義でき、好きな形式で書くことができます。
- config.toml config.yaml config.json  ここでは、TOML形式で定義したコンフィグファイルの説明を行います。
+</code></pre><p>中にはこのような情報が記載されており、記事の詳細情報を定義することができます。</p><h2 id=hugoを起動する>Hugoを起動する</h2><pre><code>hugo server -D
+</code></pre><p>このコマンドで起動できます。<br>通常 http://localhost:1313/ にアクセスすると立ち上げたサーバーにアクセスできます。</p><h2 id=ビルドする>ビルドする</h2><p>以下のコマンドでサイトをビルドできます。<br>初期状態では<code>public</code>ディレクトリにサイトが作成されます。</p><pre><code>hugo 
+</code></pre><h2 id=参考>参考</h2><p><a href=https://gohugo.io/getting-started/quick-start/ target=_blank>QuickStart</a></p></div><div class=prev-next><a class=next href=https://tech.choihack.com/post/hugo/config.toml%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/><article class=article-card><header class=article-card-header><h2>config.tomlファイルの使い方</h2></header><section class=article-card-content><p>コンフィグファイルの種類 Hugoではいくつかのコンフィグファイルの種類が定義でき、好きな形式で書くことができます。
+config.toml config.yaml config.json ここでは、TOML形式で定義したコンフィグファイルの説明を行います。
 config.tomlファイルの読み方 TOMLとJSONファイルを変換できるサイトがあるので、一度確認すると意味がわかりやすいです。
 TOML 参考にTOMLをJSONに変換したものを載せます。
 TOML
-title = &#34;TOML Example&#34; [test] a = 1 [[table]] b = 2 [[table]] c = 3 [table3.inner] d = 4 [[table2.description]] e = 5 JSON
-{ &#34;title&#34;: &#34;TOML Example&#34;, &#34;test&#34;: { &#34;a&#34;: 1 }, &#34;table&#34;: [ { &#34;b&#34;: 2 }, { &#34;c&#34;: 3 } ], &#34;table3&#34;: { &#34;inner&#34;: { &#34;d&#34;: 4 } }, &#34;table2&#34;: { &#34;description&#34;: [ { &#34;e&#34;: 5 } ] } } TOMLで[[&lt;PARAM_NAME&gt;]]のように2重の括弧で囲むと、配列として定義されることがわかります。...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2021-07-11</time>
-  </footer>
-</article>
-        </a>
-      
-    </div>
-
-    
-
-    
-
-  </article>
-</main>
-  </body>
-
-  <footer class="footer">
-  <p class="text-center">© - 2021 - Hugoまとめ</p>
-</footer>
-
-
-<script src="https://tech.choihack.com/highlight.min.js"></script>
-<script>
-  hljs.initHighlightingOnLoad();
-</script>
-
-</html>
+title = "TOML Example" [test] a = 1 [[table]] b = 2 [[table]] c = 3 [table3.inner] d = 4 [[table2.description]] e = 5 JSON
+{ "title": "TOML Example", "test": { "a": 1 }, "table": [ { "b": 2 }, { "c": 3 } ], "table3": { "inner": { "d": 4 } }, "table2": { "description": [ { "e": 5 } ] } } TOMLで[[&lt;PARAM_NAME>]]のように2重の括弧で囲むと、配列として定義されることがわかります。...</p></section><footer class=article-card-footer><time>2021-07-11</time></footer></article></a></div></article><aside class=aside><h2>目次</h2><nav id=TableOfContents><ul><li><a href=#hugoとは>Hugoとは</a></li><li><a href=#hugoインストール>Hugoインストール</a></li><li><a href=#新しいサイトの作成>新しいサイトの作成</a></li><li><a href=#テーマの追加>テーマの追加</a></li><li><a href=#投稿の追加>投稿の追加</a></li><li><a href=#hugoを起動する>Hugoを起動する</a></li><li><a href=#ビルドする>ビルドする</a></li><li><a href=#参考>参考</a></li></ul></nav></aside></main></body><footer class=footer><p class=text-center>© - 2021 - Hugoまとめ</p></footer><script src=https://tech.choihack.com/highlight.min.js></script><script>hljs.initHighlightingOnLoad()</script></html>

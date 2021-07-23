@@ -1,10 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Categories on HUGOまとめ</title>
-    <link>https://tech.choihack.com/categories/</link>
-    <description>Recent content in Categories on HUGOまとめ</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>© - 2021 - Hugoまとめ</copyright><atom:link href="https://tech.choihack.com/categories/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on こつこつナレッジ</title><link>https://tech.choihack.com/categories/</link><description>Recent content in Categories on こつこつナレッジ</description><generator>Hugo -- gohugo.io</generator><copyright>© - 2021 - Hugoまとめ</copyright><atom:link href="https://tech.choihack.com/categories/index.xml" rel="self" type="application/rss+xml"/></channel></rss>

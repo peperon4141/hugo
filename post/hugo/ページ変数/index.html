@@ -1,198 +1,32 @@
-<!DOCTYPE html>
-<html lang="">
-  
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-  <title>ページ変数 - HUGOまとめ</title>
-  
-  <meta name="description" content="はじめに ページ毎の変数は、 フロントマター で定義されるか、コンテンツのファイルの場所から生成されるか、コンテンツ本体から生成されます。
+<!doctype html><html lang><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>ページ変数 - こつこつナレッジ</title><meta name=description content="はじめに ページ毎の変数は、 フロントマター で定義されるか、コンテンツのファイルの場所から生成されるか、コンテンツ本体から生成されます。
 この記事では、ページレベル変数のリストの一部をまとめました。
 ページ変数 多くの変数は、 フロントマター で定義されている変数です。
 その中の一部を説明します。
- .Kind: page、home、section、taxonomy、term、RSS、sitemap、robotsTXT、404などページの種類 .LinkTitle: ページのリンクを設定。設定されていれば、titleより優先的に使用される .Next: 次のregular page .Prev: 前のregular page .Site: Site Variables  .Type: Content Types タイプが未設定ならcontent/&lt;TYPE&gt;のフォルダ名がタイプになる  .Pages変数 regular pageはpostページかcontentページです。
+ .Kind: page、home、section、taxonomy、term、RSS、sitemap、robotsTXT、404などページの種類 .LinkTitle: ページのリンクを設定。設定されていれば、titleより優先的に使用される .Next: 次のregular page .Prev: 前のregular page .Site: Site Variables  .Type: Content Types タイプが未設定ならcontent/<TYPE>のフォルダ名がタイプになる  .Pages変数 regular pageはpostページかcontentページです。
 一方、list pageはregular pageか他のlist pageを一覧化します。
 （例: homepage、section page、taxonomy term page、taxonomypage）
 記事をツリー状にした場合、末端がregular page、幹がlist pageです。
  .Site.Pages: サイト内の全ページ。セクションやtaxonomyページも含む .Site.RegularPages: サイト内の全通常ページ  以下の変数は、現在のスコープだけを返します。
  .Pages: 現在のページのスコープのregular pageとセクションページ。.Data.Pagesのエイリアスです。(第一階層のみ) .RegularPages: 現在のページのスコープのregular page。入れ子になっているものは除く .RegularPagesRecursive: 現在のページ以下の全てのregular page。入れ子になっているものを含む  regular pageから.Pagesや.RegularPagesを使用しても、空が返ります。
-セクション変数と関数  .Parent: ページのセクションや、セクションの親セクション .Section: 現在の記事が属するセクション .">
-  <meta name="author" content="">
-  
-  <link href="https://tech.choihack.com/an-old-hope.min.css" rel="stylesheet">
-  <link href="https://tech.choihack.com/style.css" rel="stylesheet">
-  <link href="https://tech.choihack.com/custom.css" rel="stylesheet">
-  
-  <link rel="apple-touch-icon" href="https://tech.choihack.com/apple-touch-icon.png">
-  <link rel="icon" href="https://tech.choihack.com/favicon.ico">
-  <meta name="generator" content="Hugo 0.85.0" />
-  
-  
-</head>
-
-  <header class="header">
-  
-  <nav class="nav">
-    <h1 class="logo"><a href="https://tech.choihack.com/">HUGOまとめ</a></h1>
-      <ul class="menu">
-        <li><a href="/">TOP</a></li>
-        <li><a href="/post/hugo">Hugo</a></li>
-        <li><a href="/post/gas">GAS</a></li>
-        <li><a href="/search">検索</a></li>
-      </ul>
-  </nav>
-
-  
-  <nav class="breadcrumb">
-    <ul>
-      
-      
-      
-
-    
-      <li><a href="https://tech.choihack.com/" >TOP</a></li>
-
-    
-      <li><a href="https://tech.choihack.com/post/" >投稿</a></li>
-
-    
-      <li><a href="https://tech.choihack.com/post/hugo/" >Hugo</a></li>
-
-    
-      <li class="active">ページ変数</li>
-    </ul>
-  </nav>
-</header>
-
-  <body class="dark page"></body>
-    
-<main class="main">
-  <article class="post-single">
-
-    
-    <header class="post-header">
-      <h1 class="post-title">ページ変数</h1>
-      <div class="post-meta">2021.07.11</div>
-    </header>
-    <div class="post-content"><h2 id="はじめに">はじめに</h2>
-<p>ページ毎の変数は、
-<a href="/post/%e3%83%95%e3%83%ad%e3%83%b3%e3%83%88%e3%83%9e%e3%82%bf%e3%83%bc/">フロントマター</a>
-で定義されるか、コンテンツのファイルの場所から生成されるか、コンテンツ本体から生成されます。<br>
-この記事では、ページレベル変数のリストの一部をまとめました。</p>
-<h2 id="ページ変数">ページ変数</h2>
-<p>多くの変数は、
-<a href="/post/%e3%83%95%e3%83%ad%e3%83%b3%e3%83%88%e3%83%9e%e3%82%bf%e3%83%bc/">フロントマター</a>
-で定義されている変数です。<br>
-その中の一部を説明します。</p>
-<ul>
-<li><code>.Kind</code>: page、home、section、taxonomy、term、RSS、sitemap、robotsTXT、404などページの種類</li>
-<li><code>.LinkTitle</code>: ページのリンクを設定。設定されていれば、titleより優先的に使用される</li>
-<li><code>.Next</code>: 次のregular page</li>
-<li><code>.Prev</code>: 前のregular page</li>
-<li><code>.Site</code>: 
-<a href="https://gohugo.io/variables/site/" target="_blank">Site Variables</a>
-</li>
-<li><code>.Type</code>: 
-<a href="https://gohugo.io/variables/site/" target="_blank">Content Types</a>
- タイプが未設定なら<code>content/&lt;TYPE&gt;</code>のフォルダ名がタイプになる</li>
-</ul>
-<h2 id="pages変数"><code>.Pages</code>変数</h2>
-<p class="info">regular pageは<code>post</code>ページか<code>content</code>ページです。<br>
-一方、list pageはregular pageか他のlist pageを一覧化します。<br>
-（例: homepage、section page、taxonomy term page、taxonomypage）<br>
-記事をツリー状にした場合、末端がregular page、幹がlist pageです。</p>
-<ul>
-<li><code>.Site.Pages</code>: サイト内の全ページ。セクションやtaxonomyページも含む</li>
-<li><code>.Site.RegularPages</code>: サイト内の全通常ページ</li>
-</ul>
-<p>以下の変数は、現在のスコープだけを返します。</p>
-<ul>
-<li><code>.Pages</code>: 現在のページのスコープのregular pageとセクションページ。<code>.Data.Pages</code>のエイリアスです。(第一階層のみ)</li>
-<li><code>.RegularPages</code>: 現在のページのスコープのregular page。入れ子になっているものは除く</li>
-<li><code>.RegularPagesRecursive</code>: 現在のページ以下の全てのregular page。入れ子になっているものを含む</li>
-</ul>
-<p class="info">regular pageから<code>.Pages</code>や<code>.RegularPages</code>を使用しても、空が返ります。</p>
-<h2 id="セクション変数と関数">セクション変数と関数</h2>
-<ul>
-<li><code>.Parent</code>: ページのセクションや、セクションの親セクション</li>
-<li><code>.Section</code>: 現在の記事が属するセクション</li>
-<li><code>.Sections</code>: 現在の配下のセクション</li>
-</ul>
-<h2 id="参考">参考</h2>
-<ul>
-<li>
-<a href="https://gohugo.io/variables/page/" target="_blank">Page Variables</a>
-</li>
-</ul>
-</div>
-
-    
-    <div class="prev-next">
-      
-        <a class="prev" href="https://tech.choihack.com/post/hugo/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%83%9E%E3%82%BF%E3%83%BC/">
-          <article class="post-entry">
-  <header class="entry-header">
-    <h2>フロントマター</h2>
-  </header>
-  <section class="entry-content">
-    <p>はじめに Hugoで記事を書く際に、各投稿の先頭に投稿の情報を記載できます。
+セクション変数と関数  .Parent: ページのセクションや、セクションの親セクション .Section: 現在の記事が属するセクション ."><meta name=author content><link rel=stylesheet href=https://tech.choihack.com/scss/style.a1c07ff09977aa847ea32d7ab05ba0cca0e0f582011a9794e629bcd0e019d6ca.css><link href=https://tech.choihack.com/custom.css rel=stylesheet><link rel=apple-touch-icon href=https://tech.choihack.com/apple-touch-icon.png><link rel=icon href=https://tech.choihack.com/favicon.ico><meta name=generator content="Hugo 0.85.0"></head><header class=header><nav class=nav><h1 class=logo><a href=https://tech.choihack.com/>こつこつナレッジ</a></h1><ul class=menu><li><a href=/>TOP</a></li><li><a href=/post/hugo>Hugo</a></li><li><a href=/post/gas>GAS</a></li><li><a href=/search>検索</a></li></ul></nav><nav class=breadcrumb><ul><li><a href=https://tech.choihack.com/>TOP</a></li><li><a href=https://tech.choihack.com/post/>投稿</a></li><li><a href=https://tech.choihack.com/post/hugo/>Hugo</a></li><li class=active>ページ変数</li></ul></nav></header><body class="dark page"></body><main class=post><article><header class=post-header><h1 class=post-title>ページ変数</h1><div class=post-meta>2021.07.11</div></header><div class=post-content><h2 id=はじめに>はじめに</h2><p>ページ毎の変数は、
+<a href=/post/%e3%83%95%e3%83%ad%e3%83%b3%e3%83%88%e3%83%9e%e3%82%bf%e3%83%bc/>フロントマター</a>
+で定義されるか、コンテンツのファイルの場所から生成されるか、コンテンツ本体から生成されます。<br>この記事では、ページレベル変数のリストの一部をまとめました。</p><h2 id=ページ変数>ページ変数</h2><p>多くの変数は、
+<a href=/post/%e3%83%95%e3%83%ad%e3%83%b3%e3%83%88%e3%83%9e%e3%82%bf%e3%83%bc/>フロントマター</a>
+で定義されている変数です。<br>その中の一部を説明します。</p><ul><li><code>.Kind</code>: page、home、section、taxonomy、term、RSS、sitemap、robotsTXT、404などページの種類</li><li><code>.LinkTitle</code>: ページのリンクを設定。設定されていれば、titleより優先的に使用される</li><li><code>.Next</code>: 次のregular page</li><li><code>.Prev</code>: 前のregular page</li><li><code>.Site</code>:
+<a href=https://gohugo.io/variables/site/ target=_blank>Site Variables</a></li><li><code>.Type</code>:
+<a href=https://gohugo.io/variables/site/ target=_blank>Content Types</a>
+タイプが未設定なら<code>content/&lt;TYPE></code>のフォルダ名がタイプになる</li></ul><h2 id=pages変数><code>.Pages</code>変数</h2><p class=info>regular pageは<code>post</code>ページか<code>content</code>ページです。<br>一方、list pageはregular pageか他のlist pageを一覧化します。<br>（例: homepage、section page、taxonomy term page、taxonomypage）<br>記事をツリー状にした場合、末端がregular page、幹がlist pageです。</p><ul><li><code>.Site.Pages</code>: サイト内の全ページ。セクションやtaxonomyページも含む</li><li><code>.Site.RegularPages</code>: サイト内の全通常ページ</li></ul><p>以下の変数は、現在のスコープだけを返します。</p><ul><li><code>.Pages</code>: 現在のページのスコープのregular pageとセクションページ。<code>.Data.Pages</code>のエイリアスです。(第一階層のみ)</li><li><code>.RegularPages</code>: 現在のページのスコープのregular page。入れ子になっているものは除く</li><li><code>.RegularPagesRecursive</code>: 現在のページ以下の全てのregular page。入れ子になっているものを含む</li></ul><p class=info>regular pageから<code>.Pages</code>や<code>.RegularPages</code>を使用しても、空が返ります。</p><h2 id=セクション変数と関数>セクション変数と関数</h2><ul><li><code>.Parent</code>: ページのセクションや、セクションの親セクション</li><li><code>.Section</code>: 現在の記事が属するセクション</li><li><code>.Sections</code>: 現在の配下のセクション</li></ul><h2 id=参考>参考</h2><ul><li><a href=https://gohugo.io/variables/page/ target=_blank>Page Variables</a></li></ul></div><div class=prev-next><a class=prev href=https://tech.choihack.com/post/hugo/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%83%9E%E3%82%BF%E3%83%BC/><article class=article-card><header class=article-card-header><h2>フロントマター</h2></header><section class=article-card-content><p>はじめに Hugoで記事を書く際に、各投稿の先頭に投稿の情報を記載できます。
 この情報のことをフロントマター（FrontMatter）と言います。
 フォーマット フロントマターはどんな記号で囲まれているかで、フォーマットの指定ができます。
- TOML: &#43;&#43;&#43; YAML: --- JSON: {}  中身はkeyvalueのペアで指定できます。
-TOMLの場合はdate = &#34;2021-07-11&#34;のように=で繋ぎます。
+TOML: +++ YAML: --- JSON: {} 中身はkeyvalueのペアで指定できます。
+TOMLの場合はdate = "2021-07-11"のように=で繋ぎます。
 定義済み変数 フロントマターには定義済み変数と独自定義変数が存在します。
 定義済み変数の一部は以下のようになっています。
- date: 投稿日付 description: コンテンツの説明 draft: trueなら下書き段階 images: 対象のページに関連する画像のパス配列。_internal/twitter_cards.htmlなどで使用される keywords: メタキーワード lastmod: 最終更新日付 linkTitle: コンテンツのリンク生成時に使用されるURL。Hugoはtitleの前にlinkTitleを使用する series: ページが属するシリーズ名 slug: 出力URLの末尾に表示される weight: 順番を並べ替える際に、小さいほど優先される  独自定義変数 include_toc = true このように定義した場合、.Params.include_tocで使用できます。
-参考   Front Matter   ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2021-07-11</time>
-  </footer>
-</article>
-        </a>
-      
-  
-      
-        <a class="next" href="https://tech.choihack.com/post/hugo/404%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B/">
-          <article class="post-entry">
-  <header class="entry-header">
-    <h2>404ページを作成する</h2>
-  </header>
-  <section class="entry-content">
-    <p>はじめに 404ステータスとは、ページが見つからない場合に返すステータスのことです。
+date: 投稿日付 description: コンテンツの説明 draft: trueなら下書き段階 images: 対象のページに関連する画像のパス配列。_internal/twitter_cards.htmlなどで使用される keywords: メタキーワード lastmod: 最終更新日付 linkTitle: コンテンツのリンク生成時に使用されるURL。Hugoはtitleの前にlinkTitleを使用する series: ページが属するシリーズ名 slug: 出力URLの末尾に表示される weight: 順番を並べ替える際に、小さいほど優先される 独自定義変数 include_toc = true このように定義した場合、.Params.include_tocで使用できます。
+参考 Front Matter ...</p></section><footer class=article-card-footer><time>2021-07-11</time></footer></article></a><a class=next href=https://tech.choihack.com/post/hugo/404%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B/><article class=article-card><header class=article-card-header><h2>404ページを作成する</h2></header><section class=article-card-content><p>はじめに 404ステータスとは、ページが見つからない場合に返すステータスのことです。
 Hugoでは存在しないページ用のHTMLも独自定義できます。
 作成方法 /layouts/404.htmlにページを作成します。
-{{ define &#34;main&#34;}} &lt;main id=&#34;main&#34;&gt; &lt;div&gt; &lt;h1 id=&#34;title&#34;&gt;&lt;a href=&#34;{{ &#34;/&#34; | relURL }}&#34;&gt;Go Home&lt;/a&gt;&lt;/h1&gt; &lt;/div&gt; &lt;/main&gt; {{ end }} 動作確認 http://localhost:1313/404.html にアクセスして確認します。
+{{ define "main"}} &lt;main id="main"> &lt;div> &lt;h1 id="title">&lt;a href="{{ "/" | relURL }}">Go Home&lt;/a>&lt;/h1> &lt;/div> &lt;/main> {{ end }} 動作確認 http://localhost:1313/404.html にアクセスして確認します。
 ローカルでの確認の注意点として、ローカルは上記のリンクを直接開く必要があります。
 GitHubPagesなどのサービスを利用している場合は、存在しないURLにアクセスされた場合は、404.htmlにリダイレクトしてくれます。
-参考   Custom 404 Page   ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2021-07-13</time>
-  </footer>
-</article>
-        </a>
-      
-    </div>
-
-    
-
-    
-
-  </article>
-</main>
-  </body>
-
-  <footer class="footer">
-  <p class="text-center">© - 2021 - Hugoまとめ</p>
-</footer>
-
-
-<script src="https://tech.choihack.com/highlight.min.js"></script>
-<script>
-  hljs.initHighlightingOnLoad();
-</script>
-
-</html>
+参考 Custom 404 Page ...</p></section><footer class=article-card-footer><time>2021-07-13</time></footer></article></a></div></article><aside class=aside><h2>目次</h2><nav id=TableOfContents><ul><li><a href=#はじめに>はじめに</a></li><li><a href=#ページ変数>ページ変数</a></li><li><a href=#pages変数><code>.Pages</code>変数</a></li><li><a href=#セクション変数と関数>セクション変数と関数</a></li><li><a href=#参考>参考</a></li></ul></nav></aside></main></body><footer class=footer><p class=text-center>© - 2021 - Hugoまとめ</p></footer><script src=https://tech.choihack.com/highlight.min.js></script><script>hljs.initHighlightingOnLoad()</script></html>
