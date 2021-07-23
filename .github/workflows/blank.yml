@@ -34,7 +34,11 @@ jobs:
       #   env:
       #     HUGO_VERSION: 0.85.0
       - name: Install Hugo
-        run: sudo apt-get install hugo 
+        run: |
+          sudo apt-get install hugo
+          hugo version
+        env:
+          HUGO_VERSION: 0.85.0
       - name: Hugo build
         run: hugo
       - name: Deploy
