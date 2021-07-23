@@ -32,4 +32,4 @@ paginate = 5
   url = "/search"
 
 [markup.goldmark.parser.attribute]
-  block = true # 要素にclassやidを付けれるようにする
+  block = true
