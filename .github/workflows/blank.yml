@@ -17,7 +17,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: macos-11
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -33,17 +33,12 @@ jobs:
       #     sudo mv hugo /usr/local/bin/hugo
       #   env:
       #     HUGO_VERSION: 0.85.0
+      - name: Install Homebrew
+        run: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
       - name: Install Hugo
-        run: |
-          mkdir $HOME/src
-          cd $HOME/src
-          git clone https://github.com/gohugoio/hugo.git
-          cd hugo
-          go install --tags extended
-              
+        run: sudo apt-get install hugo 
       - name: Hugo build
         run: hugo
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
