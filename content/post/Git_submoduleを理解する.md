@@ -41,7 +41,7 @@ submoduleを理解するために、どんなことが起こっているのか�
 
 ### 追加されたファイルを確認
 ```
-$ git status                                                                          8:18:14  ☁  master ☂ ✚ ✭
+$ git status
 On branch master
 Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
@@ -70,7 +70,7 @@ submoduleの場合は、modules以下に同様の情報が追加されます。
 
 ### 差分チェック
 ```
-$ git diff --cached                                                                   8:18:29  ☁  master ☂ ✚ ✭
+$ git diff --cached
 diff --git a/.gitmodules b/.gitmodules
 new file mode 100644
 index 0000000..537ffba

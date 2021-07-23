@@ -1,11 +1,11 @@
 {{ define "main" }}
-<main class="main">
+<main class="list-page">
   <!-- 記事一覧 -->
 
   {{- $pages := cond (eq .Kind `section`) .RegularPagesRecursive.ByDate.Reverse .Site.RegularPages.ByDate.Reverse }}
   {{- $paginator := .Paginate ($pages) }}
   
-  <h2>投稿一覧</h2>
+  <h1 class="list-page-header">投稿一覧</h1>
   {{- range $index, $page := $paginator.Pages }}
     <a class="entry-link" href="{{ .Permalink }}">
       {{ partial "article_card.html" . }}

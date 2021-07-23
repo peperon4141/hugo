@@ -1,11 +1,11 @@
-<article class="post-entry">
-  <header class="entry-header">
+<article class="article-card">
+  <header class="article-card-header">
     <h2>{{ .Title }}</h2>
   </header>
-  <section class="entry-content">
+  <section class="article-card-content">
     <p>{{ .Summary | plainify | htmlUnescape }}...</p>
   </section>
-  <footer class="entry-footer">
+  <footer class="article-card-footer">
     <time>{{ .Date.Format "2006-01-02" }}</time>
   </footer>
 </article>

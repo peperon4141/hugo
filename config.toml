@@ -2,11 +2,14 @@
 # See https://github.com/gohugoio/hugoThemes#themetoml for an example
 
 theme = "simple"
-title = "HUGOまとめ"
-description = "こつこつHUGOのナレッジを貯めて行くブログ"
+title = "こつこつナレッジ"
+description = "こつこつ技術系ナレッジを貯めて行くブログ"
 baseURL = "https://tech.choihack.com/"
 copyright = "© - 2021 - Hugoまとめ"
 paginate = 5
+
+[Params]
+  googleAnalytics = "G-V3H6ME1VJT"
 
 [[menu.main]]
   name = "TOP"

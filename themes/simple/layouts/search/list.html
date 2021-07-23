@@ -36,14 +36,14 @@
   function buildEntryHtml(url, title, body, date, startPos, endPos) {
     return `
 <a href="${url}" style="margin-bottom: 20px;">
-  <article class="post-entry">
-  <header class="entry-header">
+  <article class="article-card">
+  <header class="article-card-header">
     <h2>${title}</h2>
   </header>
-  <section class="entry-content">
+  <section class="article-card-content">
     <p>${excerpt(body, startPos, endPos)}...</p>
   </section>
-  <footer class="entry-footer">
+  <footer class="article-card-footer">
     <time>${date}</time>
   </footer>
   </article>

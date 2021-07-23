@@ -8,4 +8,4 @@ post:
 	hugo new post/${T}.md
 
 build:
-	hugo
+	rm -rf public && hugo
