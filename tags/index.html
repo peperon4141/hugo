@@ -8,7 +8,22 @@ GoogleDomainの管理画面から マイドメイン > 自分のドメイン > D
 すると、ドメインの設定をカスタマイズできるようになります。
 新しいレコードを追加 し、以下のように入力します。
 ホスト名： サブドメインにしたい文字列（別名とするサブドメインの指定） タイプ： CNAME（データで指定したホストに対して、別名を登録する方式） TTL：3600（1時間の有効期限） データ：XXXXXXX.github.io. （自身のGitHubのホスト） GitHubActionsを使ってHugoをビルドする ActionsのWorkflowに以下を登録します。
-name: gh-pages on: push: branches: - master workflow_dispatch: jobs: build: runs-on: ubuntu-20.04 steps: - name: Checkout uses: actions/checkout@v2 with: submodules: true - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: '0.85.0' extended: true - name: Hugo build run: hugo --minify - name: Deploy uses: peaceiris/actions-gh-pages@v3 with: github_token: ${{ secrets....</p></section><footer class=article-card-footer><time>2021-07-25</time></footer></article></a><a class=entry-link href=https://tech.choihack.com/post/git_submodule%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B/><article class=article-card><header class=article-card-header><h2>Git submoduleを理解する</h2></header><section class=article-card-content><p>はじめに Git submoduleとは外部のGitリポジトリを、自分のリポジトリのサブディレクトリとして登録する仕組みです。
+name: gh-pages on: push: branches: - master workflow_dispatch: jobs: build: runs-on: ubuntu-20.04 steps: - name: Checkout uses: actions/checkout@v2 with: submodules: true - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: '0.85.0' extended: true - name: Hugo build run: hugo --minify - name: Deploy uses: peaceiris/actions-gh-pages@v3 with: github_token: ${{ secrets....</p></section><footer class=article-card-footer><time>2021-07-25</time></footer></article></a><a class=entry-link href=https://tech.choihack.com/post/hugo/shortcode/><article class=article-card><header class=article-card-header><h2>ShortcodeでAmazonのリンクを作成する</h2></header><section class=article-card-content><p>はじめに Hugoでブログを書いていて、頻出するようなHTMLを自動で簡単に出力できるようにしたいと思いました。
+そこで使用できるのがShortcodeの機能です。
+今回はAmazonのアフィリエイトリンクを作成するためのShortcodeを作成します。
+Shortcodeの基本 Shortcodeは、事前に定義した小さな処理を呼び出すための仕組みです。
+ここでは書き方を整理します。
+/layouts/shortcodes/以下にSHORTCODE.htmlをファイルを作成すると
+SHORTCODEがショートコード名になる Shortcodeを呼び出す場合は
+{{&lt; ショートコード名 "値" >}}
+{{&lt; ショートコード名 パラメータ名="値" >}} パラメータを取り出す場合は
+{{ .Get 0 }}（0はパラメータのインデックス）
+{{ .Get パラメータ名 }} 間に文字を挟み込める
+{{&lt; highlight go >}} A bunch of code here {{&lt; /highlight >}} 挟み込んだ文字を取り出す場合は
+{{ .Inner }} 挟み込んだ文字は書き方によって処理のされ方が異なる
+{{&lt; >}} -> HTML
+{{% %}} -> Markdown Built-inショートコードが存在する。 Figure Youtube Tweet Instagram etc. ShortcodeのサンプルをMarkdownで表示したい場合は
+{{&lt;/* shortcode */>}} Amazonのショートコードを作成 サンプルにAmazonのアフィリエイトリンク用のショートコードを作成します。...</p></section><footer class=article-card-footer><time>2021-07-25</time></footer></article></a><a class=entry-link href=https://tech.choihack.com/post/git_submodule%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B/><article class=article-card><header class=article-card-header><h2>Git submoduleを理解する</h2></header><section class=article-card-content><p>はじめに Git submoduleとは外部のGitリポジトリを、自分のリポジトリのサブディレクトリとして登録する仕組みです。
 コマンドの使い方 頻出するコマンドをまとめます。
 今回はサンプルとして、MainroadというHugoのテーマを使います。
 ローカルワークスペースのthemes/mainroadディレクトリ以下に追加していきます。
@@ -37,10 +52,4 @@ GASの設定 ログの設定 LINE Botを作成するに当たり、GASのdoPost�
 取得方法 サイト内の全記事数 {{ len .Site.RegularPages }} サイト内の全ページ数 {{ len .Site.Pages }} ホームページから下層のページ、そして、カテゴリやタグページも含まれる。
 現在の階層の記事数 {{ len .RegularPages }} 現在の階層のページ数 {{ len .Pages }} ページにはセクションページも含まれる。
 現在の階層以下の全ての記事数 {{ len .RegularPagesRecursive }} ただし、listページでのみ使用できる。
-現在の階層のセクション数を取得 {{ len .Sections }} サイト内の全カテゴリ数 {{ len .Site.Taxonomies.categories }} サイト内の全タグ数 {{ len .Site.Taxonomies.tags }} ...</p></section><footer class=article-card-footer><time>2021-07-18</time></footer></article></a><a class=entry-link href=https://tech.choihack.com/post/hugo/hugo%E3%81%A7%E3%83%86%E3%83%BC%E3%83%9E%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E5%89%8D%E3%81%AB%E6%8A%91%E3%81%88%E3%81%A6%E7%BD%AE%E3%81%8D%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8/><article class=article-card><header class=article-card-header><h2>Hugoでテーマ作成する前に抑えて置きたいこと</h2></header><section class=article-card-content><p>はじめに 私はHugoでテーマを作成していますが、よく探さないと記載されていなかったり、あやふやなまま使っていた書き方がありました。
-そこでそれらをまとめてみました。
-Hugoのテンプレートのハイフンの有無 以下のように、{{}}内に-を書いていたり、いなかったりするテーマを見かけます。
-&lt;div> {{- .Title -}} &lt;/div> この出力結果は以下です。
-&lt;div>Hello, World!&lt;/div> &lt;div> {{ .Title }} &lt;/div> このようにハイフンがない場合は以下のようになります。
-&lt;div> Hello, World! &lt;/div> なので、前後のwhitespaceが消えます。
-Whitespace 参考 Introduction to Hugo Templating ...</p></section><footer class=article-card-footer><time>2021-07-14</time></footer></article></a><nav class=pagination><a class=next href=/tags/page/2/>次の投稿 →</a></nav></main></body><footer class=footer><p class=text-center>© - 2021 - こつこつナレッジ</p></footer><script src=https://tech.choihack.com/highlight.min.js></script><script>hljs.initHighlightingOnLoad()</script></html>
+現在の階層のセクション数を取得 {{ len .Sections }} サイト内の全カテゴリ数 {{ len .Site.Taxonomies.categories }} サイト内の全タグ数 {{ len .Site.Taxonomies.tags }} ...</p></section><footer class=article-card-footer><time>2021-07-18</time></footer></article></a><nav class=pagination><a class=next href=/tags/page/2/>次の投稿 →</a></nav></main></body><footer class=footer><p class=text-center>© - 2021 - こつこつナレッジ</p></footer><script src=https://tech.choihack.com/highlight.min.js></script><script>hljs.initHighlightingOnLoad()</script></html>

@@ -8,7 +8,22 @@ GoogleDomainの管理画面から マイドメイン &amp;gt; 自分のドメイ
 すると、ドメインの設定をカスタマイズできるようになります。
 新しいレコードを追加 し、以下のように入力します。
 ホスト名： サブドメインにしたい文字列（別名とするサブドメインの指定） タイプ： CNAME（データで指定したホストに対して、別名を登録する方式） TTL：3600（1時間の有効期限） データ：XXXXXXX.github.io. （自身のGitHubのホスト） GitHubActionsを使ってHugoをビルドする ActionsのWorkflowに以下を登録します。
-name: gh-pages on: push: branches: - master workflow_dispatch: jobs: build: runs-on: ubuntu-20.04 steps: - name: Checkout uses: actions/checkout@v2 with: submodules: true - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: '0.85.0' extended: true - name: Hugo build run: hugo --minify - name: Deploy uses: peaceiris/actions-gh-pages@v3 with: github_token: ${{ secrets.</description></item><item><title>ページ・セクション・カテゴリ数の取得</title><link>https://tech.choihack.com/post/hugo/%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%BB%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA%E6%95%B0%E3%81%AE%E5%8F%96%E5%BE%97/</link><pubDate>Sun, 18 Jul 2021 16:34:14 +0900</pubDate><guid>https://tech.choihack.com/post/hugo/%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%BB%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA%E6%95%B0%E3%81%AE%E5%8F%96%E5%BE%97/</guid><description>はじめに Hugoでページのデータを取得する方法をまとめました。
+name: gh-pages on: push: branches: - master workflow_dispatch: jobs: build: runs-on: ubuntu-20.04 steps: - name: Checkout uses: actions/checkout@v2 with: submodules: true - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: '0.85.0' extended: true - name: Hugo build run: hugo --minify - name: Deploy uses: peaceiris/actions-gh-pages@v3 with: github_token: ${{ secrets.</description></item><item><title>ShortcodeでAmazonのリンクを作成する</title><link>https://tech.choihack.com/post/hugo/shortcode/</link><pubDate>Sun, 25 Jul 2021 09:16:54 +0900</pubDate><guid>https://tech.choihack.com/post/hugo/shortcode/</guid><description>はじめに Hugoでブログを書いていて、頻出するようなHTMLを自動で簡単に出力できるようにしたいと思いました。
+そこで使用できるのがShortcodeの機能です。
+今回はAmazonのアフィリエイトリンクを作成するためのShortcodeを作成します。
+Shortcodeの基本 Shortcodeは、事前に定義した小さな処理を呼び出すための仕組みです。
+ここでは書き方を整理します。
+/layouts/shortcodes/以下にSHORTCODE.htmlをファイルを作成すると
+SHORTCODEがショートコード名になる Shortcodeを呼び出す場合は
+{{&amp;lt; ショートコード名 &amp;quot;値&amp;quot; &amp;gt;}}
+{{&amp;lt; ショートコード名 パラメータ名=&amp;quot;値&amp;quot; &amp;gt;}} パラメータを取り出す場合は
+{{ .Get 0 }}（0はパラメータのインデックス）
+{{ .Get パラメータ名 }} 間に文字を挟み込める
+{{&amp;lt; highlight go &amp;gt;}} A bunch of code here {{&amp;lt; /highlight &amp;gt;}} 挟み込んだ文字を取り出す場合は
+{{ .Inner }} 挟み込んだ文字は書き方によって処理のされ方が異なる
+{{&amp;lt; &amp;gt;}} -&amp;gt; HTML
+{{% %}} -&amp;gt; Markdown Built-inショートコードが存在する。 Figure Youtube Tweet Instagram etc. ShortcodeのサンプルをMarkdownで表示したい場合は
+{{&amp;lt;/* shortcode */&amp;gt;}} Amazonのショートコードを作成 サンプルにAmazonのアフィリエイトリンク用のショートコードを作成します。</description></item><item><title>ページ・セクション・カテゴリ数の取得</title><link>https://tech.choihack.com/post/hugo/%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%BB%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA%E6%95%B0%E3%81%AE%E5%8F%96%E5%BE%97/</link><pubDate>Sun, 18 Jul 2021 16:34:14 +0900</pubDate><guid>https://tech.choihack.com/post/hugo/%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%BB%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA%E6%95%B0%E3%81%AE%E5%8F%96%E5%BE%97/</guid><description>はじめに Hugoでページのデータを取得する方法をまとめました。
 取得方法 サイト内の全記事数 {{ len .Site.RegularPages }} サイト内の全ページ数 {{ len .Site.Pages }} ホームページから下層のページ、そして、カテゴリやタグページも含まれる。
 現在の階層の記事数 {{ len .RegularPages }} 現在の階層のページ数 {{ len .Pages }} ページにはセクションページも含まれる。
 現在の階層以下の全ての記事数 {{ len .RegularPagesRecursive }} ただし、listページでのみ使用できる。
