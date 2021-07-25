@@ -5,7 +5,7 @@ theme = "simple"
 title = "こつこつナレッジ"
 description = "こつこつ技術系ナレッジを貯めて行くブログ"
 baseURL = "https://tech.choihack.com/"
-copyright = "© - 2021 - Hugoまとめ"
+copyright = "© - 2021 - こつこつナレッジ"
 paginate = 5
 
 [Params]
