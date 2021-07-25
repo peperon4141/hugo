@@ -55,7 +55,7 @@ title = &quot;Hugoまとめ&quot;
 </code></pre><p>Hugoで独自変数をコンフィグファイルに記載する場合は、<code>[params]</code>の部分に記載します。<br>使用する場合は<code>$.Site.Params.subtitle</code>のように使います。<br><code>$</code>を省略して、<code>.Site.Params.subtitle</code>としたり、<code>$.Site.Params.Subtitle</code>変数名の頭文字を大文字にしても構いません。</p><h2 id=参照>参照</h2><ul><li><a href=https://gohugo.io/getting-started/configuration/ target=_blank>Configure Hugo</a></li><li><a href=https://gohugo.io/variables/site/ target=_blank>Site Variables</a></li></ul></div><div class=prev-next><a class=prev href=https://tech.choihack.com/post/hugo/%E3%82%B5%E3%82%A4%E3%83%88%E4%BD%9C%E6%88%90/><article class=article-card><header class=article-card-header><h2>サイト作成</h2></header><section class=article-card-content><p>Hugoとは Hugoは静的サイトジェネレーターと呼ばれ、Markdown形式のコンテンツからHTMLを作成してくれます。
 HugoはGoogle製のGo言語で作成されており、サイト作成の速度が非常に高速です。
 この記事では、MacOSでの環境構築について説明します。
-Hugoインストール Homebrewを使用すると簡単にインストールできます。
+ローカルでサイト作成 Hugoインストール Homebrewを使用すると簡単にインストールできます。
 $ brew install hugo 無事インストールが完了していると、以下のコマンドでバージョンが表示されるはずです。
 $ hugo version Hugo Static Site Generator v0.79.0/extended darwin/amd64 BuildDate: unknown 新しいサイトの作成 $ hugo new site new_site_name このコマンドを実行することで、new_site_nameというフォルダー名で新しいサイトが作成できます。
 テーマの追加 Hugoはテーマという仕組みで、簡単にサイトのデザインを使用できます。
@@ -76,4 +76,4 @@ markup.goldmark.parser.attribute 装飾したいMarkdown要素の後に{}で囲�
 この機能を使用するためにはconfig.tomlに以下の設定が必要です。
 [markup.goldmark.parser.attribute] block = true ただし、この機能はv0.81.0からHugoに追加された機能です。
 例えば以下のMarkdownを変換してみます。
-この文章は警告です。 { .warn } &lt;p class="warn">この文章は警告です。&lt;/p> 参考 Configure Markup ...</p></section><footer class=article-card-footer><time>2021-07-11</time></footer></article></a></div></article><aside class=aside><h2>目次</h2><nav id=TableOfContents><ul><li><a href=#コンフィグファイルの種類>コンフィグファイルの種類</a></li><li><a href=#configtomlファイルの読み方>config.tomlファイルの読み方</a></li><li><a href=#独自定義の変数>独自定義の変数</a></li><li><a href=#参照>参照</a></li></ul></nav></aside></main></body><footer class=footer><p class=text-center>© - 2021 - Hugoまとめ</p></footer><script src=https://tech.choihack.com/highlight.min.js></script><script>hljs.initHighlightingOnLoad()</script></html>
+この文章は警告です。 { .warn } &lt;p class="warn">この文章は警告です。&lt;/p> 参考 Configure Markup ...</p></section><footer class=article-card-footer><time>2021-07-11</time></footer></article></a></div></article><aside class=aside><h2>目次</h2><nav id=TableOfContents><ul><li><a href=#コンフィグファイルの種類>コンフィグファイルの種類</a></li><li><a href=#configtomlファイルの読み方>config.tomlファイルの読み方</a></li><li><a href=#独自定義の変数>独自定義の変数</a></li><li><a href=#参照>参照</a></li></ul></nav></aside></main></body><footer class=footer><p class=text-center>© - 2021 - こつこつナレッジ</p></footer><script src=https://tech.choihack.com/highlight.min.js></script><script>hljs.initHighlightingOnLoad()</script></html>

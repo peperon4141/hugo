@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>こつこつナレッジ</title><link>https://tech.choihack.com/</link><description>Recent content on こつこつナレッジ</description><generator>Hugo -- gohugo.io</generator><copyright>© - 2021 - Hugoまとめ</copyright><lastBuildDate>Sun, 11 Jul 2021 23:23:10 +0900</lastBuildDate><atom:link href="https://tech.choihack.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Git submoduleを理解する</title><link>https://tech.choihack.com/post/git_submodule%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B/</link><pubDate>Tue, 20 Jul 2021 07:32:10 +0900</pubDate><guid>https://tech.choihack.com/post/git_submodule%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B/</guid><description>はじめに Git submoduleとは外部のGitリポジトリを、自分のリポジトリのサブディレクトリとして登録する仕組みです。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>こつこつナレッジ</title><link>https://tech.choihack.com/</link><description>Recent content on こつこつナレッジ</description><generator>Hugo -- gohugo.io</generator><copyright>© - 2021 - こつこつナレッジ</copyright><lastBuildDate>Sun, 11 Jul 2021 23:23:10 +0900</lastBuildDate><atom:link href="https://tech.choihack.com/index.xml" rel="self" type="application/rss+xml"/><item><title>GitHubPagesとGoogleDomainでサイトを公開する</title><link>https://tech.choihack.com/post/hugo/githubpages%E3%81%A8googledomain%E3%81%A7%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B/</link><pubDate>Sun, 25 Jul 2021 09:32:14 +0900</pubDate><guid>https://tech.choihack.com/post/hugo/githubpages%E3%81%A8googledomain%E3%81%A7%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B/</guid><description>はじめに GitHubPagesの利点は、いくつか制限があるものの以下のメリットがあります。
+TLS対応（Let&amp;rsquo;s Encrypt) 独自ドメイン対応 無料 GoogleDomainでは１４００円のドメインを使用しています。
+このドメインにサブドメインを追加することで、複数ドメインを追加料金なく使用しています。
+なので、私はいくつかブログを運用していますが、年間合計１４００円しかかかっていません。
+しかも、GitHubのActionsなど優秀な機能の恩恵を請けられるので、メンテナンスコストが非常に少なくなります。
+GoogleDomainでドメイン取得 サブドメインを追加する方法を説明します。
+GoogleDomainの管理画面から マイドメイン &amp;gt; 自分のドメイン &amp;gt; DNS &amp;gt; カスタムレコードを管理
+すると、ドメインの設定をカスタマイズできるようになります。
+新しいレコードを追加 し、以下のように入力します。
+ホスト名： サブドメインにしたい文字列（別名とするサブドメインの指定） タイプ： CNAME（データで指定したホストに対して、別名を登録する方式） TTL：3600（1時間の有効期限） データ：XXXXXXX.github.io. （自身のGitHubのホスト） GitHubActionsを使ってHugoをビルドする ActionsのWorkflowに以下を登録します。
+name: gh-pages on: push: branches: - master workflow_dispatch: jobs: build: runs-on: ubuntu-20.04 steps: - name: Checkout uses: actions/checkout@v2 with: submodules: true - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: '0.85.0' extended: true - name: Hugo build run: hugo --minify - name: Deploy uses: peaceiris/actions-gh-pages@v3 with: github_token: ${{ secrets.</description></item><item><title>Git submoduleを理解する</title><link>https://tech.choihack.com/post/git_submodule%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B/</link><pubDate>Tue, 20 Jul 2021 07:32:10 +0900</pubDate><guid>https://tech.choihack.com/post/git_submodule%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B/</guid><description>はじめに Git submoduleとは外部のGitリポジトリを、自分のリポジトリのサブディレクトリとして登録する仕組みです。
 コマンドの使い方 頻出するコマンドをまとめます。
 今回はサンプルとして、MainroadというHugoのテーマを使います。
 ローカルワークスペースのthemes/mainroadディレクトリ以下に追加していきます。
@@ -73,7 +83,7 @@ title = &amp;quot;TOML Example&amp;quot; [test] a = 1 [[table]] b = 2 [[table]] 
 { &amp;quot;title&amp;quot;: &amp;quot;TOML Example&amp;quot;, &amp;quot;test&amp;quot;: { &amp;quot;a&amp;quot;: 1 }, &amp;quot;table&amp;quot;: [ { &amp;quot;b&amp;quot;: 2 }, { &amp;quot;c&amp;quot;: 3 } ], &amp;quot;table3&amp;quot;: { &amp;quot;inner&amp;quot;: { &amp;quot;d&amp;quot;: 4 } }, &amp;quot;table2&amp;quot;: { &amp;quot;description&amp;quot;: [ { &amp;quot;e&amp;quot;: 5 } ] } } TOMLで[[&amp;lt;PARAM_NAME&amp;gt;]]のように2重の括弧で囲むと、配列として定義されることがわかります。</description></item><item><title>サイト作成</title><link>https://tech.choihack.com/post/hugo/%E3%82%B5%E3%82%A4%E3%83%88%E4%BD%9C%E6%88%90/</link><pubDate>Sun, 11 Jul 2021 00:00:00 +0000</pubDate><guid>https://tech.choihack.com/post/hugo/%E3%82%B5%E3%82%A4%E3%83%88%E4%BD%9C%E6%88%90/</guid><description>Hugoとは Hugoは静的サイトジェネレーターと呼ばれ、Markdown形式のコンテンツからHTMLを作成してくれます。
 HugoはGoogle製のGo言語で作成されており、サイト作成の速度が非常に高速です。
 この記事では、MacOSでの環境構築について説明します。
-Hugoインストール Homebrewを使用すると簡単にインストールできます。
+ローカルでサイト作成 Hugoインストール Homebrewを使用すると簡単にインストールできます。
 $ brew install hugo 無事インストールが完了していると、以下のコマンドでバージョンが表示されるはずです。
 $ hugo version Hugo Static Site Generator v0.79.0/extended darwin/amd64 BuildDate: unknown 新しいサイトの作成 $ hugo new site new_site_name このコマンドを実行することで、new_site_nameというフォルダー名で新しいサイトが作成できます。
 テーマの追加 Hugoはテーマという仕組みで、簡単にサイトのデザインを使用できます。

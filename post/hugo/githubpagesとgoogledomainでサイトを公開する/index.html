@@ -1,0 +1,44 @@
+<!doctype html><html lang><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>GitHubPagesとGoogleDomainでサイトを公開する - こつこつナレッジ</title><meta name=description content="はじめに GitHubPagesの利点は、いくつか制限があるものの以下のメリットがあります。
+ TLS対応（Let&rsquo;s Encrypt) 独自ドメイン対応 無料  GoogleDomainでは１４００円のドメインを使用しています。
+このドメインにサブドメインを追加することで、複数ドメインを追加料金なく使用しています。
+なので、私はいくつかブログを運用していますが、年間合計１４００円しかかかっていません。
+しかも、GitHubのActionsなど優秀な機能の恩恵を請けられるので、メンテナンスコストが非常に少なくなります。
+GoogleDomainでドメイン取得 サブドメインを追加する方法を説明します。
+GoogleDomainの管理画面から マイドメイン > 自分のドメイン > DNS > カスタムレコードを管理
+すると、ドメインの設定をカスタマイズできるようになります。
+新しいレコードを追加 し、以下のように入力します。
+ ホスト名： サブドメインにしたい文字列（別名とするサブドメインの指定） タイプ： CNAME（データで指定したホストに対して、別名を登録する方式） TTL：3600（1時間の有効期限） データ：XXXXXXX.github.io. （自身のGitHubのホスト）  GitHubActionsを使ってHugoをビルドする ActionsのWorkflowに以下を登録します。
+name: gh-pages on: push: branches: - master workflow_dispatch: jobs: build: runs-on: ubuntu-20.04 steps: - name: Checkout uses: actions/checkout@v2 with: submodules: true - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: '0.85.0' extended: true - name: Hugo build run: hugo --minify - name: Deploy uses: peaceiris/actions-gh-pages@v3 with: github_token: ${{ secrets."><meta name=author content><link rel=stylesheet href=https://tech.choihack.com/scss/style.a1c07ff09977aa847ea32d7ab05ba0cca0e0f582011a9794e629bcd0e019d6ca.css><link href=https://tech.choihack.com/custom.css rel=stylesheet><link rel=apple-touch-icon href=https://tech.choihack.com/apple-touch-icon.png><link rel=icon href=https://tech.choihack.com/favicon.ico><meta name=generator content="Hugo 0.85.0"></head><header class=header><nav class=nav><h1 class=logo><a href=https://tech.choihack.com/>こつこつナレッジ</a></h1><ul class=menu><li><a href=/>TOP</a></li><li><a href=/post/hugo>Hugo</a></li><li><a href=/post/gas>GAS</a></li><li><a href=/search>検索</a></li></ul></nav><nav class=breadcrumb><ul><li><a href=https://tech.choihack.com/>TOP</a></li><li><a href=https://tech.choihack.com/post/>投稿</a></li><li><a href=https://tech.choihack.com/post/hugo/>Hugo</a></li><li class=active>GitHubPagesとGoogleDomainでサイトを公開する</li></ul></nav></header><body class="dark page"></body><main class=post><article><header class=post-header><h1 class=post-title>GitHubPagesとGoogleDomainでサイトを公開する</h1><div class=post-meta>2021.07.25</div></header><div class=post-content><h2 id=はじめに>はじめに</h2><p>GitHubPagesの利点は、いくつか制限があるものの以下のメリットがあります。</p><ul><li>TLS対応（Let&rsquo;s Encrypt)</li><li>独自ドメイン対応</li><li>無料</li></ul><p>GoogleDomainでは１４００円のドメインを使用しています。<br>このドメインにサブドメインを追加することで、複数ドメインを追加料金なく使用しています。</p><p>なので、私はいくつかブログを運用していますが、年間合計１４００円しかかかっていません。<br>しかも、GitHubのActionsなど優秀な機能の恩恵を請けられるので、メンテナンスコストが非常に少なくなります。</p><h2 id=googledomainでドメイン取得>GoogleDomainでドメイン取得</h2><p>サブドメインを追加する方法を説明します。<br>GoogleDomainの管理画面から <code>マイドメイン</code> > 自分のドメイン > <code>DNS</code> > <code>カスタムレコードを管理</code></p><p>すると、ドメインの設定をカスタマイズできるようになります。<br><code>新しいレコードを追加</code> し、以下のように入力します。</p><ul><li>ホスト名： サブドメインにしたい文字列（別名とするサブドメインの指定）</li><li>タイプ： CNAME（データで指定したホストに対して、別名を登録する方式）</li><li>TTL：3600（1時間の有効期限）</li><li>データ：XXXXXXX.github.io. （自身のGitHubのホスト）</li></ul><h2 id=githubactionsを使ってhugoをビルドする>GitHubActionsを使ってHugoをビルドする</h2><p>ActionsのWorkflowに以下を登録します。</p><pre><code>name: gh-pages
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.85.0'
+          extended: true
+      - name: Hugo build
+        run: hugo --minify
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+</code></pre><p>このWorkflowの概要としては、</p><ul><li>masterブランチが変更された場合に動作する</li><li>サブモジュールがあれば読み込む</li><li>Hugoの0.85.0を拡張付きでインストールする（SASSなどを使用する場合は拡張が必要）</li><li>publicディレクトリを公開する</li></ul><p class=info>ビルド実行前に<code>/static/CNAME</code>内に、GoogleDomainで指定したDomainを記載します。<br>そうすることで、GitHubPagesの独自ドメインに反映されます。</p><h2 id=githubpagesの設定>GitHubPagesの設定</h2><p>以下の設定は反映に時間がかかる場合があるので、動作しなければしばらく待ってみましょう。</p><h3 id=sourceの設定>Sourceの設定</h3><p>GitHubActionsのビルドが完了すると、<code>gh-pages</code>というブランチにHugoのビルド結果が作られているはずです。<br><code>Settings</code> > <code>Pages</code>で<code>source</code>に<code>gh-pages</code>を選択し、rootを選びましょう。</p><h3 id=custom-domain>Custom domain</h3><p><code>/static/CNAME</code>が適切に設定されていると、<code>Custom domain</code>は勝手に設定されているはずです。<br>GitHubPagesから<code>Custom domain</code>を設定した場合、自動でCNAMEが設定されます。<br>ただし、このファイルはHugoをビルドしたブランチには反映されないため、<code>static</code>ディレクトリ以下に配置する必要があります。</p><h3 id=enforce-https>Enforce HTTPS</h3><p>チェックを付けるとHTTPSで公開してくれます。</p></div><div class=prev-next><a class=prev href=https://tech.choihack.com/post/hugo/%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%BB%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA%E6%95%B0%E3%81%AE%E5%8F%96%E5%BE%97/><article class=article-card><header class=article-card-header><h2>ページ・セクション・カテゴリ数の取得</h2></header><section class=article-card-content><p>はじめに Hugoでページのデータを取得する方法をまとめました。
+取得方法 サイト内の全記事数 {{ len .Site.RegularPages }} サイト内の全ページ数 {{ len .Site.Pages }} ホームページから下層のページ、そして、カテゴリやタグページも含まれる。
+現在の階層の記事数 {{ len .RegularPages }} 現在の階層のページ数 {{ len .Pages }} ページにはセクションページも含まれる。
+現在の階層以下の全ての記事数 {{ len .RegularPagesRecursive }} ただし、listページでのみ使用できる。
+現在の階層のセクション数を取得 {{ len .Sections }} サイト内の全カテゴリ数 {{ len .Site.Taxonomies.categories }} サイト内の全タグ数 {{ len .Site.Taxonomies.tags }} ...</p></section><footer class=article-card-footer><time>2021-07-18</time></footer></article></a></div></article><aside class=aside><h2>目次</h2><nav id=TableOfContents><ul><li><a href=#はじめに>はじめに</a></li><li><a href=#googledomainでドメイン取得>GoogleDomainでドメイン取得</a></li><li><a href=#githubactionsを使ってhugoをビルドする>GitHubActionsを使ってHugoをビルドする</a></li><li><a href=#githubpagesの設定>GitHubPagesの設定</a><ul><li><a href=#sourceの設定>Sourceの設定</a></li><li><a href=#custom-domain>Custom domain</a></li><li><a href=#enforce-https>Enforce HTTPS</a></li></ul></li></ul></nav></aside></main></body><footer class=footer><p class=text-center>© - 2021 - こつこつナレッジ</p></footer><script src=https://tech.choihack.com/highlight.min.js></script><script>hljs.initHighlightingOnLoad()</script></html>
