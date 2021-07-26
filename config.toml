@@ -8,8 +8,7 @@ baseURL = "https://tech.choihack.com/"
 copyright = "© - 2021 - こつこつナレッジ"
 paginate = 5
 
-[Params]
-  googleAnalytics = "G-V3H6ME1VJT"
+googleAnalytics = "G-V3H6ME1VJT"
 
 [[menu.main]]
   name = "TOP"

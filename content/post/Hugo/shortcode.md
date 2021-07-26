@@ -71,7 +71,7 @@ config.tomlに以下のように自身のトラッキングIDを設定してく�
 補足として、Amazonの商品ページからShortcodeを自動生成する方法を記載しておきます。  
 以下をBookmarkletとして登録しておきます。  
 ```
-javascript:(function(){var asin=document.getElementById('ASIN').value, title=document.getElementById("productTitle").textContent.trim(); alert(`{{</* amazon asin="${asin}" title="${title}" */>}}`);})();
+javascript:(function(){var asin=document.URL.match(/\/dp\/(.{10})/)[1], title=document.getElementById("productTitle").textContent.trim(); alert(`{{</* amazon asin="${asin}" title="${title}" */>}}`);})();
 ```
 
 ## 参考
