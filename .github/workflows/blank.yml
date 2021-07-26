@@ -32,7 +32,7 @@ jobs:
           hugo-version: '0.85.0'
           extended: true
       - name: Hugo build
-        run: hugo --minify
+        run: HUGO_ENV=production hugo --minify
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
