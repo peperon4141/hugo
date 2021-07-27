@@ -26,8 +26,13 @@ googleAnalytics = "G-V3H6ME1VJT"
   url = "/post/gas"
 
 [[menu.main]]
+  name = "TradingView"
+  weight = -70
+  url = "/post/TradingView"
+
+[[menu.main]]
   name = "検索"
-  weight = -80
+  weight = -10
   url = "/search"
 
 [markup.goldmark.parser.attribute]
