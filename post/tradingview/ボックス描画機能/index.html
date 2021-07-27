@@ -1,0 +1,46 @@
+<!doctype html><html lang><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>ボックス描画機能 - こつこつナレッジ</title><meta name=description content="はじめに PineScriptにボックス描画機能が追加されました。
+この機能ではチャート上に長方形を簡単に書くことができます。 サンプルを踏まえて、PineScriptでの使い方を見ていきます。
+サンプル //@version=4 study(&#34;Box Example&#34;, overlay=true) c_green = color.rgb(33, 150, 243, 80) ll = lowest(10) hh = highest(10) b1 = box(na) if barstate.islast b1 := box.new(bar_index[9], hh, bar_index, ll, bgcolor=c_green, border_style=line.style_dashed) box.delete(b1[1])  //@version=4
+バージョン4のPineScriptを使用しています。 study(&#34;Box Example&#34;, overlay=true)
+Box Exampleという名前でインジケータを作成します。
+overlay=trueでチャートを重ねて表示します。 c_green = color.rgb(33, 150, 243, 80)
+color.rgb(red, green, blue, transp)の文法で色を定義します。
+各色は0~255,transpは0(不透明)~100(不可視)です。 ll = lowest(10)
+lowestは指定された過去バーの範囲での最安値を意味します。 この場合は過去10本のバーの中での最安値のことです。 hh = highest(10)
+lowestと逆で過去10本のバーの中で最高値を意味します。 b1 = box(na)
+ifが別のスコープを作成するので、再代入する元になるb1変数を先に空で定義しておきます。 if barstate.islast barstate."><meta name=author content><link rel=stylesheet href=https://tech.choihack.com/scss/style.a1c07ff09977aa847ea32d7ab05ba0cca0e0f582011a9794e629bcd0e019d6ca.css><link href=https://tech.choihack.com/custom.css rel=stylesheet><link rel=apple-touch-icon href=https://tech.choihack.com/apple-touch-icon.png><link rel=icon href=https://tech.choihack.com/favicon.ico><meta name=generator content="Hugo 0.85.0"><script async src="https://www.googletagmanager.com/gtag/js?id=G-V3H6ME1VJT"></script><script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-V3H6ME1VJT',{anonymize_ip:!1})}</script><meta property="og:title" content="ボックス描画機能"><meta property="og:description" content="ボックス描画機能"><meta property="og:type" content="article"><meta property="og:url" content="https://tech.choihack.com/post/tradingview/%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9%E6%8F%8F%E7%94%BB%E6%A9%9F%E8%83%BD/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-07-26T17:54:26+09:00"><meta property="article:modified_time" content="2021-07-26T17:54:26+09:00"></head><header class=header><nav class=nav><h1 class=logo><a href=https://tech.choihack.com/>こつこつナレッジ</a></h1><ul class=menu><li><a href=/>TOP</a></li><li><a href=/post/hugo>Hugo</a></li><li><a href=/post/gas>GAS</a></li><li><a href=/post/tradingview>TradingView</a></li><li><a href=/search>検索</a></li></ul></nav><nav class=breadcrumb><ul><li><a href=https://tech.choihack.com/>TOP</a></li><li><a href=https://tech.choihack.com/post/>投稿</a></li><li><a href=https://tech.choihack.com/post/tradingview/>TradingView</a></li><li class=active>ボックス描画機能</li></ul></nav></header><body class="dark page"></body><main class=post><article><header class=post-header><h1 class=post-title>ボックス描画機能</h1><div class=post-meta>2021.07.26</div></header><div class=post-content><h2 id=はじめに>はじめに</h2><p>PineScriptにボックス描画機能が追加されました。<br>この機能ではチャート上に長方形を簡単に書くことができます。
+サンプルを踏まえて、PineScriptでの使い方を見ていきます。</p><h2 id=サンプル>サンプル</h2><pre><code>//@version=4
+study(&quot;Box Example&quot;, overlay=true)
+c_green = color.rgb(33, 150, 243, 80)
+ll = lowest(10)
+hh = highest(10)
+b1 = box(na)
+if barstate.islast
+    b1 := box.new(bar_index[9], hh, bar_index, ll,
+     bgcolor=c_green, border_style=line.style_dashed)
+    box.delete(b1[1])
+</code></pre><ul><li><code>//@version=4</code><br>バージョン4のPineScriptを使用しています。</li><li><code>study("Box Example", overlay=true)</code><br><code>Box Example</code>という名前でインジケータを作成します。<br><code>overlay=true</code>でチャートを重ねて表示します。</li><li><code>c_green = color.rgb(33, 150, 243, 80)</code><br><code>color.rgb(red, green, blue, transp)</code>の文法で色を定義します。<br>各色は0~255,transpは0(不透明)~100(不可視)です。</li><li><code>ll = lowest(10)</code><br>lowestは<code>指定された過去バーの範囲での最安値</code>を意味します。
+この場合は過去10本のバーの中での最安値のことです。</li><li><code>hh = highest(10)</code><br>lowestと逆で過去10本のバーの中で最高値を意味します。</li><li><code>b1 = box(na)</code><br>ifが別のスコープを作成するので、再代入する元になるb1変数を先に空で定義しておきます。</li><li><code>if barstate.islast</code>
+<code>barstate.islast</code>は現在のバーがバーセットの最後のバーの場合はtrueを返し、そうでない場合はfalseを返します。</li><li><code>b1 := box.new(bar_index[9], hh, bar_index, ll, bgcolor=c_green, border_style=line.style_dashed)</code><br>b1に値を再代入します。（<code>=</code>は代入で、<code>:=</code>は再代入を表します）<br><code>box.new(left, top, right, bottom, border_color, border_width, border_style, extend, xloc, bgcolor)</code>で長方形を描画します。</li><li><code>box.delete(b1[1])</code><br><code>box.delete(id)</code>で指定されたボックスを削除します。</li></ul><p>このスクリプトを描画すると以下のようになります。<br><img src=https://tvblog-static.tradingview.com/uploads/2021/05/New-drawing-box-1.png alt="新しい描画 — ボックス"></p><h2 id=参考>参考</h2><ul><li><a href=https://www.tradingview.com/blog/ja/new-drawing-box-24667/ target=_blank>新しい描画 — ボックス</a></li><li><a href=https://kabuist.hatenablog.com/entry/2019/11/26/225035#The-script-must-have-at-least-one-output-function-call-eg-plot-barcolor-etc-%E3%82%A8%E3%83%A9%E3%83%BC target=_blank>Trading Viewのエラー</a></li></ul></div><div class=prev-next><a class=prev href=https://tech.choihack.com/post/tradingview/pinescript%E5%85%A5%E9%96%80/><article class=article-card><header class=article-card-header><h2>PineScript入門</h2></header><section class=article-card-content><p>はじめに PineScriptはトレードのインジケータを作成するための言語です。
+独自の言語なので少し癖があります。
+この記事では、 Quickstart guide で紹介されているインジケータを解説します。
+対象のインジケータのコード //@version=4 study("MACD") fast = 12, slow = 26 fastMA = ema(close, fast) slowMA = ema(close, slow) macd = fastMA - slowMA signal = sma(macd, 9) plot(macd, color=color.blue) plot(signal, color=color.orange) Line 1: //@version=4
+この行はコンパイラにスクリプトのバージョンを伝えるコメントです。 Line 2: study("MACD")
+MACDというチャートの名前を定義しています。
+studyはインジケータ、strategyがEAを意味します。 Line 3: fast = 12, slow = 26
+2つの変数を定義しています。 Line 4: fastMA = ema(close, fast)
+EMA(Exponential Moving Average)を計算した結果をfastMAに代入します。
+ema はビルトイン関数です。
+closeのシリーズを元に計算し、期間はfast（12）です。 Line 5: slowMA = ema(close, slow)...</p></section><footer class=article-card-footer><time>2021-07-26</time></footer></article></a><a class=next href=https://tech.choihack.com/post/tradingview/series%E3%81%A8%E3%81%AF/><article class=article-card><header class=article-card-header><h2>Seriesとは</h2></header><section class=article-card-content><p>はじめに PineScriptを使用する上で、最も重要なのがSeriesの理解です。
+Seriesは若干クセがあるので、しっかりと理解する必要があります。
+Pineスクリプトの型システム Pineスクリプトには以下の基本的な9つの型が存在します。
+int float bool color string line label plot hline これらの型はいくつかの形式で存在します。
+形式には5種類あります。
+literal const input simple series 型と形式は合わせて参照されます。
+例えばliteral bool型、input bool型…のようにコンパイラによって識別されます。
+また、以下のような型も存在します。
+array void na (not available) tuple type 形式 Literal Literalは固定された値を表すための特別な表記法です。
+Literalは常に以下のどれかの型形式になります。
+literal float (3.14, 6.02E-23, 3e8) literal int (42) literal bool (true, false) literal string (“A text literal”) literal color (#FF55C6) ビルトインのopen,high,low,…などはLiterarlではありません。
+これらはserires formです。
+Const Const形式の値は次の特徴があります。...</p></section><footer class=article-card-footer><time>2021-07-26</time></footer></article></a></div></article><aside class=aside><h2>目次</h2><nav id=TableOfContents><ul><li><a href=#はじめに>はじめに</a></li><li><a href=#サンプル>サンプル</a></li><li><a href=#参考>参考</a></li></ul></nav></aside></main></body><footer class=footer><p class=text-center>© - 2021 - こつこつナレッジ</p></footer><script src=https://tech.choihack.com/highlight.min.js></script><script>hljs.initHighlightingOnLoad()</script></html>

@@ -1,5 +1,29 @@
 var data = [
 {
+url: "https://tech.choihack.com/post/tradingview/series%E3%81%A8%E3%81%AF/",
+title: "Seriesとは",
+date: "2021-07-26T18:26:57+09:00",
+body: "Seriesとは はじめに PineScriptを使用する上で、最も重要なのがSeriesの理解です。 Seriesは若干クセがあるので、しっかりと理解する必要があります。 Pineスクリプトの型システム Pineスクリプトには以下の基本的な9つの型が存在します。 int float bool color string line label plot hline これらの型はいくつかの形式で存在します。 形式には5種類あります。 literal const input simple series 型と形式は合わせて参照されます。 例えばliteral bool型、input bool型\u0026hellip;のようにコンパイラによって識別されます。 また、以下のような型も存在します。 array void na (not available) tuple type 形式 Literal Literalは固定された値を表すための特別な表記法です。 Literalは常に以下のどれかの型形式になります。 literal float (3.14, 6.02E-23, 3e8) literal int (42) literal bool (true, false) literal string (\u0026ldquo;A text literal\u0026rdquo;) literal color (#FF55C6) ビルトインのopen,high,low,\u0026hellip;などはLiterarlではありません。 これらはserires formです。 Const Const形式の値は次の特徴があります。 PineScript実行中に変更されない コンパイル時に確定されるか計算される 例えば c1 = 0 c2 = c1 + 1 c3 = c1 + 1 if open \u0026gt; close c3 := 0 c1はconst intです。 理由はliteral intによって初期化されるからです。 c2もconst intで、const intだけの計算で初期化されるからです。 c3はseries intで、理由は実行中に変更されるからです。 Input Inputは以下の特徴があります。 PineScript実行中に変更されない コンパイル時には未確定 input関数に基づいている 例えば p = input(10, title=\u0026quot;Period\u0026quot;) pはinput integerです。 Simple Simpleは以下の特徴があります。 PineScript実行中に変更されない コンパイル時に未確定 この値は、チャートのシンボルの情報に基づいています。 例えば、ビルトイン変数のsyminfo.mintickはsimple floatです。 simpleは省略されることもあるので、単にfloatと呼ばれることもあります。 Series Seriesは以下の特徴があります。 PineScript実行中に変更される メインチャートのシンボルの各バーに関連付けられた履歴の値を保存します []演算子を使用してアクセスできる seriesの最後（つまり最新のバー）に関連付けられている値のみが読み書き両方できる seriesはPineScriptで最も一般的な形式です。 ビルトインのseries変数は例えば、open、high、low、close、volume、timeなどです。 これらのseriesのサイズは現在のティッカーの時間枠で使用可能なバーの数と同じです。 Seriesには数値かna（not avairable：使用不可）が含まれる場合があります。 例えば a = open + close // 2つのSeriesの加算 b = high / 2 // integer literal const による、Seriesの除算 c = close[1] // 前のcloseの値の参照 参考 Series"
+},
+{
+url: "https://tech.choihack.com/post/tradingview/",
+title: "",
+date: "2021-07-26T18:26:57+09:00",
+body: ""
+},
+{
+url: "https://tech.choihack.com/post/tradingview/%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9%E6%8F%8F%E7%94%BB%E6%A9%9F%E8%83%BD/",
+title: "ボックス描画機能",
+date: "2021-07-26T17:54:26+09:00",
+body: "ボックス描画機能 はじめに PineScriptにボックス描画機能が追加されました。 この機能ではチャート上に長方形を簡単に書くことができます。 サンプルを踏まえて、PineScriptでの使い方を見ていきます。 サンプル //@version=4 study(\u0026quot;Box Example\u0026quot;, overlay=true) c_green = color.rgb(33, 150, 243, 80) ll = lowest(10) hh = highest(10) b1 = box(na) if barstate.islast b1 := box.new(bar_index[9], hh, bar_index, ll, bgcolor=c_green, border_style=line.style_dashed) box.delete(b1[1]) //@version=4 バージョン4のPineScriptを使用しています。 study(\u0026quot;Box Example\u0026quot;, overlay=true) Box Exampleという名前でインジケータを作成します。 overlay=trueでチャートを重ねて表示します。 c_green = color.rgb(33, 150, 243, 80) color.rgb(red, green, blue, transp)の文法で色を定義します。 各色は0~255,transpは0(不透明)~100(不可視)です。 ll = lowest(10) lowestは指定された過去バーの範囲での最安値を意味します。 この場合は過去10本のバーの中での最安値のことです。 hh = highest(10) lowestと逆で過去10本のバーの中で最高値を意味します。 b1 = box(na) ifが別のスコープを作成するので、再代入する元になるb1変数を先に空で定義しておきます。 if barstate.islast barstate.islastは現在のバーがバーセットの最後のバーの場合はtrueを返し、そうでない場合はfalseを返します。 b1 := box.new(bar_index[9], hh, bar_index, ll, bgcolor=c_green, border_style=line.style_dashed) b1に値を再代入します。（=は代入で、:=は再代入を表します） box.new(left, top, right, bottom, border_color, border_width, border_style, extend, xloc, bgcolor)で長方形を描画します。 box.delete(b1[1]) box.delete(id)で指定されたボックスを削除します。 このスクリプトを描画すると以下のようになります。 参考 新しい描画 — ボックス Trading Viewのエラー"
+},
+{
+url: "https://tech.choihack.com/post/tradingview/pinescript%E5%85%A5%E9%96%80/",
+title: "PineScript入門",
+date: "2021-07-26T17:13:59+09:00",
+body: "PineScript入門 はじめに PineScriptはトレードのインジケータを作成するための言語です。 独自の言語なので少し癖があります。 この記事では、 Quickstart guide で紹介されているインジケータを解説します。 対象のインジケータのコード //@version=4 study(\u0026quot;MACD\u0026quot;) fast = 12, slow = 26 fastMA = ema(close, fast) slowMA = ema(close, slow) macd = fastMA - slowMA signal = sma(macd, 9) plot(macd, color=color.blue) plot(signal, color=color.orange) Line 1: //@version=4 この行はコンパイラにスクリプトのバージョンを伝えるコメントです。 Line 2: study(\u0026quot;MACD\u0026quot;) MACDというチャートの名前を定義しています。 studyはインジケータ、strategyがEAを意味します。 Line 3: fast = 12, slow = 26 2つの変数を定義しています。 Line 4: fastMA = ema(close, fast) EMA(Exponential Moving Average)を計算した結果をfastMAに代入します。 ema はビルトイン関数です。 closeのシリーズを元に計算し、期間はfast（12）です。 Line 5: slowMA = ema(close, slow) 4行目と同じですが、期間はslow（26）で、slowMAに計算結果を代入します。 Line 6: macd = fastMA - slowMA fastMA と slowMA の差を求めmacd変数に代入します。 Line 7: signal = sma(macd, 9) macdを使って、SMA(Simple Moving Average)を計算し、signal変数に代入します。 Line 8: plot(macd, color=color.blue) macd変数を青線でプロットするため、plot関数を使用します。 Line 9: plot(signal, color=color.orange) signal変数をオレンジ線でプロットするため、plot関数を使用します。 MACDを実行すると次のようなチャートが見れます。 study と strategy strategyはバックテストの実行に使用されます。 studyの実行に比べて、strategyはstrategy.*()のような売り・買いの実行をブローカーエミュレーターに対してシミュレートします。 studyはバックテストには使用できず、ブローカーへの注文もしません。 その分少ないリソースで高速に実行できます。 Strategyはデフォルトでは、履歴バー毎に実行されますが、価格変更毎に実行することも可能です。 詳細： Execution model Series PineScirptで使用される主なデータ型はSeriesと呼ばれます。 これは現在から過去のバーに遡り、各バーに1つの値を持つ連続リストです。 これは他の言語で言うところの配列のようなものだと思われがちですが、そう考えるのはよくありません。 詳細： Series PineScriptの実行モデル PineScriptは他の一般的な一度実行されて止まって終わりの言語とは異なっています。 各履歴バー毎に一回だけ実行されます。 ただし、最新のリアルタイムバーの場合は、価格やボリュームの変更が検知されたタイミングで一度実行されます。 また、履歴バーが閉じたタイミングで一度実行されます。 参考 Pineスクリプト言語リファレンスマニュアル Pineスクリプト Pine Script 4 User Manual"
+},
+{
 url: "https://tech.choihack.com/post/hugo/githubpages%E3%81%A8googledomain%E3%81%A7%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B/",
 title: "GitHubPagesとGoogleDomainでサイトを公開する",
 date: "2021-07-25T09:32:14+09:00",
@@ -72,12 +96,6 @@ date: "2021-07-11T23:23:10+09:00",
 body: ""
 },
 {
-url: "https://tech.choihack.com/search/",
-title: "",
-date: "2021-07-11T23:23:10+09:00",
-body: ""
-},
-{
 url: "https://tech.choihack.com/post/hugo/%E3%83%9A%E3%83%BC%E3%82%B8%E5%A4%89%E6%95%B0/",
 title: "ページ変数",
 date: "2021-07-11T18:32:36+09:00",
@@ -106,12 +124,6 @@ url: "https://tech.choihack.com/post/hugo/%E3%82%B5%E3%82%A4%E3%83%88%E4%BD%9C%E
 title: "サイト作成",
 date: "2021-07-11T00:00:00Z",
 body: "サイト作成 Hugoとは Hugoは静的サイトジェネレーターと呼ばれ、Markdown形式のコンテンツからHTMLを作成してくれます。 HugoはGoogle製のGo言語で作成されており、サイト作成の速度が非常に高速です。 この記事では、MacOSでの環境構築について説明します。 ローカルでサイト作成 Hugoインストール Homebrewを使用すると簡単にインストールできます。 $ brew install hugo 無事インストールが完了していると、以下のコマンドでバージョンが表示されるはずです。 $ hugo version Hugo Static Site Generator v0.79.0/extended darwin/amd64 BuildDate: unknown 新しいサイトの作成 $ hugo new site new_site_name このコマンドを実行することで、new_site_nameというフォルダー名で新しいサイトが作成できます。 テーマの追加 Hugoはテーマという仕組みで、簡単にサイトのデザインを使用できます。 テーマファイルは、themes/theme_nameディレクトリに保存されます。 git init(gitの初期化)を実行した後に以下を実行します。 git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke submodule addはgitのリポジトリ内に、子供のリポジトリを追加するコマンドです。 https://github.com/theNewDynamic/gohugo-theme-ananke.gitで定義されているHugoのテーマファイルを、ローカルのthemes/anankeディレクトリに保存しています。 submoduleとして追加しなくても、ダウンロードしてきたテーマファイルを配置しても構いません。 完了した後theme = \u0026quot;ananke\u0026quot;のようにconfig.tomlファイルに追加することでテーマを使用できます。 投稿の追加 投稿はcontent/\u0026lt;CATEGORY\u0026gt;/\u0026lt;FILE\u0026gt;.\u0026lt;FORMAT\u0026gt;という形式で保存します。 hugo new post/first-post.md と実行すると、content/post/first-post.mdに投稿んぼ雛形が追加されます。 --- title: \u0026quot;My First Post\u0026quot; date: 2019-03-26T08:47:11+01:00 draft: true --- 中にはこのような情報が記載されており、記事の詳細情報を定義することができます。 Hugoを起動する hugo server -D このコマンドで起動できます。 通常 http://localhost:1313/ にアクセスすると立ち上げたサーバーにアクセスできます。 ビルドする 以下のコマンドでサイトをビルドできます。 初期状態ではpublicディレクトリにサイトが作成されます。 hugo 参考 QuickStart"
-},
-{
-url: "https://tech.choihack.com/search/data.js",
-title: "",
-date: "0001-01-01T00:00:00Z",
-body: ""
 },
 {
 url: "https://tech.choihack.com/categories/",

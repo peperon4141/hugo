@@ -1,0 +1,33 @@
+<!doctype html><html lang><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>- こつこつナレッジ</title><meta name=description content><meta name=author content><link rel=stylesheet href=https://tech.choihack.com/scss/style.a1c07ff09977aa847ea32d7ab05ba0cca0e0f582011a9794e629bcd0e019d6ca.css><link href=https://tech.choihack.com/custom.css rel=stylesheet><link rel=apple-touch-icon href=https://tech.choihack.com/apple-touch-icon.png><link rel=icon href=https://tech.choihack.com/favicon.ico><meta name=generator content="Hugo 0.85.0"><link rel=alternate type=application/rss+xml href=https://tech.choihack.com/post/tradingview/index.xml title=こつこつナレッジ><script async src="https://www.googletagmanager.com/gtag/js?id=G-V3H6ME1VJT"></script><script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-V3H6ME1VJT',{anonymize_ip:!1})}</script><meta property="og:title" content><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://tech.choihack.com/post/tradingview/"></head><header class=header><nav class=nav><h1 class=logo><a href=https://tech.choihack.com/>こつこつナレッジ</a></h1><ul class=menu><li><a href=/>TOP</a></li><li><a href=/post/hugo>Hugo</a></li><li><a href=/post/gas>GAS</a></li><li><a href=/post/tradingview>TradingView</a></li><li><a href=/search>検索</a></li></ul></nav><nav class=breadcrumb><ul><li><a href=https://tech.choihack.com/>TOP</a></li><li><a href=https://tech.choihack.com/post/>投稿</a></li><li class=active>TradingView</li></ul></nav></header><body class="dark section"></body><main class=list-page><h1 class=list-page-header>投稿一覧</h1><a class=entry-link href=https://tech.choihack.com/post/tradingview/series%E3%81%A8%E3%81%AF/><article class=article-card><header class=article-card-header><h2>Seriesとは</h2></header><section class=article-card-content><p>はじめに PineScriptを使用する上で、最も重要なのがSeriesの理解です。
+Seriesは若干クセがあるので、しっかりと理解する必要があります。
+Pineスクリプトの型システム Pineスクリプトには以下の基本的な9つの型が存在します。
+int float bool color string line label plot hline これらの型はいくつかの形式で存在します。
+形式には5種類あります。
+literal const input simple series 型と形式は合わせて参照されます。
+例えばliteral bool型、input bool型…のようにコンパイラによって識別されます。
+また、以下のような型も存在します。
+array void na (not available) tuple type 形式 Literal Literalは固定された値を表すための特別な表記法です。
+Literalは常に以下のどれかの型形式になります。
+literal float (3.14, 6.02E-23, 3e8) literal int (42) literal bool (true, false) literal string (“A text literal”) literal color (#FF55C6) ビルトインのopen,high,low,…などはLiterarlではありません。
+これらはserires formです。
+Const Const形式の値は次の特徴があります。...</p></section><footer class=article-card-footer><time>2021-07-26</time></footer></article></a><a class=entry-link href=https://tech.choihack.com/post/tradingview/%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9%E6%8F%8F%E7%94%BB%E6%A9%9F%E8%83%BD/><article class=article-card><header class=article-card-header><h2>ボックス描画機能</h2></header><section class=article-card-content><p>はじめに PineScriptにボックス描画機能が追加されました。
+この機能ではチャート上に長方形を簡単に書くことができます。 サンプルを踏まえて、PineScriptでの使い方を見ていきます。
+サンプル //@version=4 study("Box Example", overlay=true) c_green = color.rgb(33, 150, 243, 80) ll = lowest(10) hh = highest(10) b1 = box(na) if barstate.islast b1 := box.new(bar_index[9], hh, bar_index, ll, bgcolor=c_green, border_style=line.style_dashed) box.delete(b1[1]) //@version=4
+バージョン4のPineScriptを使用しています。 study("Box Example", overlay=true)
+Box Exampleという名前でインジケータを作成します。
+overlay=trueでチャートを重ねて表示します。 c_green = color.rgb(33, 150, 243, 80)
+color.rgb(red, green, blue, transp)の文法で色を定義します。
+各色は0~255,transpは0(不透明)~100(不可視)です。 ll = lowest(10)
+lowestは指定された過去バーの範囲での最安値を意味します。 この場合は過去10本のバーの中での最安値のことです。 hh = highest(10)
+lowestと逆で過去10本のバーの中で最高値を意味します。 b1 = box(na)
+ifが別のスコープを作成するので、再代入する元になるb1変数を先に空で定義しておきます。 if barstate.islast barstate....</p></section><footer class=article-card-footer><time>2021-07-26</time></footer></article></a><a class=entry-link href=https://tech.choihack.com/post/tradingview/pinescript%E5%85%A5%E9%96%80/><article class=article-card><header class=article-card-header><h2>PineScript入門</h2></header><section class=article-card-content><p>はじめに PineScriptはトレードのインジケータを作成するための言語です。
+独自の言語なので少し癖があります。
+この記事では、 Quickstart guide で紹介されているインジケータを解説します。
+対象のインジケータのコード //@version=4 study("MACD") fast = 12, slow = 26 fastMA = ema(close, fast) slowMA = ema(close, slow) macd = fastMA - slowMA signal = sma(macd, 9) plot(macd, color=color.blue) plot(signal, color=color.orange) Line 1: //@version=4
+この行はコンパイラにスクリプトのバージョンを伝えるコメントです。 Line 2: study("MACD")
+MACDというチャートの名前を定義しています。
+studyはインジケータ、strategyがEAを意味します。 Line 3: fast = 12, slow = 26
+2つの変数を定義しています。 Line 4: fastMA = ema(close, fast)
+EMA(Exponential Moving Average)を計算した結果をfastMAに代入します。
+ema はビルトイン関数です。
+closeのシリーズを元に計算し、期間はfast（12）です。 Line 5: slowMA = ema(close, slow)...</p></section><footer class=article-card-footer><time>2021-07-26</time></footer></article></a></main></body><footer class=footer><p class=text-center>© - 2021 - こつこつナレッジ</p></footer><script src=https://tech.choihack.com/highlight.min.js></script><script>hljs.initHighlightingOnLoad()</script></html>

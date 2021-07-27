@@ -1,4 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>こつこつナレッジ</title><link>https://tech.choihack.com/</link><description>Recent content on こつこつナレッジ</description><generator>Hugo -- gohugo.io</generator><copyright>© - 2021 - こつこつナレッジ</copyright><lastBuildDate>Sun, 11 Jul 2021 23:23:10 +0900</lastBuildDate><atom:link href="https://tech.choihack.com/index.xml" rel="self" type="application/rss+xml"/><item><title>GitHubPagesとGoogleDomainでサイトを公開する</title><link>https://tech.choihack.com/post/hugo/githubpages%E3%81%A8googledomain%E3%81%A7%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B/</link><pubDate>Sun, 25 Jul 2021 09:32:14 +0900</pubDate><guid>https://tech.choihack.com/post/hugo/githubpages%E3%81%A8googledomain%E3%81%A7%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B/</guid><description>はじめに GitHubPagesの利点は、いくつか制限があるものの以下のメリットがあります。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>こつこつナレッジ</title><link>https://tech.choihack.com/</link><description>Recent content on こつこつナレッジ</description><generator>Hugo -- gohugo.io</generator><copyright>© - 2021 - こつこつナレッジ</copyright><lastBuildDate>Sun, 11 Jul 2021 23:23:10 +0900</lastBuildDate><atom:link href="https://tech.choihack.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Seriesとは</title><link>https://tech.choihack.com/post/tradingview/series%E3%81%A8%E3%81%AF/</link><pubDate>Mon, 26 Jul 2021 18:26:57 +0900</pubDate><guid>https://tech.choihack.com/post/tradingview/series%E3%81%A8%E3%81%AF/</guid><description>はじめに PineScriptを使用する上で、最も重要なのがSeriesの理解です。
+Seriesは若干クセがあるので、しっかりと理解する必要があります。
+Pineスクリプトの型システム Pineスクリプトには以下の基本的な9つの型が存在します。
+int float bool color string line label plot hline これらの型はいくつかの形式で存在します。
+形式には5種類あります。
+literal const input simple series 型と形式は合わせて参照されます。
+例えばliteral bool型、input bool型&amp;hellip;のようにコンパイラによって識別されます。
+また、以下のような型も存在します。
+array void na (not available) tuple type 形式 Literal Literalは固定された値を表すための特別な表記法です。
+Literalは常に以下のどれかの型形式になります。
+literal float (3.14, 6.02E-23, 3e8) literal int (42) literal bool (true, false) literal string (&amp;ldquo;A text literal&amp;rdquo;) literal color (#FF55C6) ビルトインのopen,high,low,&amp;hellip;などはLiterarlではありません。
+これらはserires formです。
+Const Const形式の値は次の特徴があります。</description></item><item><title>ボックス描画機能</title><link>https://tech.choihack.com/post/tradingview/%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9%E6%8F%8F%E7%94%BB%E6%A9%9F%E8%83%BD/</link><pubDate>Mon, 26 Jul 2021 17:54:26 +0900</pubDate><guid>https://tech.choihack.com/post/tradingview/%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9%E6%8F%8F%E7%94%BB%E6%A9%9F%E8%83%BD/</guid><description>はじめに PineScriptにボックス描画機能が追加されました。
+この機能ではチャート上に長方形を簡単に書くことができます。 サンプルを踏まえて、PineScriptでの使い方を見ていきます。
+サンプル //@version=4 study(&amp;quot;Box Example&amp;quot;, overlay=true) c_green = color.rgb(33, 150, 243, 80) ll = lowest(10) hh = highest(10) b1 = box(na) if barstate.islast b1 := box.new(bar_index[9], hh, bar_index, ll, bgcolor=c_green, border_style=line.style_dashed) box.delete(b1[1]) //@version=4
+バージョン4のPineScriptを使用しています。 study(&amp;quot;Box Example&amp;quot;, overlay=true)
+Box Exampleという名前でインジケータを作成します。
+overlay=trueでチャートを重ねて表示します。 c_green = color.rgb(33, 150, 243, 80)
+color.rgb(red, green, blue, transp)の文法で色を定義します。
+各色は0~255,transpは0(不透明)~100(不可視)です。 ll = lowest(10)
+lowestは指定された過去バーの範囲での最安値を意味します。 この場合は過去10本のバーの中での最安値のことです。 hh = highest(10)
+lowestと逆で過去10本のバーの中で最高値を意味します。 b1 = box(na)
+ifが別のスコープを作成するので、再代入する元になるb1変数を先に空で定義しておきます。 if barstate.islast barstate.</description></item><item><title>PineScript入門</title><link>https://tech.choihack.com/post/tradingview/pinescript%E5%85%A5%E9%96%80/</link><pubDate>Mon, 26 Jul 2021 17:13:59 +0900</pubDate><guid>https://tech.choihack.com/post/tradingview/pinescript%E5%85%A5%E9%96%80/</guid><description>はじめに PineScriptはトレードのインジケータを作成するための言語です。
+独自の言語なので少し癖があります。
+この記事では、 Quickstart guide で紹介されているインジケータを解説します。
+対象のインジケータのコード //@version=4 study(&amp;quot;MACD&amp;quot;) fast = 12, slow = 26 fastMA = ema(close, fast) slowMA = ema(close, slow) macd = fastMA - slowMA signal = sma(macd, 9) plot(macd, color=color.blue) plot(signal, color=color.orange) Line 1: //@version=4
+この行はコンパイラにスクリプトのバージョンを伝えるコメントです。 Line 2: study(&amp;quot;MACD&amp;quot;)
+MACDというチャートの名前を定義しています。
+studyはインジケータ、strategyがEAを意味します。 Line 3: fast = 12, slow = 26
+2つの変数を定義しています。 Line 4: fastMA = ema(close, fast)
+EMA(Exponential Moving Average)を計算した結果をfastMAに代入します。
+ema はビルトイン関数です。
+closeのシリーズを元に計算し、期間はfast（12）です。 Line 5: slowMA = ema(close, slow)</description></item><item><title>GitHubPagesとGoogleDomainでサイトを公開する</title><link>https://tech.choihack.com/post/hugo/githubpages%E3%81%A8googledomain%E3%81%A7%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B/</link><pubDate>Sun, 25 Jul 2021 09:32:14 +0900</pubDate><guid>https://tech.choihack.com/post/hugo/githubpages%E3%81%A8googledomain%E3%81%A7%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B/</guid><description>はじめに GitHubPagesの利点は、いくつか制限があるものの以下のメリットがあります。
 TLS対応（Let&amp;rsquo;s Encrypt) 独自ドメイン対応 無料 GoogleDomainでは１４００円のドメインを使用しています。
 このドメインにサブドメインを追加することで、複数ドメインを追加料金なく使用しています。
 なので、私はいくつかブログを運用していますが、年間合計１４００円しかかかっていません。
@@ -112,4 +144,4 @@ submoduleとして追加しなくても、ダウンロードしてきたテー�
 hugo new post/first-post.md と実行すると、content/post/first-post.mdに投稿んぼ雛形が追加されます。
 --- title: &amp;quot;My First Post&amp;quot; date: 2019-03-26T08:47:11+01:00 draft: true --- 中にはこのような情報が記載されており、記事の詳細情報を定義することができます。
 Hugoを起動する hugo server -D このコマンドで起動できます。
-通常 http://localhost:1313/ にアクセスすると立ち上げたサーバーにアクセスできます。</description></item><item><title/><link>https://tech.choihack.com/search/data.js</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tech.choihack.com/search/data.js</guid><description/></item></channel></rss>
+通常 http://localhost:1313/ にアクセスすると立ち上げたサーバーにアクセスできます。</description></item></channel></rss>
