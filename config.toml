@@ -10,6 +10,10 @@ paginate = 5
 
 googleAnalytics = "G-V3H6ME1VJT"
 
+[Params]
+  amazonTrackingId = "tech-choihack-22"
+  mode = "dark"
+
 [[menu.main]]
   name = "TOP"
   weight = -110
