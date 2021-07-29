@@ -7,9 +7,9 @@ body: "MySQLを覗いてみる はじめに 前回の Dockerを使ってwordpres
 },
 {
 url: "https://tech.choihack.com/post/wordpress/",
-title: "",
+title: "いちばんやさしいWordPressの教本 人気講師が教える本格Webサイトの作り方 第2版 WordPress 4.x対応 「いちばんやさしい教本」シリーズ",
 date: "2021-07-29T19:08:24+09:00",
-body: ""
+body: "いちばんやさしいWordPressの教本 人気講師が教える本格Webサイトの作り方 第2版 WordPress 4.x対応 「いちばんやさしい教本」シリーズ"
 },
 {
 url: "https://tech.choihack.com/post/wordpress/docker%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6wordpress%E7%92%B0%E5%A2%83%E3%82%92%E7%9E%AC%E4%BD%9C/",
@@ -54,6 +54,12 @@ date: "2021-07-25T09:32:14+09:00",
 body: "GitHubPagesとGoogleDomainでサイトを公開する はじめに GitHubPagesの利点は、いくつか制限があるものの以下のメリットがあります。 TLS対応（Let\u0026rsquo;s Encrypt) 独自ドメイン対応 無料 GoogleDomainでは１４００円のドメインを使用しています。 このドメインにサブドメインを追加することで、複数ドメインを追加料金なく使用しています。 なので、私はいくつかブログを運用していますが、年間合計１４００円しかかかっていません。 しかも、GitHubのActionsなど優秀な機能の恩恵を請けられるので、メンテナンスコストが非常に少なくなります。 GoogleDomainでドメイン取得 サブドメインを追加する方法を説明します。 GoogleDomainの管理画面から マイドメイン \u0026gt; 自分のドメイン \u0026gt; DNS \u0026gt; カスタムレコードを管理 すると、ドメインの設定をカスタマイズできるようになります。 新しいレコードを追加 し、以下のように入力します。 ホスト名： サブドメインにしたい文字列（別名とするサブドメインの指定） タイプ： CNAME（データで指定したホストに対して、別名を登録する方式） TTL：3600（1時間の有効期限） データ：XXXXXXX.github.io. （自身のGitHubのホスト） GitHubActionsを使ってHugoをビルドする ActionsのWorkflowに以下を登録します。 name: gh-pages on: push: branches: - master workflow_dispatch: jobs: build: runs-on: ubuntu-20.04 steps: - name: Checkout uses: actions/checkout@v2 with: submodules: true - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: '0.85.0' extended: true - name: Hugo build run: hugo --minify - name: Deploy uses: peaceiris/actions-gh-pages@v3 with: github_token: ${{ secrets.GITHUB_TOKEN }} publish_dir: ./public このWorkflowの概要としては、 masterブランチが変更された場合に動作する サブモジュールがあれば読み込む Hugoの0.85.0を拡張付きでインストールする（SASSなどを使用する場合は拡張が必要） publicディレクトリを公開する ビルド実行前に/static/CNAME内に、GoogleDomainで指定したDomainを記載します。 そうすることで、GitHubPagesの独自ドメインに反映されます。 GitHubPagesの設定 以下の設定は反映に時間がかかる場合があるので、動作しなければしばらく待ってみましょう。 Sourceの設定 GitHubActionsのビルドが完了すると、gh-pagesというブランチにHugoのビルド結果が作られているはずです。 Settings \u0026gt; Pagesでsourceにgh-pagesを選択し、rootを選びましょう。 Custom domain /static/CNAMEが適切に設定されていると、Custom domainは勝手に設定されているはずです。 GitHubPagesからCustom domainを設定した場合、自動でCNAMEが設定されます。 ただし、このファイルはHugoをビルドしたブランチには反映されないため、staticディレクトリ以下に配置する必要があります。 Enforce HTTPS チェックを付けるとHTTPSで公開してくれます。"
 },
 {
+url: "https://tech.choihack.com/post/hugo/",
+title: "Hugoで始める静的サイト構築入門　静的サイトジェネレーターで作る自作サイト (技術の泉シリーズ（NextPublishing）)",
+date: "2021-07-25T09:32:14+09:00",
+body: "Hugoで始める静的サイト構築入門　静的サイトジェネレーターで作る自作サイト (技術の泉シリーズ（NextPublishing）)"
+},
+{
 url: "https://tech.choihack.com/post/hugo/shortcode/",
 title: "ShortcodeでAmazonのリンクを作成する",
 date: "2021-07-25T09:16:54+09:00",
@@ -64,6 +70,12 @@ url: "https://tech.choihack.com/post/git_submodule%E3%82%92%E7%90%86%E8%A7%A3%E3
 title: "Git submoduleを理解する",
 date: "2021-07-20T07:32:10+09:00",
 body: "Git submoduleを理解する はじめに Git submoduleとは外部のGitリポジトリを、自分のリポジトリのサブディレクトリとして登録する仕組みです。 コマンドの使い方 頻出するコマンドをまとめます。 今回はサンプルとして、MainroadというHugoのテーマを使います。 ローカルワークスペースのthemes/mainroadディレクトリ以下に追加していきます。 追加 git submodule add \u0026lt;リポジトリのURL\u0026gt; \u0026lt;ローカルのサブディレクトリ\u0026gt; git submodule add https://github.com/Vimux/Mainroad.git themes/mainroad themes/mainroad以下にmainroadがクローンされます。 更新 git submodule update 削除 git submodule deinit -f \u0026lt;サブモジュール\u0026gt;: s git rm -f \u0026lt;サブモジュール\u0026gt;: gitの管理から削除 rm -rf .git/modules/\u0026lt;サブモジュール\u0026gt;: .gitからgit情報を削除 git submodule deinit themes/mainroad git rm -f themes/mainroad rm -rf .git/modules/themes/mainroad submoduleを追加したときに起こっていること submoduleを理解するために、どんなことが起こっているのかを整理しておきましょう。 追加されたファイルを確認 $ git status On branch master Changes to be committed: (use \u0026quot;git restore --staged \u0026lt;file\u0026gt;...\u0026quot; to unstage) new file: .gitmodules new file: themes/mainroad .gitmodulesファイルとthemes/mainroadディレクトリが追加されていることがわかります。 .gitmodulesファイルの中身 .gitmodulesの中身は以下のようになっています。 [submodule \u0026quot;themes/mainroad\u0026quot;] path = themes/mainroad url = https://github.com/Vimux/Mainroad.git path: ローカルのパス url: submoduleとして読み込んだリポジトリのURL .gitディレクトリ内への情報の追加 通常Gitを使っていると、.gitディレクトリが追加され、中にはcommitやconfigなどの情報が保存されます。 submoduleの場合は、modules以下に同様の情報が追加されます。 今回のサンプルの場合は、.git/modules/mainroadディレクトリに情報が追加されます。 差分チェック $ git diff --cached diff --git a/.gitmodules b/.gitmodules new file mode 100644 index 0000000..537ffba --- /dev/null +++ b/.gitmodules @@ -0,0 +1,3 @@ +[submodule \u0026quot;themes/mainroad\u0026quot;] + path = themes/mainroad + url = https://github.com/Vimux/Mainroad.git diff --git a/themes/mainroad b/themes/mainroad new file mode 160000 index 0000000..043befb --- /dev/null +++ b/themes/mainroad @@ -0,0 +1 @@ +Subproject commit 043befbc585e5a1d7859cfd1f1700d9a5a09cca8 Subproject commit 043befbc585e5a1d7859cfd1f1700d9a5a09cca8が重要です。 mainroadの043befbc585e5a1d7859cfd1f1700d9a5a09cca8コミットを themes/mainroadディレクトリにsubdmouleとして登録した という意味です。 さいごに 参照: Git submodule の基礎"
+},
+{
+url: "https://tech.choihack.com/post/gas/",
+title: "Hugoで始める静的サイト構築入門　静的サイトジェネレーターで作る自作サイト (技術の泉シリーズ（NextPublishing）)",
+date: "2021-07-19T08:45:56+09:00",
+body: "Hugoで始める静的サイト構築入門　静的サイトジェネレーターで作る自作サイト (技術の泉シリーズ（NextPublishing）)"
 },
 {
 url: "https://tech.choihack.com/post/gas/gas%E3%81%A7linebot%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/",
@@ -90,25 +102,7 @@ date: "2021-07-13T23:51:01+09:00",
 body: "404ページを作成する はじめに 404ステータスとは、ページが見つからない場合に返すステータスのことです。 Hugoでは存在しないページ用のHTMLも独自定義できます。 作成方法 /layouts/404.htmlにページを作成します。 {{ define \u0026quot;main\u0026quot;}} \u0026lt;main id=\u0026quot;main\u0026quot;\u0026gt; \u0026lt;div\u0026gt; \u0026lt;h1 id=\u0026quot;title\u0026quot;\u0026gt;\u0026lt;a href=\u0026quot;{{ \u0026quot;/\u0026quot; | relURL }}\u0026quot;\u0026gt;Go Home\u0026lt;/a\u0026gt;\u0026lt;/h1\u0026gt; \u0026lt;/div\u0026gt; \u0026lt;/main\u0026gt; {{ end }} 動作確認 http://localhost:1313/404.html にアクセスして確認します。 ローカルでの確認の注意点として、ローカルは上記のリンクを直接開く必要があります。 GitHubPagesなどのサービスを利用している場合は、存在しないURLにアクセスされた場合は、404.htmlにリダイレクトしてくれます。 参考 Custom 404 Page"
 },
 {
-url: "https://tech.choihack.com/post/gas/",
-title: "",
-date: "2021-07-11T23:23:10+09:00",
-body: ""
-},
-{
-url: "https://tech.choihack.com/post/hugo/",
-title: "",
-date: "2021-07-11T23:23:10+09:00",
-body: ""
-},
-{
 url: "https://tech.choihack.com/",
-title: "",
-date: "2021-07-11T23:23:10+09:00",
-body: ""
-},
-{
-url: "https://tech.choihack.com/post/varnish/",
 title: "",
 date: "2021-07-11T23:23:10+09:00",
 body: ""
@@ -160,5 +154,11 @@ url: "https://tech.choihack.com/tags/",
 title: "Tags",
 date: "0001-01-01T00:00:00Z",
 body: "Tags"
+},
+{
+url: "https://tech.choihack.com/post/varnish/",
+title: "",
+date: "0001-01-01T00:00:00Z",
+body: ""
 },
 ];
