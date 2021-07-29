@@ -31,9 +31,9 @@ body: "Seriesとは はじめに PineScriptを使用する上で、最も重要�
 },
 {
 url: "https://tech.choihack.com/post/tradingview/",
-title: "",
+title: "あなたの FX 投資を成功へと導くTradingView究極ガイド",
 date: "2021-07-26T18:26:57+09:00",
-body: ""
+body: "あなたの FX 投資を成功へと導くTradingView究極ガイド"
 },
 {
 url: "https://tech.choihack.com/post/tradingview/%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9%E6%8F%8F%E7%94%BB%E6%A9%9F%E8%83%BD/",
