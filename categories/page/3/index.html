@@ -1,4 +1,20 @@
-<!doctype html><html lang><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Categories - こつこつナレッジ</title><meta name=description content><meta name=author content><link rel=stylesheet href=https://tech.choihack.com/scss/style.a1c07ff09977aa847ea32d7ab05ba0cca0e0f582011a9794e629bcd0e019d6ca.css><link href=https://tech.choihack.com/custom.css rel=stylesheet><link rel=apple-touch-icon href=https://tech.choihack.com/apple-touch-icon.png><link rel=icon href=https://tech.choihack.com/favicon.ico><meta name=generator content="Hugo 0.85.0"><link rel=alternate type=application/rss+xml href=https://tech.choihack.com/categories/index.xml title=こつこつナレッジ><script async src="https://www.googletagmanager.com/gtag/js?id=G-V3H6ME1VJT"></script><script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-V3H6ME1VJT',{anonymize_ip:!1})}</script><meta property="og:title" content="Categories"><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://tech.choihack.com/categories/"></head><header class=header><nav class=nav><h1 class=logo><a href=https://tech.choihack.com/>こつこつナレッジ</a></h1><ul class=menu><li><a href=/>TOP</a></li><li><a href=/post/hugo>Hugo</a></li><li><a href=/post/gas>GAS</a></li><li><a href=/post/tradingview>TradingView</a></li><li><a href=/search>検索</a></li></ul></nav><nav class=breadcrumb><ul><li><a href=https://tech.choihack.com/>TOP</a></li><li class=active>Categories</li></ul></nav></header><body class="dark taxonomy"></body><main class=list-page><h1 class=list-page-header>投稿一覧</h1><a class=entry-link href=https://tech.choihack.com/post/hugo/%E3%83%9A%E3%83%BC%E3%82%B8%E5%A4%89%E6%95%B0/><article class=article-card><header class=article-card-header><h2>ページ変数</h2></header><section class=article-card-content><p>はじめに ページ毎の変数は、 フロントマター で定義されるか、コンテンツのファイルの場所から生成されるか、コンテンツ本体から生成されます。
+<!doctype html><html lang><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Categories - こつこつナレッジ</title><meta name=description content><meta name=author content><link rel=stylesheet href=https://tech.choihack.com/scss/style.a1c07ff09977aa847ea32d7ab05ba0cca0e0f582011a9794e629bcd0e019d6ca.css><link href=https://tech.choihack.com/custom.css rel=stylesheet><link rel=apple-touch-icon href=https://tech.choihack.com/apple-touch-icon.png><link rel=icon href=https://tech.choihack.com/favicon.ico><meta name=generator content="Hugo 0.85.0"><link rel=alternate type=application/rss+xml href=https://tech.choihack.com/categories/index.xml title=こつこつナレッジ><script async src="https://www.googletagmanager.com/gtag/js?id=G-V3H6ME1VJT"></script><script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-V3H6ME1VJT',{anonymize_ip:!1})}</script><meta property="og:title" content="Categories"><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://tech.choihack.com/categories/"></head><header class=header><nav class=nav><h1 class=logo><a href=https://tech.choihack.com/>こつこつナレッジ</a></h1><ul class=menu><li><a href=/>TOP</a></li><li><a href=/post/hugo>Hugo</a></li><li><a href=/post/gas>GAS</a></li><li><a href=/post/tradingview>TradingView</a></li><li><a href=/search>検索</a></li></ul></nav><nav class=breadcrumb><ul><li><a href=https://tech.choihack.com/>TOP</a></li><li class=active>Categories</li></ul></nav></header><body class="dark taxonomy"></body><main class=list-page><h1 class=list-page-header>投稿一覧</h1><a class=entry-link href=https://tech.choihack.com/post/hugo/%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%BB%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA%E6%95%B0%E3%81%AE%E5%8F%96%E5%BE%97/><article class=article-card><header class=article-card-header><h2>ページ・セクション・カテゴリ数の取得</h2></header><section class=article-card-content><p>はじめに Hugoでページのデータを取得する方法をまとめました。
+取得方法 サイト内の全記事数 {{ len .Site.RegularPages }} サイト内の全ページ数 {{ len .Site.Pages }} ホームページから下層のページ、そして、カテゴリやタグページも含まれる。
+現在の階層の記事数 {{ len .RegularPages }} 現在の階層のページ数 {{ len .Pages }} ページにはセクションページも含まれる。
+現在の階層以下の全ての記事数 {{ len .RegularPagesRecursive }} ただし、listページでのみ使用できる。
+現在の階層のセクション数を取得 {{ len .Sections }} サイト内の全カテゴリ数 {{ len .Site.Taxonomies.categories }} サイト内の全タグ数 {{ len .Site.Taxonomies.tags }} ...</p></section><footer class=article-card-footer><time>2021-07-18</time></footer></article></a><a class=entry-link href=https://tech.choihack.com/post/hugo/hugo%E3%81%A7%E3%83%86%E3%83%BC%E3%83%9E%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E5%89%8D%E3%81%AB%E6%8A%91%E3%81%88%E3%81%A6%E7%BD%AE%E3%81%8D%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8/><article class=article-card><header class=article-card-header><h2>Hugoでテーマ作成する前に抑えて置きたいこと</h2></header><section class=article-card-content><p>はじめに 私はHugoでテーマを作成していますが、よく探さないと記載されていなかったり、あやふやなまま使っていた書き方がありました。
+そこでそれらをまとめてみました。
+Hugoのテンプレートのハイフンの有無 以下のように、{{}}内に-を書いていたり、いなかったりするテーマを見かけます。
+&lt;div> {{- .Title -}} &lt;/div> この出力結果は以下です。
+&lt;div>Hello, World!&lt;/div> &lt;div> {{ .Title }} &lt;/div> このようにハイフンがない場合は以下のようになります。
+&lt;div> Hello, World! &lt;/div> なので、前後のwhitespaceが消えます。
+Whitespace 参考 Introduction to Hugo Templating ...</p></section><footer class=article-card-footer><time>2021-07-14</time></footer></article></a><a class=entry-link href=https://tech.choihack.com/post/hugo/404%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B/><article class=article-card><header class=article-card-header><h2>404ページを作成する</h2></header><section class=article-card-content><p>はじめに 404ステータスとは、ページが見つからない場合に返すステータスのことです。
+Hugoでは存在しないページ用のHTMLも独自定義できます。
+作成方法 /layouts/404.htmlにページを作成します。
+{{ define "main"}} &lt;main id="main"> &lt;div> &lt;h1 id="title">&lt;a href="{{ "/" | relURL }}">Go Home&lt;/a>&lt;/h1> &lt;/div> &lt;/main> {{ end }} 動作確認 http://localhost:1313/404.html にアクセスして確認します。
+ローカルでの確認の注意点として、ローカルは上記のリンクを直接開く必要があります。
+GitHubPagesなどのサービスを利用している場合は、存在しないURLにアクセスされた場合は、404.htmlにリダイレクトしてくれます。
+参考 Custom 404 Page ...</p></section><footer class=article-card-footer><time>2021-07-13</time></footer></article></a><a class=entry-link href=https://tech.choihack.com/post/hugo/%E3%83%9A%E3%83%BC%E3%82%B8%E5%A4%89%E6%95%B0/><article class=article-card><header class=article-card-header><h2>ページ変数</h2></header><section class=article-card-content><p>はじめに ページ毎の変数は、 フロントマター で定義されるか、コンテンツのファイルの場所から生成されるか、コンテンツ本体から生成されます。
 この記事では、ページレベル変数のリストの一部をまとめました。
 ページ変数 多くの変数は、 フロントマター で定義されている変数です。
 その中の一部を説明します。
@@ -16,34 +32,5 @@ TOMLの場合はdate = "2021-07-11"のように=で繋ぎます。
 定義済み変数 フロントマターには定義済み変数と独自定義変数が存在します。
 定義済み変数の一部は以下のようになっています。
 date: 投稿日付 description: コンテンツの説明 draft: trueなら下書き段階 images: 対象のページに関連する画像のパス配列。_internal/twitter_cards.htmlなどで使用される keywords: メタキーワード lastmod: 最終更新日付 linkTitle: コンテンツのリンク生成時に使用されるURL。Hugoはtitleの前にlinkTitleを使用する series: ページが属するシリーズ名 slug: 出力URLの末尾に表示される weight: 順番を並べ替える際に、小さいほど優先される 独自定義変数 include_toc = true このように定義した場合、.Params.include_tocで使用できます。
-参考 Front Matter ...</p></section><footer class=article-card-footer><time>2021-07-11</time></footer></article></a><a class=entry-link href=https://tech.choihack.com/post/hugo/markdown%E3%81%A7class%E5%B1%9E%E6%80%A7%E3%82%84id%E5%B1%9E%E6%80%A7%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B/><article class=article-card><header class=article-card-header><h2>Markdownでclass属性やid属性を付ける</h2></header><section class=article-card-content><p>はじめに 通常Markdownで記載していると、独自のclass属性やid属性が指定できません。
-ただし、だからと言って直接HTMLを記載するとMarkdownで書くというメリットが失われます。
-Markdownで書きつつ、class属性やid属性を付ける方法を説明します。
-markup.goldmark.parser.attribute 装飾したいMarkdown要素の後に{}で囲んだ属性リストを追加することで、独自の属性を追加できます。
-この機能を使用するためにはconfig.tomlに以下の設定が必要です。
-[markup.goldmark.parser.attribute] block = true ただし、この機能はv0.81.0からHugoに追加された機能です。
-例えば以下のMarkdownを変換してみます。
-この文章は警告です。 { .warn } &lt;p class="warn">この文章は警告です。&lt;/p> 参考 Configure Markup ...</p></section><footer class=article-card-footer><time>2021-07-11</time></footer></article></a><a class=entry-link href=https://tech.choihack.com/post/hugo/config.toml%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/><article class=article-card><header class=article-card-header><h2>config.tomlファイルの使い方</h2></header><section class=article-card-content><p>コンフィグファイルの種類 Hugoではいくつかのコンフィグファイルの種類が定義でき、好きな形式で書くことができます。
-config.toml config.yaml config.json ここでは、TOML形式で定義したコンフィグファイルの説明を行います。
-config.tomlファイルの読み方 TOMLとJSONファイルを変換できるサイトがあるので、一度確認すると意味がわかりやすいです。
-TOML 参考にTOMLをJSONに変換したものを載せます。
-TOML
-title = "TOML Example" [test] a = 1 [[table]] b = 2 [[table]] c = 3 [table3.inner] d = 4 [[table2.description]] e = 5 JSON
-{ "title": "TOML Example", "test": { "a": 1 }, "table": [ { "b": 2 }, { "c": 3 } ], "table3": { "inner": { "d": 4 } }, "table2": { "description": [ { "e": 5 } ] } } TOMLで[[&lt;PARAM_NAME>]]のように2重の括弧で囲むと、配列として定義されることがわかります。...</p></section><footer class=article-card-footer><time>2021-07-11</time></footer></article></a><a class=entry-link href=https://tech.choihack.com/post/hugo/%E3%82%B5%E3%82%A4%E3%83%88%E4%BD%9C%E6%88%90/><article class=article-card><header class=article-card-header><h2>サイト作成</h2></header><section class=article-card-content><p>Hugoとは Hugoは静的サイトジェネレーターと呼ばれ、Markdown形式のコンテンツからHTMLを作成してくれます。
-HugoはGoogle製のGo言語で作成されており、サイト作成の速度が非常に高速です。
-この記事では、MacOSでの環境構築について説明します。
-ローカルでサイト作成 Hugoインストール Homebrewを使用すると簡単にインストールできます。
-$ brew install hugo 無事インストールが完了していると、以下のコマンドでバージョンが表示されるはずです。
-$ hugo version Hugo Static Site Generator v0.79.0/extended darwin/amd64 BuildDate: unknown 新しいサイトの作成 $ hugo new site new_site_name このコマンドを実行することで、new_site_nameというフォルダー名で新しいサイトが作成できます。
-テーマの追加 Hugoはテーマという仕組みで、簡単にサイトのデザインを使用できます。
-テーマファイルは、themes/theme_nameディレクトリに保存されます。
-git init(gitの初期化)を実行した後に以下を実行します。
-git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke submodule addはgitのリポジトリ内に、子供のリポジトリを追加するコマンドです。
-https://github.com/theNewDynamic/gohugo-theme-ananke.gitで定義されているHugoのテーマファイルを、ローカルのthemes/anankeディレクトリに保存しています。
-submoduleとして追加しなくても、ダウンロードしてきたテーマファイルを配置しても構いません。
-完了した後theme = "ananke"のようにconfig.tomlファイルに追加することでテーマを使用できます。
-投稿の追加 投稿はcontent/&lt;CATEGORY>/&lt;FILE>.&lt;FORMAT>という形式で保存します。
-hugo new post/first-post.md と実行すると、content/post/first-post.mdに投稿んぼ雛形が追加されます。
---- title: "My First Post" date: 2019-03-26T08:47:11+01:00 draft: true --- 中にはこのような情報が記載されており、記事の詳細情報を定義することができます。
-Hugoを起動する hugo server -D このコマンドで起動できます。
-通常 http://localhost:1313/ にアクセスすると立ち上げたサーバーにアクセスできます。...</p></section><footer class=article-card-footer><time>2021-07-11</time></footer></article></a><nav class=pagination><a class=prev href=/categories/page/2/>← 前の投稿</a></nav></main></body><footer class=footer><p class=text-center>© - 2021 - こつこつナレッジ</p></footer><script src=https://tech.choihack.com/highlight.min.js></script><script>hljs.initHighlightingOnLoad()</script></html>
+参考 Front Matter ...</p></section><footer class=article-card-footer><time>2021-07-11</time></footer></article></a><nav class=pagination><a class=prev href=/categories/page/2/>← 前の投稿</a>
+<a class=next href=/categories/page/4/>次の投稿 →</a></nav></main></body><footer class=footer><p class=text-center>© - 2021 - こつこつナレッジ</p></footer><script src=https://tech.choihack.com/highlight.min.js></script><script>hljs.initHighlightingOnLoad()</script></html>

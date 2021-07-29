@@ -1,5 +1,29 @@
 var data = [
 {
+url: "https://tech.choihack.com/post/wordpress/mysql%E3%82%92%E8%A6%97%E3%81%84%E3%81%A6%E3%81%BF%E3%82%8B/",
+title: "MySQLを覗いてみる",
+date: "2021-07-29T19:08:24+09:00",
+body: "MySQLを覗いてみる はじめに 前回の Dockerを使ってwordpress環境を瞬作 という投稿で、WordPressを立ち上げました。 今回は立ち上げたことを前提として、MySQLファイルを覗いていきましょう。 MySQLにログインする まずは、MySQLのDockerコンテナ内に入ります。 docker exec -it mysql bash 入った後、MySQLにログインします。 mysql -u wp_user -ppassword -u: ユーザー名 -p: パスワード データベースの一覧 $ show databases; +--------------------+ | Database | +--------------------+ | information_schema | | wordpress | +--------------------+ 2 rows in set (0.10 sec) wordpressという名前のデータベースがあることがわかります。 テーブル一覧 use wordpress; でデータベースを指定できます。 テーブル一覧を見てみましょう。 $ show tables; +-----------------------+ | Tables_in_wordpress | +-----------------------+ | wp_commentmeta | | wp_comments | | wp_links | | wp_options | | wp_postmeta | | wp_posts | | wp_term_relationships | | wp_term_taxonomy | | wp_termmeta | | wp_terms | | wp_usermeta | | wp_users | +-----------------------+ 12 rows in set (0.00 sec) show table status;: このコマンドでより詳細を見ることができます。 ユーザーを確認する 例として、ユーザーテーブルを見てみましょう。 $ select * from wp_users; +----+------------+------------------------------------+---------------+-----------------------+-----------------------+---------------------+---------------------+-------------+--------------+ | ID | user_login | user_pass | user_nicename | user_email | user_url | user_registered | user_activation_key | user_status | display_name | +----+------------+------------------------------------+---------------+-----------------------+-----------------------+---------------------+---------------------+-------------+--------------+ | 1 | admin | $P$BIGZ1.I.CRyv4EbxMZ1Jpt/iQNSEWV/ | admin | example@gmail.com | http://localhost:8080 | 2021-07-29 11:32:15 | | 0 | admin | +----+------------+------------------------------------+---------------+-----------------------+-----------------------+---------------------+---------------------+-------------+--------------+ 1 row in set (0.00 sec)"
+},
+{
+url: "https://tech.choihack.com/post/wordpress/",
+title: "",
+date: "2021-07-29T19:08:24+09:00",
+body: ""
+},
+{
+url: "https://tech.choihack.com/post/wordpress/docker%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6wordpress%E7%92%B0%E5%A2%83%E3%82%92%E7%9E%AC%E4%BD%9C/",
+title: "Dockerを使ってWordPress環境を瞬作",
+date: "2021-07-29T19:07:24+09:00",
+body: "Dockerを使ってWordPress環境を瞬作 はじめに 色んな技術を勉強する時に、一番厄介なのが環境構築です。 失敗しても捨ててすぐに作りなおせるような環境があれば、勉強が捗りますよね？ そこでdockerを使ってWordPress環境を構築できるようにしました。 docker-composeで一瞬で環境構築 version: '3' services: wp: container_name: wordpress # 名前を付ける image: wordpress:5.4-php7.4-apache # 基となるdockerイメージを設定 ports: # docker内の80ポートを8080ポートとして使用 - 8080:80 depends_on: # dbを待ってから立ち上げる - db environment: # 環境変数を設定する WORDPRESS_DB_HOST: mysql:3306 # mysqlサーバーの3306ポートを指定 WORDPRESS_DB_PASSWORD: password # データベースのパスワード WORDPRESS_DB_NAME: wordpress # データベースの名前 WORDPRESS_DB_USER: wp_user # データベースのユーザー名 volumes: # ホストPCにボリュームをマウントする - ./apache/log:/var/log/apache2 - ./public:/var/www/html db: container_name: mysql image: mysql:5.7 environment: # WordPressの方で指定した設定と同じにしておく必要がある MYSQL_ROOT_PASSWORD: password MYSQL_DATABASE: wordpress MYSQL_USER: wp_user MYSQL_PASSWORD: password volumes: - ./mysql:/var/lib/mysql docker-compose.ymlというファイルを作成し、上記を書きます。 あとは以下のコマンドを実行します。 docker-compose up -d: オプションでバックグラウンドで実行 http://localhost:8080/ にアクセスすると、WordPressの設定画面が確認できます。 あとは画面に従って操作するだけです。 WordPressの階層を変える wp: の下の階層に working_dir: /var/www/html/WordPress を追加できます。 こうすることで、WordPressディレクトリ以下を基本としてWordPressを起動します。 この設定で、サブディレクトリにWordPressがある場合にも対応できます。 voluems volumes: - ./apache/log:/var/log/apache2 - ./public:/var/www/html この設定でホストPCにDocker内のファイルをマウントできます。 ./apache/log:/var/log/apache2の設定で、WordPressのログが確認できます。 ./public:/var/www/htmlの設定で、WordPressの中身を確認できます。 その他コマンド 終了 終了するには Ctrl + Cです。 停止中のコンテナが邪魔な場合は以下で消すことができます。 docker-compose rm -sf -f, --force: オプションで確認なしで実行 -s, --stop: 必要なら削除前にコンテナを停止する コンテナの中に入る WordPressのDockerコンテナに入るには以下のコマンドです。 docker exec -it wordpress bash 起動中コンテナの確認 docker ps -a, --all: 停止中のコンテナを含めて表示する"
+},
+{
+url: "https://tech.choihack.com/post/wordpress/wordpress%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%A7%8B%E6%88%90%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B/",
+title: "WordPressのファイル構成を理解する",
+date: "2021-07-29T19:07:24+09:00",
+body: "WordPressのファイル構成を理解する はじめに 前回の Dockerを使ってwordpress環境を瞬作 という投稿で、WordPressを立ち上げました。 今回はファイル構成の詳細を見ていきましょう。 ファイル構成 . ├── wp-admin # 管理画面に関するファイル ├── wp-content │ ├── languages │ ├── plugins # プラグインが格納されるディレクトリ │ ├── themes # テーマが格納されるディレクトリ │ └── upgrade └── wp-includes ├── index.php # WordPressが初めに通るファイル ├── wp-config.php # WordPressの設定が書かれているファイル ├── wp-config-sample.php # wp-config.phpの雛形ファイル ├── wp-login.php # ログイン画面のファイル ├── license.txt # ライセンスに関するファイル ├── readme.html # WordPressの概要に関するファイル └── .htaccess # Apacheの設定ファイル"
+},
+{
 url: "https://tech.choihack.com/post/tradingview/series%E3%81%A8%E3%81%AF/",
 title: "Seriesとは",
 date: "2021-07-26T18:26:57+09:00",
