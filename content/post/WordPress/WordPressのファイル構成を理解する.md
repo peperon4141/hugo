@@ -27,4 +27,3 @@ description: "WordPressのファイル構成を理解する"
     ├── readme.html # WordPressの概要に関するファイル
     └── .htaccess # Apacheの設定ファイル
 ```
-
