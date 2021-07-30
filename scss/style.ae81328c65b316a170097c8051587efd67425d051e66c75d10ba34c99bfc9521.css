@@ -84,9 +84,9 @@ ul, ol {
 :root {
   --gap:24px;
   --content-gap:40px;
-  --nav-width:1024px;
-  --main-width:1024px;
-  --content-width:768px;
+  --nav-width:996px;
+  --main-width:996px;
+  --content-width:740px;
   --aside-width:256px;
   --header-height:60px;
   --footer-height:60px;
@@ -604,3 +604,7 @@ ul, ol {
   display: block;
   top: 0;
   left: calc(100% + 6px); }
+
+.ads {
+  margin-top: var(--gap);
+  text-align: center; }
