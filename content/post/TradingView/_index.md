@@ -1,5 +1,5 @@
 ---
 linkTitle: "TradingView"
-asin: "4344920791"
-title: "あなたの FX 投資を成功へと導くTradingView究極ガイド"
+amazonAsin: "4344920791"
+amazonTitle: "あなたの FX 投資を成功へと導くTradingView究極ガイド"
 ---
