@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <style>
+      h2 {
+        margin-top: 0;
+      }
+
+      img {
+        /* Remove whitespace under images: */
+        vertical-align: middle;
+      }
+
+      a {
+        color: rgb(171, 101, 20);
+      }
+      a:hover {
+        color: lighten(rgb(171, 101, 20), 50);
+      }
+
+      /* Double last margin prevention hack. Not intended for production. */
+      .card p:last-of-type {
+        margin-bottom: 0;
+      }
+
+      /*
+        Demonstrate container query-esque responsiveness:
+      */
+
+      /* The pattern: */
+
+      .card {
+        /* Cosmetics (not part of the pattern): */
+        margin-bottom: 1em;
+        background: rgb(0,20,30);
+        color: #fff;
+        padding: 1.5em 1em;
+        border: 1px solid red;
+        
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+      }
+
+      .card__image, .card__body {
+        /* glow shrink basis */
+        flex: 1 0 300px;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+      }
+
+      .card__image {
+        width: 300px;
+        margin-bottom: 1em;
+        border-right: 1px solid white;
+      }
+
+      .card__image img {
+        width: 100%;
+        border: 1px solid;
+      }
+    </style>
+
+  </head>
+  <body>
+    <article class="card">
+      <div class="card__image  card__image--left">
+        <img src="https://res.cloudinary.com/andykirk/image/upload/v1488115638/nasa/pia20700.jpg" alt="Artist’s concept shows an unusual celestial object called CX330 " />
+      </div>
+      <div class="card__body">
+        <h2>The Loneliest Young Star</h2>
+        <p><b>An unusual celestial object called CX330 was first detected as a source of X-ray light in 2009. It has been launching “jets” of material into the gas and dust around it.</b></p>
+        <p>
+        <cite>—
+            <a href="https://www.nasa.gov/multimedia/imagegallery/iotd.html">NASA</a>
+          </cite>
+        </p>
+
+      </div>
+    </article>
+  </body>
+</html>
