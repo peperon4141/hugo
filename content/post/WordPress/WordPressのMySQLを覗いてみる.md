@@ -1,8 +1,8 @@
 ---
-title: "MySQLを覗いてみる"
+title: "WordPressのMySQLを覗いてみる"
 date: 2021-07-29T19:08:24+09:00
-linkTitle: "MySQLを覗いてみる"
-description: "MySQLを覗いてみる"
+linkTitle: "WordPressのMySQLを覗いてみる"
+description: "WordPressのMySQLを覗いてみる"
 ---
 
 ## はじめに
