@@ -1,15 +1,21 @@
 var data = [
 {
-url: "https://tech.choihack.com/post/wordpress/mysql%E3%82%92%E8%A6%97%E3%81%84%E3%81%A6%E3%81%BF%E3%82%8B/",
-title: "MySQLを覗いてみる",
-date: "2021-07-29T19:08:24+09:00",
-body: "MySQLを覗いてみる はじめに 前回の Dockerを使ってwordpress環境を瞬作 という投稿で、WordPressを立ち上げました。 今回は立ち上げたことを前提として、MySQLファイルを覗いていきましょう。 MySQLにログインする まずは、MySQLのDockerコンテナ内に入ります。 docker exec -it mysql bash 入った後、MySQLにログインします。 mysql -u wp_user -ppassword -u: ユーザー名 -p: パスワード データベースの一覧 $ show databases; +--------------------+ | Database | +--------------------+ | information_schema | | wordpress | +--------------------+ 2 rows in set (0.10 sec) wordpressという名前のデータベースがあることがわかります。 テーブル一覧 use wordpress; でデータベースを指定できます。 テーブル一覧を見てみましょう。 $ show tables; +-----------------------+ | Tables_in_wordpress | +-----------------------+ | wp_commentmeta | | wp_comments | | wp_links | | wp_options | | wp_postmeta | | wp_posts | | wp_term_relationships | | wp_term_taxonomy | | wp_termmeta | | wp_terms | | wp_usermeta | | wp_users | +-----------------------+ 12 rows in set (0.00 sec) show table status;: このコマンドでより詳細を見ることができます。 ユーザーを確認する 例として、ユーザーテーブルを見てみましょう。 $ select * from wp_users; +----+------------+------------------------------------+---------------+-----------------------+-----------------------+---------------------+---------------------+-------------+--------------+ | ID | user_login | user_pass | user_nicename | user_email | user_url | user_registered | user_activation_key | user_status | display_name | +----+------------+------------------------------------+---------------+-----------------------+-----------------------+---------------------+---------------------+-------------+--------------+ | 1 | admin | $P$BIGZ1.I.CRyv4EbxMZ1Jpt/iQNSEWV/ | admin | example@gmail.com | http://localhost:8080 | 2021-07-29 11:32:15 | | 0 | admin | +----+------------+------------------------------------+---------------+-----------------------+-----------------------+---------------------+---------------------+-------------+--------------+ 1 row in set (0.00 sec)"
-},
-{
 url: "https://tech.choihack.com/post/wordpress/",
 title: "",
-date: "2021-07-29T19:08:24+09:00",
+date: "2021-08-01T15:08:32+09:00",
 body: ""
+},
+{
+url: "https://tech.choihack.com/post/wordpress/wordpress%E3%81%AE%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%83%86%E3%83%BC%E3%83%9E%E3%82%92%E4%BD%9C%E6%88%90/",
+title: "WordPressのオリジナルテーマを作成",
+date: "2021-08-01T15:08:32+09:00",
+body: "WordPressのオリジナルテーマを作成 はじめに WordPressでオリジナルテーマ作成時に基本となる知識を整理しました。 テーマ階層 WordPressは以下のテンプレート階層に従って各種ページに対して適用されるテンプレートファイルを決定している。 ページにアクセスした場合、この図の左から順番に優先的に最適なテンプレートが選び出される。 index.phpは全てのページに適用される最も優先度が低いテンプレートファイルです。 テンプレート階層 テーマの最小構成 テーマを作成するのに必要な最低限のファイルは以下です。 index.php style.css WordPressで理解必須のループ ループとはWordPressの投稿を表示するために使用される処理です。 テンプレートタグ やプラグインの一部の説明で、このタグ（プラグイン）はループ内で使いますとある場合、そのタグはループの中で使う必要があります。 例として、the_title()（投稿のタイトルを取得する）は、ループ内でしか使用できません。 ループは以下のように書きます。 \u0026lt;?php if ( have_posts() ) { while ( have_posts() ) { the_post(); // // 投稿がここに表示される // } // end while } // end if ?\u0026gt; 参考 ループ"
+},
+{
+url: "https://tech.choihack.com/post/wordpress/wordpress%E3%81%AEmysql%E3%82%92%E8%A6%97%E3%81%84%E3%81%A6%E3%81%BF%E3%82%8B/",
+title: "WordPressのMySQLを覗いてみる",
+date: "2021-07-29T19:08:24+09:00",
+body: "WordPressのMySQLを覗いてみる はじめに 前回の Dockerを使ってwordpress環境を瞬作 という投稿で、WordPressを立ち上げました。 今回は立ち上げたことを前提として、MySQLファイルを覗いていきましょう。 MySQLにログインする まずは、MySQLのDockerコンテナ内に入ります。 docker exec -it mysql bash 入った後、MySQLにログインします。 mysql -u wp_user -ppassword -u: ユーザー名 -p: パスワード データベースの一覧 $ show databases; +--------------------+ | Database | +--------------------+ | information_schema | | wordpress | +--------------------+ 2 rows in set (0.10 sec) wordpressという名前のデータベースがあることがわかります。 テーブル一覧 use wordpress; でデータベースを指定できます。 テーブル一覧を見てみましょう。 $ show tables; +-----------------------+ | Tables_in_wordpress | +-----------------------+ | wp_commentmeta | | wp_comments | | wp_links | | wp_options | | wp_postmeta | | wp_posts | | wp_term_relationships | | wp_term_taxonomy | | wp_termmeta | | wp_terms | | wp_usermeta | | wp_users | +-----------------------+ 12 rows in set (0.00 sec) show table status;: このコマンドでより詳細を見ることができます。 ユーザーを確認する 例として、ユーザーテーブルを見てみましょう。 $ select * from wp_users; +----+------------+------------------------------------+---------------+-----------------------+-----------------------+---------------------+---------------------+-------------+--------------+ | ID | user_login | user_pass | user_nicename | user_email | user_url | user_registered | user_activation_key | user_status | display_name | +----+------------+------------------------------------+---------------+-----------------------+-----------------------+---------------------+---------------------+-------------+--------------+ | 1 | admin | $P$BIGZ1.I.CRyv4EbxMZ1Jpt/iQNSEWV/ | admin | example@gmail.com | http://localhost:8080 | 2021-07-29 11:32:15 | | 0 | admin | +----+------------+------------------------------------+---------------+-----------------------+-----------------------+---------------------+---------------------+-------------+--------------+ 1 row in set (0.00 sec)"
 },
 {
 url: "https://tech.choihack.com/post/wordpress/docker%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6wordpress%E7%92%B0%E5%A2%83%E3%82%92%E7%9E%AC%E4%BD%9C/",
