@@ -38,8 +38,13 @@ googleAnalytics = "G-V3H6ME1VJT"
 
 [[menu.main]]
   name = "WordPress"
-  weight = -70
+  weight = -60
   url = "/post/WordPress"
+
+[[menu.main]]
+  name = "RubyOnRails"
+  weight = -50
+  url = "/post/RubyOnRails"
 
 [[menu.main]]
   name = "検索"

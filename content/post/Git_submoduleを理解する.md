@@ -26,7 +26,7 @@ git submodule add https://github.com/Vimux/Mainroad.git themes/mainroad
 `git submodule update`
 
 ### 削除
-`git submodule deinit -f <サブモジュール>`: s  
+`git submodule deinit -f <サブモジュール>`: submoduleを削除  
 `git rm -f <サブモジュール>`: gitの管理から削除  
 `rm -rf .git/modules/<サブモジュール>`: .gitからgit情報を削除  
 
