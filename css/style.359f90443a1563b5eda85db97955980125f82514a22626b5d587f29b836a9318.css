@@ -245,10 +245,6 @@ ul, ol {
   margin: 0 auto;
   color: var(--content); }
 
-.post > article {
-  width: 100%;
-  max-width: var(--content-width); }
-
 .post-header {
   margin-top: 24px;
   margin-bottom: var(--content-gap); }

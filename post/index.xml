@@ -5,7 +5,7 @@
 追加 git submodule add &amp;lt;リポジトリのURL&amp;gt; &amp;lt;ローカルのサブディレクトリ&amp;gt;
 git submodule add https://github.com/Vimux/Mainroad.git themes/mainroad themes/mainroad以下にmainroadがクローンされます。
 更新 git submodule update
-削除 git submodule deinit -f &amp;lt;サブモジュール&amp;gt;: s
+削除 git submodule deinit -f &amp;lt;サブモジュール&amp;gt;: submoduleを削除
 git rm -f &amp;lt;サブモジュール&amp;gt;: gitの管理から削除
 rm -rf .git/modules/&amp;lt;サブモジュール&amp;gt;: .gitからgit情報を削除
 git submodule deinit themes/mainroad git rm -f themes/mainroad rm -rf .git/modules/themes/mainroad submoduleを追加したときに起こっていること submoduleを理解するために、どんなことが起こっているのかを整理しておきましょう。
