@@ -200,9 +200,13 @@ ul, ol {
 
 /* Main
 -------------------------------------------------- */
-.main {
+main {
   max-width: var(--main-width);
   margin: 0 auto; }
+
+main > * {
+  max-width: var(--content-width);
+  width: var(--content-width); }
 
 /* Post entry
 -------------------------------------------------- */
@@ -363,9 +367,9 @@ ul, ol {
   margin-left: calc(var(--gap) * -2); }
 
 .post-content .highlight pre {
-  margin-left: 0;
-  margin-right: 0;
-  margin-bottom: 0; }
+  margin: 0;
+  width: 100%;
+  overflow-x: scroll; }
 
 .post-content .highlighttable {
   table-layout: fixed; }
@@ -401,6 +405,12 @@ ul, ol {
   color: rgba(255, 255, 255, 0.8);
   background: transparent;
   border-radius: 0; }
+
+.post-content pre > .code-name {
+  display: inline-block;
+  font-size: 0.78em;
+  background-color: var(--tertiary);
+  padding: 2px 24px; }
 
 .post-content blockquote {
   margin: 0 0 0 calc(var(--gap) * -1);
