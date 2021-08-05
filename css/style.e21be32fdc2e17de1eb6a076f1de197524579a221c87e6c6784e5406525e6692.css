@@ -196,7 +196,8 @@ ul, ol {
     height: 8px;
     margin-right: 12px; }
   .aside ul ul > li {
-    margin-left: 20px; }
+    margin-left: 20px;
+    font-size: 12px; }
 
 /* Main
 -------------------------------------------------- */
