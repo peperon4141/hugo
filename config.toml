@@ -50,6 +50,11 @@ pygmentsCodefences = true
   url = "/post/RubyOnRails"
 
 [[menu.main]]
+  name = "雑記"
+  weight = -40
+  url = "/post/Others"
+
+[[menu.main]]
   name = "検索"
   weight = -10
   url = "/search"
