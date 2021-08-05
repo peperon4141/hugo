@@ -83,7 +83,7 @@ docker rmi [OPTIONS] IMAGE [IMAGE...]
 ```
 
 ## Dockerコンテナの操作
-## 稼働コンテナの一覧表示
+### 稼働コンテナの一覧表示
 ```
 docker ps [OPTIONS]
 ```
