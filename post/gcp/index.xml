@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>こつこつナレッジ</title><link>https://tech.choihack.com/post/gcp/</link><description>Recent content on こつこつナレッジ</description><generator>Hugo -- gohugo.io</generator><copyright>© - 2021 - こつこつナレッジ</copyright><lastBuildDate>Tue, 03 Aug 2021 16:03:28 +0900</lastBuildDate><atom:link href="https://tech.choihack.com/post/gcp/index.xml" rel="self" type="application/rss+xml"/><item><title>CloudRun入門</title><link>https://tech.choihack.com/post/gcp/cloudrun%E5%85%A5%E9%96%80/</link><pubDate>Tue, 03 Aug 2021 16:03:28 +0900</pubDate><guid>https://tech.choihack.com/post/gcp/cloudrun%E5%85%A5%E9%96%80/</guid><description>はじめに CloudRunというサービスについて学びましたので、その備忘録を残しておくための記事です。
+QwikLabsというサービスで学びました。
+CloudRunとは Cloud Run: Container as a Service(Caas)
+冗長性のあるフルマネージドサービス
+0 ~ 1000台までのオートスケール Blue/Green、ロールバック、テストデプロイ
+従量課金</description></item></channel></rss>
