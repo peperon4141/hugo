@@ -6,7 +6,7 @@ title = "こつこつナレッジ"
 description = "こつこつ技術系ナレッジを貯めて行くブログ"
 baseURL = "https://tech.choihack.com/"
 copyright = "© - 2021 - こつこつナレッジ"
-paginate = 5
+paginate = 7
 
 googleAnalytics = "G-V3H6ME1VJT"
 
@@ -50,8 +50,13 @@ pygmentsCodefences = true
   url = "/post/RubyOnRails"
 
 [[menu.main]]
-  name = "雑記"
+  name = "GCP"
   weight = -40
+  url = "/post/GCP"
+
+[[menu.main]]
+  name = "雑記"
+  weight = -30
   url = "/post/Others"
 
 [[menu.main]]
