@@ -217,6 +217,8 @@ main > * {
   transition: transform 0.1s; }
   .article-card:active {
     transform: scale(0.96); }
+  .article-card img {
+    margin: 0 auto; }
   .article-card .article-card-header h2 {
     font-size: 20px; }
   .article-card .article-card-content {
@@ -248,6 +250,8 @@ main > * {
   padding: var(--gap);
   margin: 0 auto;
   color: var(--content); }
+  .post > article {
+    width: 100%; }
 
 .post-header {
   margin-top: 24px;
@@ -558,13 +562,16 @@ main > * {
 
 /* Amazon
 -------------------------------------------------- */
-.amazon a {
-  display: flex;
-  box-shadow: none; }
-  .amazon a img {
-    padding: calc(var(--gap) / 2);
-    max-height: 200px;
-    max-width: 200px; }
+.amazon {
+  border: 2px solid var(--border);
+  border-radius: 2px; }
+  .amazon a {
+    display: flex;
+    box-shadow: none; }
+    .amazon a img {
+      padding: calc(var(--gap) / 2);
+      max-height: 200px;
+      max-width: 200px; }
 
 .main .amazon a {
   border: 2px solid var(--border);
@@ -613,4 +620,5 @@ main > * {
 
 .ads {
   margin-top: var(--gap);
-  text-align: center; }
+  text-align: center;
+  overflow-x: hidden; }
