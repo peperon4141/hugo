@@ -12,12 +12,6 @@ date: "2021-08-05T10:54:47+09:00",
 body: ""
 },
 {
-url: "https://tech.choihack.com/post/gcp/cloudrun%E5%85%A5%E9%96%80/",
-title: "CloudRun入門",
-date: "2021-08-03T16:03:28+09:00",
-body: "CloudRun入門 はじめに CloudRunというサービスについて学びましたので、その備忘録を残しておくための記事です。 QwikLabsというサービスで学びました。 CloudRunとは Cloud Run: Container as a Service(Caas) 冗長性のあるフルマネージドサービス 0 ~ 1000台までのオートスケール Blue/Green、ロールバック、テストデプロイ 従量課金"
-},
-{
 url: "https://tech.choihack.com/post/gcp/",
 title: "",
 date: "2021-08-03T16:03:28+09:00",

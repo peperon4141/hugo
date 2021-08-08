@@ -22,12 +22,7 @@ AサイトからBサイトへ遷移する時、BサイトのCookieが送信さ�
 Strict：BサイトのCookieを送信しない Lax：GETやHEADなど、安全なメソッドの場合だけ送信する None：制限なくBサイトのCookieを送信する Chromeでは、SameSiteが設定されていない場合は、Lax扱いになります。
 また、Noneを指定する場合は、同時にSecrue属性が必須です。
 つまり、制限なく別サイトにCookieを送信するには、HTTPS通信でないといけないということになります。
-参考 Cookieで指定可能な属性の種類と設定方法</description></item><item><title>CloudRun入門</title><link>https://tech.choihack.com/post/gcp/cloudrun%E5%85%A5%E9%96%80/</link><pubDate>Tue, 03 Aug 2021 16:03:28 +0900</pubDate><guid>https://tech.choihack.com/post/gcp/cloudrun%E5%85%A5%E9%96%80/</guid><description>はじめに CloudRunというサービスについて学びましたので、その備忘録を残しておくための記事です。
-QwikLabsというサービスで学びました。
-CloudRunとは Cloud Run: Container as a Service(Caas)
-冗長性のあるフルマネージドサービス
-0 ~ 1000台までのオートスケール Blue/Green、ロールバック、テストデプロイ
-従量課金</description></item><item><title>Google gcloudコマンド</title><link>https://tech.choihack.com/post/gcp/google-gcloud%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/</link><pubDate>Tue, 03 Aug 2021 16:03:28 +0900</pubDate><guid>https://tech.choihack.com/post/gcp/google-gcloud%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/</guid><description>はじめに GCPを使うにあたって、gcloudコマンドは必須です。
+参考 Cookieで指定可能な属性の種類と設定方法</description></item><item><title>Google gcloudコマンド</title><link>https://tech.choihack.com/post/gcp/google-gcloud%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/</link><pubDate>Tue, 03 Aug 2021 16:03:28 +0900</pubDate><guid>https://tech.choihack.com/post/gcp/google-gcloud%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/</guid><description>はじめに GCPを使うにあたって、gcloudコマンドは必須です。
 GCPのリソースを作成・管理するためのコマンドが含まれています。
 この記事では、コマンドの使用方法の概要を整理します。
 インストール 以下の手順でインストールできます。
