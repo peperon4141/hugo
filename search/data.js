@@ -1,15 +1,21 @@
 var data = [
 {
-url: "https://tech.choihack.com/post/others/viewport%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B/",
-title: "viewportを理解する",
-date: "2021-08-10T21:44:00+09:00",
-body: "viewportを理解する はじめに HTMLのviewportの理解が曖昧で、コピペでやり過ごしていました。 viewportは例えば以下のようなものです。 \u0026lt;meta name=\u0026quot;viewport\u0026quot; content=\u0026quot;width=device-width,initial-scale=1\u0026quot;\u0026gt; この記事では、viewportの意味を解き明かして行きたいと思います。 まずは基本 viewportは表示領域のこと \u0026lt;meta name=\u0026quot;viewport\u0026quot; content=\u0026quot;width=480\u0026quot;\u0026gt; とすると、幅480pxとして仮想的なモニターができるイメージ document.documentElement.clientWidth も480pxになるように計算される mediaクエリも480pxとして判定される ブラウザはこの仮想的なモニターをブラウザサイズに幅が合うように表示する \u0026lt;meta name=\u0026quot;viewport\u0026quot; content=\u0026quot;width=device-width\u0026quot;\u0026gt; と指定した場合はブラウザの幅が使用される 解像度は考慮されない 設定できる値の説明 width 表示領域の幅を指定できる。 width=device-widthで実際のデバイスの幅と一致させられる。 initial-scale 初期のズーム倍率。 minimum-scale～maximum-scaleを指定することで、ズーム範囲を指定できる。 minimum-scale: 0～10 の範囲、初期値は 0.25 maximum-scale: 0～10 の範囲、初期値は 1.6 user-scalable ズームの操作を許可するか、しないかを指定する。 注意したいところ モバイル端末で有効。ブラウザへのアドバイスとして使用される 指定しないと「ウィンドウ幅によってページコンテンツが隠されない最小の横幅」か「デフォルト値・980px」 ではどうすべきか 全ブラウザで、統一した表示をしたければwidthを指定する。 \u0026lt;meta name=\u0026quot;viewport\u0026quot; content=\u0026quot;width=360,initial-scale=1\u0026quot;\u0026gt; デバイスの画面サイズに応じてコンテンツの大きさを変えたい場合は、device-widthを指定する。 \u0026lt;meta name=\u0026quot;viewport\u0026quot; content=\u0026quot;width=device-width,initial-scale=1\u0026quot;\u0026gt; 参考 もう逃げない。HTMLのviewportをちゃんと理解する HTML：viewport の正しい書き方"
+url: "https://tech.choihack.com/post/others/css%E3%81%AEbem%E3%81%AE%E5%91%BD%E5%90%8D%E8%A6%8F%E5%89%87%E3%82%92%E6%95%B4%E7%90%86/",
+title: "CSSのBEMの命名規則を整理",
+date: "2021-08-12T08:33:24+09:00",
+body: "CSSのBEMの命名規則を整理 はじめに **BEM（Block-Element-Modifier：ベム）**の理解が曖昧だったので、整理します。 BEMとは HTMLの要素をBlock、Element、Modifierで分けて命名すること。 Blockはパーツ自体を表す Elementはパーツの部品 Modifierはパーツの状態 Block__Element--Modifier の形式で書く 各名前が複数単語の場合は、-(ハイフン)で繋ぐ BEMのメリデメ BEMの特徴は、明確な要素を指定したCSSできようですが、以下のメリデメがあります。 メリット CSSの他のパーツへの影響を考えなくてよい セレクタを入れ子にしない =\u0026gt; 優先度問題を解消 広く使われている デメリット class名が長くなる 全ての要素にclass名を付けるので面倒 Bootstrapと相性が悪い（BootstrapはOOCSSを採用している） 例 logo__company-name この例では、Block__Elementの形式で、Modifier指定していません。 .article-list { width: 100%; \u0026amp;__article-title { font-size: 20px; } } SASSだと、Elementを\u0026amp;で追加する。 .article-list { width: 100%; \u0026amp;__article-title { font-size: 20px; \u0026amp;--red { font-size: 20px; color: red; } } } Modifierも\u0026amp;で追加する。 命名規則がわかっていると、CSSから意図が汲み取れるので読みやすくなります。 参考 class名の命名規則BEMのルールとカスタマイズ"
 },
 {
 url: "https://tech.choihack.com/post/others/",
 title: "",
-date: "2021-08-10T21:44:00+09:00",
+date: "2021-08-12T08:33:24+09:00",
 body: ""
+},
+{
+url: "https://tech.choihack.com/post/others/viewport%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B/",
+title: "viewportを理解する",
+date: "2021-08-10T21:44:00+09:00",
+body: "viewportを理解する はじめに HTMLのviewportの理解が曖昧で、コピペでやり過ごしていました。 viewportは例えば以下のようなものです。 \u0026lt;meta name=\u0026quot;viewport\u0026quot; content=\u0026quot;width=device-width,initial-scale=1\u0026quot;\u0026gt; この記事では、viewportの意味を解き明かして行きたいと思います。 まずは基本 viewportは表示領域のこと \u0026lt;meta name=\u0026quot;viewport\u0026quot; content=\u0026quot;width=480\u0026quot;\u0026gt; とすると、幅480pxとして仮想的なモニターができるイメージ document.documentElement.clientWidth も480pxになるように計算される mediaクエリも480pxとして判定される ブラウザはこの仮想的なモニターをブラウザサイズに幅が合うように表示する \u0026lt;meta name=\u0026quot;viewport\u0026quot; content=\u0026quot;width=device-width\u0026quot;\u0026gt; と指定した場合はブラウザの幅が使用される 解像度は考慮されない 設定できる値の説明 width 表示領域の幅を指定できる。 width=device-widthで実際のデバイスの幅と一致させられる。 initial-scale 初期のズーム倍率。 minimum-scale～maximum-scaleを指定することで、ズーム範囲を指定できる。 minimum-scale: 0～10 の範囲、初期値は 0.25 maximum-scale: 0～10 の範囲、初期値は 1.6 user-scalable ズームの操作を許可するか、しないかを指定する。 注意したいところ モバイル端末で有効。ブラウザへのアドバイスとして使用される 指定しないと「ウィンドウ幅によってページコンテンツが隠されない最小の横幅」か「デフォルト値・980px」 ではどうすべきか 全ブラウザで、統一した表示をしたければwidthを指定する。 \u0026lt;meta name=\u0026quot;viewport\u0026quot; content=\u0026quot;width=360,initial-scale=1\u0026quot;\u0026gt; デバイスの画面サイズに応じてコンテンツの大きさを変えたい場合は、device-widthを指定する。 \u0026lt;meta name=\u0026quot;viewport\u0026quot; content=\u0026quot;width=device-width,initial-scale=1\u0026quot;\u0026gt; 参考 もう逃げない。HTMLのviewportをちゃんと理解する HTML：viewport の正しい書き方"
 },
 {
 url: "https://tech.choihack.com/post/others/cookie%E3%81%AE%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E6%95%B4%E7%90%86/",
