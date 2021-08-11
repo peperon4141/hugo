@@ -1,15 +1,21 @@
 var data = [
 {
-url: "https://tech.choihack.com/post/others/cookie%E3%81%AE%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E6%95%B4%E7%90%86/",
-title: "Cookieのパラメータ整理",
-date: "2021-08-05T10:54:47+09:00",
-body: "Cookieのパラメータ整理 はじめに Cookieの設定をする時に、意外と色々パラメータがあります。 何度も調べては忘れるので、ここでわかりやすくまとめて調べるのは最後にしたいと思います。 パラメータの種類 GoogleChromeのDeveloperToolで調べると、以下のパラメータがあります。 Name Value Domain Path Expires/Max-Age Size HttpOnly Secure SameSite Sameparty Priority これらを対象にそれぞれのパラメータの意味と、設定される値について見ていきます。 Name/Value 早速説明を省きます。 Cookie名とCookieの値です。 Expires/Max-Age Cookieの有効期限です。 指定しない場合は、セッション終了までです。 Max-Ageの単位は秒です。 Domain どのホストの場合にCookieを送信するかを指定します。 デフォルトはCookieを保存したページのホストと同じページにアクセスした場合だけCookieを送信します。 例えば、example.com/page.htmlにアクセスした時に保存されたCookieは、同じくexample.com のホストのページにアクセスした場合に送信されます。 この時、サブドメインへアクセスしてもCookieは送信されません。 あえてDomainを指定し場合は、サブドメインを含めてCookieを送信できます。 Domainの設定は以下のように行います。 document.cookie = 'A=B; Domain=example.com'; Path PathはどのパスでCookieを送信するかを許可します。 Secure Httpsの通信でのみ使用できる。 document.cookie = 'A=B; Secure'; HttpOnly JavaScriptで生成されたCookieはこのフラグを含むことができない フラグを含む場合は、JavaScriptで取得もできない document.cookie = 'A=B; HttpOnly'; HttpとかHttpsとかに関連するCookieかと思うような名前ですが、Httpリクエスト経由でしか使用できないという意味のようですね。 SameSite 別サイトに遷移する時に、遷移先サイトのCookieを送信するかどうかを設定できます。 設定可能な値は、以下のStrict、Lax、Noneの3つです。 遷移元をAサイト、遷移先をBサイトとしましょう。 AサイトからBサイトへ遷移する時、BサイトのCookieが送信されるか設定によって以下のようになります。 Strict：BサイトのCookieを送信しない Lax：GETやHEADなど、安全なメソッドの場合だけ送信する None：制限なくBサイトのCookieを送信する Chromeでは、SameSiteが設定されていない場合は、Lax扱いになります。 また、Noneを指定する場合は、同時にSecrue属性が必須です。 つまり、制限なく別サイトにCookieを送信するには、HTTPS通信でないといけないということになります。 参考 Cookieで指定可能な属性の種類と設定方法"
+url: "https://tech.choihack.com/post/others/viewport%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B/",
+title: "viewportを理解する",
+date: "2021-08-10T21:44:00+09:00",
+body: "viewportを理解する はじめに HTMLのviewportの理解が曖昧で、コピペでやり過ごしていました。 viewportは例えば以下のようなものです。 \u0026lt;meta name=\u0026quot;viewport\u0026quot; content=\u0026quot;width=device-width,initial-scale=1\u0026quot;\u0026gt; この記事では、viewportの意味を解き明かして行きたいと思います。 まずは基本 viewportは表示領域のこと \u0026lt;meta name=\u0026quot;viewport\u0026quot; content=\u0026quot;width=480\u0026quot;\u0026gt; とすると、幅480pxとして仮想的なモニターができるイメージ document.documentElement.clientWidth も480pxになるように計算される mediaクエリも480pxとして判定される ブラウザはこの仮想的なモニターをブラウザサイズに幅が合うように表示する \u0026lt;meta name=\u0026quot;viewport\u0026quot; content=\u0026quot;width=device-width\u0026quot;\u0026gt; と指定した場合はブラウザの幅が使用される 解像度は考慮されない 設定できる値の説明 width 表示領域の幅を指定できる。 width=device-widthで実際のデバイスの幅と一致させられる。 initial-scale 初期のズーム倍率。 minimum-scale～maximum-scaleを指定することで、ズーム範囲を指定できる。 minimum-scale: 0～10 の範囲、初期値は 0.25 maximum-scale: 0～10 の範囲、初期値は 1.6 user-scalable ズームの操作を許可するか、しないかを指定する。 注意したいところ モバイル端末で有効。ブラウザへのアドバイスとして使用される 指定しないと「ウィンドウ幅によってページコンテンツが隠されない最小の横幅」か「デフォルト値・980px」 ではどうすべきか 全ブラウザで、統一した表示をしたければwidthを指定する。 \u0026lt;meta name=\u0026quot;viewport\u0026quot; content=\u0026quot;width=360,initial-scale=1\u0026quot;\u0026gt; デバイスの画面サイズに応じてコンテンツの大きさを変えたい場合は、device-widthを指定する。 \u0026lt;meta name=\u0026quot;viewport\u0026quot; content=\u0026quot;width=device-width,initial-scale=1\u0026quot;\u0026gt; 参考 もう逃げない。HTMLのviewportをちゃんと理解する HTML：viewport の正しい書き方"
 },
 {
 url: "https://tech.choihack.com/post/others/",
 title: "",
-date: "2021-08-05T10:54:47+09:00",
+date: "2021-08-10T21:44:00+09:00",
 body: ""
+},
+{
+url: "https://tech.choihack.com/post/others/cookie%E3%81%AE%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E6%95%B4%E7%90%86/",
+title: "Cookieのパラメータ整理",
+date: "2021-08-05T10:54:47+09:00",
+body: "Cookieのパラメータ整理 はじめに Cookieの設定をする時に、意外と色々パラメータがあります。 何度も調べては忘れるので、ここでわかりやすくまとめて調べるのは最後にしたいと思います。 パラメータの種類 GoogleChromeのDeveloperToolで調べると、以下のパラメータがあります。 Name Value Domain Path Expires/Max-Age Size HttpOnly Secure SameSite Sameparty Priority これらを対象にそれぞれのパラメータの意味と、設定される値について見ていきます。 Name/Value 早速説明を省きます。 Cookie名とCookieの値です。 Expires/Max-Age Cookieの有効期限です。 指定しない場合は、セッション終了までです。 Max-Ageの単位は秒です。 Domain どのホストの場合にCookieを送信するかを指定します。 デフォルトはCookieを保存したページのホストと同じページにアクセスした場合だけCookieを送信します。 例えば、example.com/page.htmlにアクセスした時に保存されたCookieは、同じくexample.com のホストのページにアクセスした場合に送信されます。 この時、サブドメインへアクセスしてもCookieは送信されません。 あえてDomainを指定し場合は、サブドメインを含めてCookieを送信できます。 Domainの設定は以下のように行います。 document.cookie = 'A=B; Domain=example.com'; Path PathはどのパスでCookieを送信するかを許可します。 Secure Httpsの通信でのみ使用できる。 document.cookie = 'A=B; Secure'; HttpOnly JavaScriptで生成されたCookieはこのフラグを含むことができない フラグを含む場合は、JavaScriptで取得もできない document.cookie = 'A=B; HttpOnly'; HttpとかHttpsとかに関連するCookieかと思うような名前ですが、Httpリクエスト経由でしか使用できないという意味のようですね。 SameSite 別サイトに遷移する時に、遷移先サイトのCookieを送信するかどうかを設定できます。 設定可能な値は、以下のStrict、Lax、Noneの3つです。 遷移元をAサイト、遷移先をBサイトとしましょう。 AサイトからBサイトへ遷移する時、BサイトのCookieが送信されるか設定によって以下のようになります。 Strict：BサイトのCookieを送信しない Lax：GETやHEADなど、安全なメソッドの場合だけ送信する None：制限なくBサイトのCookieを送信する Chromeでは、SameSiteが設定されていない場合は、Lax扱いになります。 また、Noneを指定する場合は、同時にSecrue属性が必須です。 つまり、制限なく別サイトにCookieを送信するには、HTTPS通信でないといけないということになります。 参考 Cookieで指定可能な属性の種類と設定方法"
 },
 {
 url: "https://tech.choihack.com/post/gcp/",
