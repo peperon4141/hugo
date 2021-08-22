@@ -2,7 +2,7 @@
 nodeはインストール済み前提です。
 $ node -v v15.4.0 作り方 express-generatorを使うことで、雛形を爆速で作成できます。
 1. ディレクトリ作成 $ mkdir my-site $ cd my-site 2. generatorを追加 $ yarn init $ yarn add -D express-generator $ yarn install 3. 雛形を作成 今回はあえてcurrent directoryに作成します。
-$ npx express -v pug -c sass --git -f ./ npxでnpmでインストールしたモジュールを使用できます。
+$ npx express -v jade -c sass --git -f ./ npxでnpmでインストールしたモジュールを使用できます。
 -v: add view support (dust|ejs|hbs|hjs|jade|pug|twig|vash) (defaults to jade) -c: add stylesheet support (less|stylus|compass|sass) (defaults to plain css) --git: add .gitignore -f: force on non-empty directory 作成後は以下のような構成になっており、package.</description></item><item><title>CSSのBEMの命名規則を整理</title><link>https://tech.choihack.com/post/others/css%E3%81%AEbem%E3%81%AE%E5%91%BD%E5%90%8D%E8%A6%8F%E5%89%87%E3%82%92%E6%95%B4%E7%90%86/</link><pubDate>Thu, 12 Aug 2021 08:33:24 +0900</pubDate><guid>https://tech.choihack.com/post/others/css%E3%81%AEbem%E3%81%AE%E5%91%BD%E5%90%8D%E8%A6%8F%E5%89%87%E3%82%92%E6%95%B4%E7%90%86/</guid><description>はじめに **BEM（Block-Element-Modifier：ベム）**の理解が曖昧だったので、整理します。
 BEMとは HTMLの要素をBlock、Element、Modifierで分けて命名すること。 Blockはパーツ自体を表す Elementはパーツの部品 Modifierはパーツの状態 Block__Element--Modifier の形式で書く 各名前が複数単語の場合は、-(ハイフン)で繋ぐ BEMのメリデメ BEMの特徴は、明確な要素を指定したCSSできようですが、以下のメリデメがあります。
 メリット CSSの他のパーツへの影響を考えなくてよい セレクタを入れ子にしない =&amp;gt; 優先度問題を解消 広く使われている デメリット class名が長くなる 全ての要素にclass名を付けるので面倒 Bootstrapと相性が悪い（BootstrapはOOCSSを採用している） 例 logo__company-name この例では、Block__Elementの形式で、Modifier指定していません。
