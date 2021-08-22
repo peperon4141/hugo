@@ -1,15 +1,21 @@
 var data = [
 {
-url: "https://tech.choihack.com/post/others/css%E3%81%AEbem%E3%81%AE%E5%91%BD%E5%90%8D%E8%A6%8F%E5%89%87%E3%82%92%E6%95%B4%E7%90%86/",
-title: "CSSのBEMの命名規則を整理",
-date: "2021-08-12T08:33:24+09:00",
-body: "CSSのBEMの命名規則を整理 はじめに **BEM（Block-Element-Modifier：ベム）**の理解が曖昧だったので、整理します。 BEMとは HTMLの要素をBlock、Element、Modifierで分けて命名すること。 Blockはパーツ自体を表す Elementはパーツの部品 Modifierはパーツの状態 Block__Element--Modifier の形式で書く 各名前が複数単語の場合は、-(ハイフン)で繋ぐ BEMのメリデメ BEMの特徴は、明確な要素を指定したCSSできようですが、以下のメリデメがあります。 メリット CSSの他のパーツへの影響を考えなくてよい セレクタを入れ子にしない =\u0026gt; 優先度問題を解消 広く使われている デメリット class名が長くなる 全ての要素にclass名を付けるので面倒 Bootstrapと相性が悪い（BootstrapはOOCSSを採用している） 例 logo__company-name この例では、Block__Elementの形式で、Modifier指定していません。 .article-list { width: 100%; \u0026amp;__article-title { font-size: 20px; } } SASSだと、Elementを\u0026amp;で追加する。 .article-list { width: 100%; \u0026amp;__article-title { font-size: 20px; \u0026amp;--red { font-size: 20px; color: red; } } } Modifierも\u0026amp;で追加する。 命名規則がわかっていると、CSSから意図が汲み取れるので読みやすくなります。 参考 class名の命名規則BEMのルールとカスタマイズ"
+url: "https://tech.choihack.com/post/others/%E7%88%86%E9%80%9F%E3%81%A7express%E3%81%AEweb%E3%82%A2%E3%83%97%E3%83%AA%E4%BD%9C%E6%88%90/",
+title: "爆速でexpressのwebアプリ作成",
+date: "2021-08-22T10:07:25+09:00",
+body: "爆速でexpressのwebアプリ作成 はじめに 簡単なUIを持ったアプリをwebページが作成したかったので、expressでサクッと作ります。 nodeはインストール済み前提です。 $ node -v v15.4.0 作り方 express-generatorを使うことで、雛形を爆速で作成できます。 1. ディレクトリ作成 $ mkdir my-site $ cd my-site 2. generatorを追加 $ yarn init $ yarn add -D express-generator $ yarn install 3. 雛形を作成 今回はあえてcurrent directoryに作成します。 $ npx express -v pug -c sass --git -f ./ npxでnpmでインストールしたモジュールを使用できます。 -v: add view support (dust|ejs|hbs|hjs|jade|pug|twig|vash) (defaults to jade) -c: add stylesheet support (less|stylus|compass|sass) (defaults to plain css) --git: add .gitignore -f: force on non-empty directory 作成後は以下のような構成になっており、package.jsonは上書きされています。 . ├── app.js ├── bin ├── node_modules ├── package.json ├── public ├── routes └── views 4. 起動する $ yarn install npmモジュールをインストールします。 少し時間がかかります。 $ yarn start expressを起動します。 http://localhost:3000/ にアクセスすると、サイトが表示されます。 さいごに スムーズに行けば10分足らずでサイトの雛形が作成できます。"
 },
 {
 url: "https://tech.choihack.com/post/others/",
 title: "",
-date: "2021-08-12T08:33:24+09:00",
+date: "2021-08-22T10:07:25+09:00",
 body: ""
+},
+{
+url: "https://tech.choihack.com/post/others/css%E3%81%AEbem%E3%81%AE%E5%91%BD%E5%90%8D%E8%A6%8F%E5%89%87%E3%82%92%E6%95%B4%E7%90%86/",
+title: "CSSのBEMの命名規則を整理",
+date: "2021-08-12T08:33:24+09:00",
+body: "CSSのBEMの命名規則を整理 はじめに **BEM（Block-Element-Modifier：ベム）**の理解が曖昧だったので、整理します。 BEMとは HTMLの要素をBlock、Element、Modifierで分けて命名すること。 Blockはパーツ自体を表す Elementはパーツの部品 Modifierはパーツの状態 Block__Element--Modifier の形式で書く 各名前が複数単語の場合は、-(ハイフン)で繋ぐ BEMのメリデメ BEMの特徴は、明確な要素を指定したCSSできようですが、以下のメリデメがあります。 メリット CSSの他のパーツへの影響を考えなくてよい セレクタを入れ子にしない =\u0026gt; 優先度問題を解消 広く使われている デメリット class名が長くなる 全ての要素にclass名を付けるので面倒 Bootstrapと相性が悪い（BootstrapはOOCSSを採用している） 例 logo__company-name この例では、Block__Elementの形式で、Modifier指定していません。 .article-list { width: 100%; \u0026amp;__article-title { font-size: 20px; } } SASSだと、Elementを\u0026amp;で追加する。 .article-list { width: 100%; \u0026amp;__article-title { font-size: 20px; \u0026amp;--red { font-size: 20px; color: red; } } } Modifierも\u0026amp;で追加する。 命名規則がわかっていると、CSSから意図が汲み取れるので読みやすくなります。 参考 class名の命名規則BEMのルールとカスタマイズ"
 },
 {
 url: "https://tech.choihack.com/post/others/viewport%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B/",
