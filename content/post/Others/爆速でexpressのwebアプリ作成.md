@@ -34,7 +34,7 @@ $ yarn install
 今回はあえてcurrent directoryに作成します。  
 
 ```
-$ npx express -v pug -c sass --git -f ./ 
+$ npx express -v jade -c sass --git -f ./ 
 ```
 npxでnpmでインストールしたモジュールを使用できます。
 
