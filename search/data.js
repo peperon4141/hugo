@@ -1,15 +1,21 @@
 var data = [
 {
-url: "https://tech.choihack.com/post/others/%E7%88%86%E9%80%9F%E3%81%A7express%E3%81%AEweb%E3%82%A2%E3%83%97%E3%83%AA%E4%BD%9C%E6%88%90/",
-title: "爆速でexpressのwebアプリ作成",
-date: "2021-08-22T10:07:25+09:00",
-body: "爆速でexpressのwebアプリ作成 はじめに 簡単なUIを持ったアプリをwebページが作成したかったので、expressでサクッと作ります。 nodeはインストール済み前提です。 $ node -v v15.4.0 作り方 express-generatorを使うことで、雛形を爆速で作成できます。 1. ディレクトリ作成 $ mkdir my-site $ cd my-site 2. generatorを追加 $ yarn init $ yarn add -D express-generator $ yarn install 3. 雛形を作成 今回はあえてcurrent directoryに作成します。 $ npx express -v jade -c sass --git -f ./ npxでnpmでインストールしたモジュールを使用できます。 -v: add view support (dust|ejs|hbs|hjs|jade|pug|twig|vash) (defaults to jade) -c: add stylesheet support (less|stylus|compass|sass) (defaults to plain css) --git: add .gitignore -f: force on non-empty directory 作成後は以下のような構成になっており、package.jsonは上書きされています。 . ├── app.js ├── bin ├── node_modules ├── package.json ├── public ├── routes └── views 4. 起動する $ yarn install npmモジュールをインストールします。 少し時間がかかります。 $ yarn start expressを起動します。 http://localhost:3000/ にアクセスすると、サイトが表示されます。 さいごに スムーズに行けば10分足らずでサイトの雛形が作成できます。"
+url: "https://tech.choihack.com/post/others/ionicvue%E3%82%92%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/",
+title: "Ionic vueを試してみる",
+date: "2021-08-26T23:00:42+09:00",
+body: "Ionic vueを試してみる はじめに Ionicとは、ハイブリッドアプリを作成するフレームワークです。 Ionicは元々Angularというフレームワークに依存していましたが、Vue.jsが使えるようになったので、実際に試してみようと思います。 アプリを作る IonicのCLIをインストール yarn global add @ionic/cli@latest global: local内でどこからでも参照できるようにします Ionic CLIの6.17.0がインストールされました。 以下のようなコマンドがあります。 completion ...................... (experimental) Enables tab-completion for Ionic CLI commands. config \u0026lt;subcommand\u0026gt; ............. Manage CLI and project config values (subcommands: get, set, unset) deploy \u0026lt;subcommand\u0026gt; ............. (paid) Appflow Deploy functionality (subcommands: manifest) docs ............................ Open the Ionic documentation website info ............................ Print project, system, and environment information init ............................ (beta) Initialize existing projects with Ionic login ........................... Log in to Ionic logout .......................... Log out of Ionic signup .......................... Create an Ionic account ssh \u0026lt;subcommand\u0026gt; ................ Commands for configuring SSH keys (subcommands: add, delete, generate, list, setup, use) start ........................... Create a new project アプリを作成 ionic start \u0026lt;name\u0026gt; \u0026lt;template\u0026gt; [options] name: The name of your new project (e.g. myApp, \u0026ldquo;My App\u0026rdquo;) template: The starter template to use (e.g. blank, tabs; use \u0026ndash;list to see all) --type=\u0026lt;type\u0026gt;: Type of project to start (e.g. vue, angular, react, ionic-angular, ionic1) 今回は、blankテーマで、vueタイプのアプリを作成します。 ionic start FirstApp blank --type=vue 以下のような構成が作られました。 /first-app ├── /public ├── /src ├── /tests ├── /node_modules ├── Makefile ├── babel.config.js ├── cypress.json ├── ionic.config.json ├── ionic.starter.json ├── jest.config.js ├── package-lock.json ├── package.json └── tsconfig.json アプリを起動する cd first-app ionic serve しばらくするとアプリのコンパイルが終わりサーバーが立ち上げられます。 以下にアクセスするとアプリが確認できます。 http://localhost:8100/ アプリを少し変更する first-app/src/views/Home.vue ディレクトリのファイルを少し変更すると、自動で再コンパイルされホットリロードされます。 さいごに 今回は簡単なアプリだけを作成しました。 普段使い慣れたVue.jsをアプリで使用することで、アプリ作成のハードルがぐっと下がった気がします。 なにかアプリを出せたらいいなと思いました。"
 },
 {
 url: "https://tech.choihack.com/post/others/",
 title: "",
-date: "2021-08-22T10:07:25+09:00",
+date: "2021-08-26T23:00:42+09:00",
 body: ""
+},
+{
+url: "https://tech.choihack.com/post/others/%E7%88%86%E9%80%9F%E3%81%A7express%E3%81%AEweb%E3%82%A2%E3%83%97%E3%83%AA%E4%BD%9C%E6%88%90/",
+title: "爆速でexpressのwebアプリ作成",
+date: "2021-08-22T10:07:25+09:00",
+body: "爆速でexpressのwebアプリ作成 はじめに 簡単なUIを持ったアプリをwebページが作成したかったので、expressでサクッと作ります。 nodeはインストール済み前提です。 $ node -v v15.4.0 作り方 express-generatorを使うことで、雛形を爆速で作成できます。 1. ディレクトリ作成 $ mkdir my-site $ cd my-site 2. generatorを追加 $ yarn init $ yarn add -D express-generator $ yarn install 3. 雛形を作成 今回はあえてcurrent directoryに作成します。 $ npx express -v jade -c sass --git -f ./ npxでnpmでインストールしたモジュールを使用できます。 -v: add view support (dust|ejs|hbs|hjs|jade|pug|twig|vash) (defaults to jade) -c: add stylesheet support (less|stylus|compass|sass) (defaults to plain css) --git: add .gitignore -f: force on non-empty directory 作成後は以下のような構成になっており、package.jsonは上書きされています。 . ├── app.js ├── bin ├── node_modules ├── package.json ├── public ├── routes └── views 4. 起動する $ yarn install npmモジュールをインストールします。 少し時間がかかります。 $ yarn start expressを起動します。 http://localhost:3000/ にアクセスすると、サイトが表示されます。 さいごに スムーズに行けば10分足らずでサイトの雛形が作成できます。"
 },
 {
 url: "https://tech.choihack.com/post/others/css%E3%81%AEbem%E3%81%AE%E5%91%BD%E5%90%8D%E8%A6%8F%E5%89%87%E3%82%92%E6%95%B4%E7%90%86/",
