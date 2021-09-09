@@ -1,0 +1,108 @@
+<!doctype html><html lang><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>ZigZag解説 - こつこつナレッジ</title><meta name=description content="はじめに ZigZagのインジケーターを見つけたので、自分で作れるレベルまで理解を進めたいと思います。
+PineScript //@version=3 study(&#34;ZigZag!&#34;,overlay=true) use_current_res=input(true,title=&#34;Use Current Resolution?&#34;) length = input(title=&#34;Length&#34;, type=integer, defval=10) phase = input(title=&#34;Phase&#34;, type=integer, defval=50) power = input(title=&#34;Power&#34;, type=integer, defval=2) line_widht = input(title=&#34;Line Width&#34;, type=integer, defval=1) do_col = input(true,title=&#34;color up and down moves?&#34;) //UseFixed = input(title=&#34;Use Fixed Timeframes?&#34;, type=bool, defval=false) htf = input(title=&#34;Higher Timeframe&#34;, defval=&#34;005&#34;, options=[&#34;M&#34;, &#34;W&#34;, &#34;3D&#34;, &#34;D&#34;, &#34;720&#34;, &#34;360&#34;, &#34;240&#34;, &#34;180&#34;, &#34;120&#34;, &#34;060&#34;, &#34;030&#34;, &#34;015&#34;, &#34;010&#34;, &#34;005&#34;, &#34;003&#34;, &#34;001&#34;]) o = security(tickerid, htf, open) h = security(tickerid, htf, high) l = security(tickerid, htf, low) c = security(tickerid, htf, close) src = use_current_res ?"><meta name=author content><link rel=stylesheet href=https://tech.choihack.com/css/style.5e3c1b94e7a3169da08d890a552f1f5104fb412b9941455faeaa419605a355f5.css><link href=https://tech.choihack.com/custom.css rel=stylesheet><link rel=apple-touch-icon href=https://tech.choihack.com/apple-touch-icon.png><link rel=icon href=https://tech.choihack.com/favicon.ico><meta name=generator content="Hugo 0.85.0"><script async src="https://www.googletagmanager.com/gtag/js?id=G-V3H6ME1VJT"></script><script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-V3H6ME1VJT',{anonymize_ip:!1})}</script><meta property="og:title" content="ZigZag解説"><meta property="og:description" content="ZigZag解説"><meta property="og:type" content="article"><meta property="og:url" content="https://tech.choihack.com/post/tradingview/zigzag%E8%A7%A3%E8%AA%AC/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-09-10T08:14:59+09:00"><meta property="article:modified_time" content="2021-09-10T08:14:59+09:00"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7379986362181342" crossorigin=anonymous></script><script>window.onload=function(){var a=Array.prototype.slice.call(document.querySelectorAll("pre"),0);a.forEach(function(b){var c=b.firstElementChild,d=c.dataset.lang,e=d?d.split(":")[1]:null,a;e&&(a=document.createElement('div'),a.textContent=e,a.classList.add('code-name'),b.insertBefore(a,c))})}</script></head><header class=header><nav class=nav><h1 class=logo><a href=https://tech.choihack.com/>こつこつナレッジ</a></h1><ul class=menu><li><a href=/>TOP</a></li><li><a href=/post/hugo>Hugo</a></li><li><a href=/post/gas>GAS</a></li><li><a href=/post/tradingview>TradingView</a></li><li><a href=/post/wordpress>WordPress</a></li><li><a href=/post/rubyonrails>RubyOnRails</a></li><li><a href=/post/gcp>GCP</a></li><li><a href=/post/others>雑記</a></li><li><a href=/search>検索</a></li></ul></nav><nav class=breadcrumb><ul><li><a href=https://tech.choihack.com/>TOP</a></li><li><a href=https://tech.choihack.com/post/>投稿</a></li><li><a href=https://tech.choihack.com/post/tradingview/>TradingView</a></li><li class=active>ZigZag解説</li></ul></nav></header><body class="dark page"></body><main class=post><article><header class=post-header><h1 class=post-title>ZigZag解説</h1><div class=post-meta>2021.09.10</div></header><div class=post-content><h2 id=はじめに>はじめに</h2><p>ZigZagのインジケーターを見つけたので、自分で作れるレベルまで理解を進めたいと思います。</p><h2 id=pinescript>PineScript</h2><pre><code>//@version=3
+study(&quot;ZigZag!&quot;,overlay=true)
+use_current_res=input(true,title=&quot;Use Current Resolution?&quot;)
+length = input(title=&quot;Length&quot;, type=integer, defval=10)
+phase = input(title=&quot;Phase&quot;, type=integer, defval=50)
+power = input(title=&quot;Power&quot;, type=integer, defval=2)
+line_widht = input(title=&quot;Line Width&quot;, type=integer, defval=1)
+do_col = input(true,title=&quot;color up and down moves?&quot;)
+
+//UseFixed = input(title=&quot;Use Fixed Timeframes?&quot;, type=bool, defval=false)
+htf = input(title=&quot;Higher Timeframe&quot;, defval=&quot;005&quot;, options=[&quot;M&quot;, &quot;W&quot;, &quot;3D&quot;, &quot;D&quot;, &quot;720&quot;, &quot;360&quot;, &quot;240&quot;, &quot;180&quot;, &quot;120&quot;, &quot;060&quot;, &quot;030&quot;, &quot;015&quot;, &quot;010&quot;, &quot;005&quot;, &quot;003&quot;, &quot;001&quot;])
+
+o = security(tickerid, htf, open)
+h = security(tickerid, htf, high)
+l = security(tickerid, htf, low)
+c = security(tickerid, htf, close)
+
+src = use_current_res ? ohlc4 : (o + h + l + c)/4
+
+// definition of &quot;Jurik Moving Average&quot;, by Everget
+jma(_src,_length,_phase,_power) =&gt;
+    phaseRatio = _phase &lt; -100 ? 0.5 : _phase &gt; 100 ? 2.5 : _phase / 100 + 1.5
+    beta = 0.45 * (_length - 1) / (0.45 * (_length - 1) + 2)
+    alpha = pow(beta, _power)
+    jma = 0.0
+    e0 = 0.0
+    e0 := (1 - alpha) * _src + alpha * nz(e0[1])
+    e1 = 0.0
+    e1 := (_src - e0) * (1 - beta) + beta * nz(e1[1])
+    e2 = 0.0
+    e2 := (e0 + phaseRatio * e1 - nz(jma[1])) * pow(1 - alpha, 2) + pow(alpha, 2) * nz(e2[1])
+    jma := e2 + nz(jma[1])
+
+//calculate jma turning point
+jma_price = jma(src,length,phase,power)
+turn_down = rising(jma_price[1],1) and not rising(jma_price,1)
+turn_up = falling(jma_price[1],1) and not falling(jma_price,1)
+
+pivot=na
+pivot:=
+ turn_down?highest(high,10):
+ turn_up?lowest(low,10):na
+
+pivot_color=
+ do_col?
+  pivot&lt;fixnan(pivot)[1]?red:lime:
+ yellow
+
+plot(pivot,linewidth=line_widht,color=pivot_color,offset=-2,transp=0)
+
+// plotshape(turn_down?fixnan(pivot):na,title=&quot;top&quot;,style=shape.triangledown,location=location.absolute,size=size.tiny,color=red,transp=0)
+// plotshape(turn_up?fixnan(pivot):na,title=&quot;bottom&quot;,style=shape.triangleup,location=location.absolute,size=size.tiny,color=lime,transp=0)
+</code></pre><h2 id=解説>解説</h2><h3 id=インジケーターの定義>インジケーターの定義</h3><pre><code>//@version=3
+study(&quot;ZigZag!&quot;,overlay=true)
+</code></pre><ul><li><code>//@version=3</code>: バージョンを指定しており、現時点の最新は４です</li><li><code>study</code>: インジケーターを意味しています。strategyを指定すると売買ソフトを意味します。</li><li><code>"ZigZag!"</code>: インジケーターのタイトルを指定します</li><li><code>overlay=true</code>: チャートに重ねるタイプのインジケーターにします</li></ul><h3 id=設定値>設定値</h3><pre><code>use_current_res=input(true,title=&quot;Use Current Resolution?&quot;)
+length = input(title=&quot;Length&quot;, type=integer, defval=10)
+phase = input(title=&quot;Phase&quot;, type=integer, defval=50)
+power = input(title=&quot;Power&quot;, type=integer, defval=2)
+line_widht = input(title=&quot;Line Width&quot;, type=integer, defval=1)
+do_col = input(true,title=&quot;color up and down moves?&quot;)
+
+//UseFixed = input(title=&quot;Use Fixed Timeframes?&quot;, type=bool, defval=false)
+htf = input(title=&quot;Higher Timeframe&quot;, defval=&quot;005&quot;, options=[&quot;M&quot;, &quot;W&quot;, &quot;3D&quot;, &quot;D&quot;, &quot;720&quot;, &quot;360&quot;, &quot;240&quot;, &quot;180&quot;, &quot;120&quot;, &quot;060&quot;, &quot;030&quot;, &quot;015&quot;, &quot;010&quot;, &quot;005&quot;, &quot;003&quot;, &quot;001&quot;])
+</code></pre><ul><li><code>input</code>: インジケーターの設定値として定義します</li><li><code>type</code>: 設定値の種類です</li><li><code>title</code>: 設定値のタイトルです</li><li><code>defval</code>: 設定値のデフォルト値です</li></ul><h3 id=別の時間足を取得>別の時間足を取得</h3><pre><code>o = security(tickerid, htf, open)
+h = security(tickerid, htf, high)
+l = security(tickerid, htf, low)
+c = security(tickerid, htf, close)
+</code></pre><ul><li><a href=https://jp.tradingview.com/pine-script-reference/#fun_security target=_blank>security</a>
+: 別のシンボル/時間足をリクエスト<ul><li><code>security(symbol, resolution, expression) → series</code>: の形式で使用</li><li><code>symbol (string)</code>: シンボル</li><li><code>resolution (string)</code>: 時間足。空の文字列はチャートの現在の時間足になる。</li><li><code>expression</code>: 系列または系列に型変換できる要素を含むタプル</li></ul></li><li><a href=https://jp.tradingview.com/pine-script-reference/#var_syminfo%7bdot%7dtickerid target=_blank>tickerid</a>
+: 現在選択している通貨のシンボル</li></ul><h3 id=元になるシリーズを指定>元になるシリーズを指定</h3><p><code>use_current_res</code> なtrueなら現在の時間足を使用し、falseなら指定された時間足のデータを使用します。</p><pre><code>src = use_current_res ? ohlc4 : (o + h + l + c)/4
+</code></pre><ul><li><code>XXX ? YYY : ZZZ</code>: 三項演算子</li><li><a href=https://jp.tradingview.com/pine-script-reference/#var_ohlc4 target=_blank>ohlc4</a>
+: (始値+高値+安値+終値)/4</li></ul><h3 id=独自関数を定義>独自関数を定義</h3><p><code>Jurik Moving Average(ジュリック移動平均)</code>を求めている。</p><pre><code>jma(_src,_length,_phase,_power) =&gt;
+    phaseRatio = _phase &lt; -100 ? 0.5 : _phase &gt; 100 ? 2.5 : _phase / 100 + 1.5
+    beta = 0.45 * (_length - 1) / (0.45 * (_length - 1) + 2)
+    alpha = pow(beta, _power)
+    jma = 0.0
+    e0 = 0.0
+    e0 := (1 - alpha) * _src + alpha * nz(e0[1])
+    e1 = 0.0
+    e1 := (_src - e0) * (1 - beta) + beta * nz(e1[1])
+    e2 = 0.0
+    e2 := (e0 + phaseRatio * e1 - nz(jma[1])) * pow(1 - alpha, 2) + pow(alpha, 2) * nz(e2[1])
+    jma := e2 + nz(jma[1])
+</code></pre><ul><li><code>phaseRatio = _phase &lt; -100 ? 0.5 : _phase > 100 ? 2.5 : _phase / 100 + 1.5</code><ul><li><code>_phase</code>が100より小さければ0.5</li><li><code>_phase</code>が100より大きければ2.5</li><li><code>_phase</code>がそれ以外であれば、<code>_phase</code>を100で割って1.5を足す</li></ul></li><li><code>alpha = pow(beta, _power)</code>: <code>beta</code>の<code>_power</code>乗をalphaに代入</li></ul><h3 id=交差の判定>交差の判定</h3><pre><code>//calculate jma turning point
+jma_price = jma(src,length,phase,power)
+turn_down = rising(jma_price[1],1) and not rising(jma_price,1)
+turn_up = falling(jma_price[1],1) and not falling(jma_price,1)
+</code></pre><ul><li><code>jma_price = jma(src,length,phase,power)</code>: JMAを計算</li><li><a href=https://jp.tradingview.com/pine-script-reference/#fun_rising target=_blank>rising</a>
+:<br><code>rising(source, length) → series[bool]</code><br>現在のxが過去yバーに対する前のxよりも大きい場合はtrue、そうでない場合はfalse。</li><li><a href=https://jp.tradingview.com/pine-script-reference/#fun_falling target=_blank>falling</a>
+:<br><code>falling(source, length) → series[bool]</code><br>現在のxが過去yバーに対する前のxよりも小さい場合はtrue、そうでない場合はfalse。</li><li><code>turn_down = rising(jma_price[1],1) and not rising(jma_price,1)</code><br>「1つ前のバーが上昇しており、現在のバーが上昇していない」の判定結果を<code>turn_down</code>に代入。</li><li><code>turn_up = falling(jma_price[1],1) and not falling(jma_price,1)</code><br>「1つ前のバーが下降しており、現在のバーが下降していない」の判定結果を<code>turn_up</code>に代入。</li></ul><h3 id=描画する元データを計算>描画する元データを計算</h3><p><code>turn_down</code>がtrueなら高値を、<code>turn_up</code>がtrueなら底値を、それ以外はnaを入れる。</p><pre><code>pivot=na
+pivot:=
+ turn_down?highest(high,10):
+ turn_up?lowest(low,10):na
+</code></pre><ul><li><code>na</code>: 無効な値のシリーズ</li></ul><h3 id=描画>描画</h3><p>pivotを元にZigZagを描画</p><pre><code>plot(pivot,linewidth=line_widht,color=pivot_color,offset=-2,transp=0)
+</code></pre></div><div class=prev-next><a class=prev href=https://tech.choihack.com/post/tradingview/series%E3%81%A8%E3%81%AF/><article class=article-card><header class=article-card-header><h2>Seriesとは</h2></header><section class=article-card-content><p>はじめに PineScriptを使用する上で、最も重要なのがSeriesの理解です。
+Seriesは若干クセがあるので、しっかりと理解する必要があります。
+Pineスクリプトの型システム Pineスクリプトには以下の基本的な9つの型が存在します。
+int float bool color string line label plot hline これらの型はいくつかの形式で存在します。
+形式には5種類あります。
+literal const input simple series 型と形式は合わせて参照されます。
+例えばliteral bool型、input bool型…のようにコンパイラによって識別されます。
+また、以下のような型も存在します。
+array void na (not available) tuple type 形式 Literal Literalは固定された値を表すための特別な表記法です。
+Literalは常に以下のどれかの型形式になります。
+literal float (3.14, 6.02E-23, 3e8) literal int (42) literal bool (true, false) literal string (“A text literal”) literal color (#FF55C6) ビルトインのopen,high,low,…などはLiterarlではありません。
+これらはserires formです。
+Const Const形式の値は次の特徴があります。...</p></section><footer class=article-card-footer><time>2021-07-26</time></footer></article></a></div></article><aside class=aside><h2>目次</h2><nav id=TableOfContents><ul><li><a href=#はじめに>はじめに</a></li><li><a href=#pinescript>PineScript</a></li><li><a href=#解説>解説</a><ul><li><a href=#インジケーターの定義>インジケーターの定義</a></li><li><a href=#設定値>設定値</a></li><li><a href=#別の時間足を取得>別の時間足を取得</a></li><li><a href=#元になるシリーズを指定>元になるシリーズを指定</a></li><li><a href=#独自関数を定義>独自関数を定義</a></li><li><a href=#交差の判定>交差の判定</a></li><li><a href=#描画する元データを計算>描画する元データを計算</a></li><li><a href=#描画>描画</a></li></ul></li></ul></nav><h2>関連書籍</h2><div class=amazon><p>Amazon</p><a target=_blank href="https://www.amazon.co.jp/dp/4344920791/ref=nosim?tag=tech-choihack0b-22"><img class=amazon-img src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=4344920791&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL350_&tag=tech-choihack0b-22"><section class=amazon-title><p>あなたの FX 投資を成功へと導くTradingView究極ガイド</p></section></a></div><div class="ads side"><h2>おすすめ</h2><iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=21&l=ur1&category=kindleunlimited&banner=178KN9KSS2XDCENS02G2&f=ifr&linkID=81378df7265b0adc45354f106ee4f650&t=tech-choihack-22&tracking_id=tech-choihack-22" width=125 height=125 scrolling=no border=0 marginwidth=0 style=border:none frameborder=0></iframe></div></aside></main></body><footer class=footer><h2>本は聴く時代に！圧倒的おすすめ！</h2><iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=12&l=ur1&category=audible&banner=04TW4TSNDNB96FMCBT82&f=ifr&linkID=4522149f1c95f7594ee105cf8eef4890&t=peperon41410c-22&tracking_id=peperon41410c-22" width=300 height=250 scrolling=no border=0 marginwidth=0 style=border:none frameborder=0></iframe><p class=text-center>© - 2021 - こつこつナレッジ</p></footer><script src=https://tech.choihack.com/highlight.min.js></script><script>hljs.initHighlightingOnLoad()</script></html>
