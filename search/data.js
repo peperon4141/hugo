@@ -1,5 +1,17 @@
 var data = [
 {
+url: "https://tech.choihack.com/post/others/webpack5%E5%8B%98%E6%89%80/",
+title: "Webpack5勘所",
+date: "2021-11-28T16:16:28+09:00",
+body: "Webpack5勘所 はじめに Webpack5が 2020/10/10にリリース された。 Webpackは中規模以上のweb軽開発ではデファクトスタンダードなんじゃないだろうか。 自分が関わっているほとんどすべてのフロントエンドではWebpackが使用されている。 慣れるまでは難しいが、学んだ内容を備忘録的にこのページにまとめる。 基本概念 Webpackとは基本的にはJavaScriptアプリケーション用の静的モジュールバンドラーです。 つまり、基準となるJSファイルを指定することで、それに紐づく依存関係モジュールを1つのファイルに結合してくれます。 これを理解するために基本コンセプトは以下です。 概念 意味 entry 依存関係の起点となるファイル。デフォルトで./src/index.js output 出力パスやファイル名。 loaders JSとJSONファイルだけ理解するWebpackに、変換可能なモジュールを追加します。主にtest(対象ファイルの識別)とuse(どのローダーを使用するか)の2つのプロパティを使って設定します。 plugins requireしてpluginsに追加することで、機能を追加できます。 mode developmentやproductionまたは独自の環境の最適化に使用できます。 entry / output [https://webpack.js.org/concepts/entry-points/](Entry Points) https://webpack.js.org/concepts/output/ 最も単純な例は以下のような設定です。 module.exports = { entry: './src/file.js', output: { filename: 'bundle.js', }, }; より複雑な設定では、複数ページのアプリケーション用にマルチエントリの設定や、ouputのファイル名やパス名を動的に変更することも可能です。 Loaders https://webpack.js.org/concepts/loaders/ 例として、以下のようにローダーを追加します。 npm install --save-dev css-loader ts-loader module.exports = { module: { rules: [ { test: /\\.css$/, use: \u0026#39;css-loader\u0026#39; }, { test: /\\.ts$/, use: \u0026#39;ts-loader\u0026#39; }, ], }, }; この例だと、.cssファイルに対してcss-loaderを.tsファイルに対してts-laoderを適用します。 以下の例のように、.cssに対して複数のLoaderを適用することも可能です。 この場合は、下から順にLoaderが適用されます。 module.exports = { module: { rules: [ { test: /\\.css$/, use: [ { loader: 'style-loader' }, { loader: 'css-loader', options: { modules: true } }, { loader: 'sass-loader' } ] } ] } }; ちなみに、css-loaderはCSSをJS用に変換するLoader、style-loaderはCSSをJSに挿入するLoaderです。 Plugins https://webpack.js.org/concepts/plugins/ Pluginsは主にLoaderではできないことを実行するために使用されます。 例えば、HtmlWebpackPluginは以下のように使用できます。 const HtmlWebpackPlugin = require('html-webpack-plugin'); module.exports = { ... plugins: [ new HtmlWebpackPlugin({ template: './src/index.html' }), ], }; 多くのプラグインはオプションを定義できます。 https://webpack.js.org/plugins/ からほしいPluginを探せます。 個人的には https://webpack.js.org/plugins/html-webpack-plugin/ は頻出です。 自動で依存関係のJSをHTMLに挿入してくれるので、漏れが無く便利です。"
+},
+{
+url: "https://tech.choihack.com/post/others/",
+title: "",
+date: "2021-11-28T16:16:28+09:00",
+body: ""
+},
+{
 url: "https://tech.choihack.com/post/tradingview/binaryoption%E3%83%86%E3%82%B9%E3%83%88%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88/",
 title: "BinaryOptionテストテンプレート",
 date: "2021-09-11T10:15:33+09:00",
@@ -28,12 +40,6 @@ url: "https://tech.choihack.com/post/others/ionicvue%E3%82%92%E8%A9%A6%E3%81%97%
 title: "Ionic vueを試してみる",
 date: "2021-08-26T23:00:42+09:00",
 body: "Ionic vueを試してみる はじめに Ionicとは、ハイブリッドアプリを作成するフレームワークです。 Ionicは元々Angularというフレームワークに依存していましたが、Vue.jsが使えるようになったので、実際に試してみようと思います。 アプリを作る IonicのCLIをインストール yarn global add @ionic/cli@latest global: local内でどこからでも参照できるようにします Ionic CLIの6.17.0がインストールされました。 以下のようなコマンドがあります。 completion ...................... (experimental) Enables tab-completion for Ionic CLI commands. config \u0026lt;subcommand\u0026gt; ............. Manage CLI and project config values (subcommands: get, set, unset) deploy \u0026lt;subcommand\u0026gt; ............. (paid) Appflow Deploy functionality (subcommands: manifest) docs ............................ Open the Ionic documentation website info ............................ Print project, system, and environment information init ............................ (beta) Initialize existing projects with Ionic login ........................... Log in to Ionic logout .......................... Log out of Ionic signup .......................... Create an Ionic account ssh \u0026lt;subcommand\u0026gt; ................ Commands for configuring SSH keys (subcommands: add, delete, generate, list, setup, use) start ........................... Create a new project アプリを作成 ionic start \u0026lt;name\u0026gt; \u0026lt;template\u0026gt; [options] name: The name of your new project (e.g. myApp, \u0026ldquo;My App\u0026rdquo;) template: The starter template to use (e.g. blank, tabs; use \u0026ndash;list to see all) --type=\u0026lt;type\u0026gt;: Type of project to start (e.g. vue, angular, react, ionic-angular, ionic1) 今回は、blankテーマで、vueタイプのアプリを作成します。 ionic start FirstApp blank --type=vue 以下のような構成が作られました。 /first-app ├── /public ├── /src ├── /tests ├── /node_modules ├── Makefile ├── babel.config.js ├── cypress.json ├── ionic.config.json ├── ionic.starter.json ├── jest.config.js ├── package-lock.json ├── package.json └── tsconfig.json アプリを起動する cd first-app ionic serve しばらくするとアプリのコンパイルが終わりサーバーが立ち上げられます。 以下にアクセスするとアプリが確認できます。 http://localhost:8100/ アプリを少し変更する first-app/src/views/Home.vue ディレクトリのファイルを少し変更すると、自動で再コンパイルされホットリロードされます。 さいごに 今回は簡単なアプリだけを作成しました。 普段使い慣れたVue.jsをアプリで使用することで、アプリ作成のハードルがぐっと下がった気がします。 なにかアプリを出せたらいいなと思いました。"
-},
-{
-url: "https://tech.choihack.com/post/others/",
-title: "",
-date: "2021-08-26T23:00:42+09:00",
-body: ""
 },
 {
 url: "https://tech.choihack.com/post/others/%E7%88%86%E9%80%9F%E3%81%A7express%E3%81%AEweb%E3%82%A2%E3%83%97%E3%83%AA%E4%BD%9C%E6%88%90/",
