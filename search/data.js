@@ -1,5 +1,11 @@
 var data = [
 {
+url: "https://tech.choihack.com/post/firebase/firebase%E3%81%A7%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9Freferencedocsnapshot/",
+title: "FirebaseでハマったReference、Doc、Snapshot",
+date: "2022-03-07T08:58:29+09:00",
+body: "FirebaseでハマったReference、Doc、Snapshot 参考 firestoreのreferenceとかsnapshotで混乱したので整理してみた"
+},
+{
 url: "https://tech.choihack.com/post/others/webpack5%E5%8B%98%E6%89%80/",
 title: "Webpack5勘所",
 date: "2021-11-28T16:16:28+09:00",
