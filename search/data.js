@@ -1,5 +1,17 @@
 var data = [
 {
+url: "https://tech.choihack.com/post/gas/",
+title: "",
+date: "2022-04-02T17:48:34+09:00",
+body: ""
+},
+{
+url: "https://tech.choihack.com/post/gas/gas%E3%81%AE%E5%82%99%E5%BF%98%E9%8C%B2/",
+title: "GASの備忘録",
+date: "2022-04-02T17:48:34+09:00",
+body: "GASの備忘録 はじめに GASを使用するにあたって、結構細かい仕様が気になることがあります。 誰も気にしないような仕様を、備忘録として追記していきます。 備忘録 getLastRowは関数も含む getLastRow で値を含む最後の行を取得できます。 「値を含む」には、関数も含みます。 関数をコピーする GASで行を追加する際、関数が込みで行追加は面倒。 便利な関数が copyTo 。 これを使うと関数だけコピーとか、値だけコピーができる。"
+},
+{
 url: "https://tech.choihack.com/post/firebase/firebase%E3%81%A7%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9Freferencedocsnapshot/",
 title: "FirebaseでハマったReference、Doc、Snapshot",
 date: "2022-03-07T08:58:29+09:00",
@@ -172,12 +184,6 @@ url: "https://tech.choihack.com/post/others/git_submodule%E3%82%92%E7%90%86%E8%A
 title: "Git submoduleを理解する",
 date: "2021-07-20T07:32:10+09:00",
 body: "Git submoduleを理解する はじめに Git submoduleとは外部のGitリポジトリを、自分のリポジトリのサブディレクトリとして登録する仕組みです。 コマンドの使い方 頻出するコマンドをまとめます。 今回はサンプルとして、MainroadというHugoのテーマを使います。 ローカルワークスペースのthemes/mainroadディレクトリ以下に追加していきます。 追加 git submodule add \u0026lt;リポジトリのURL\u0026gt; \u0026lt;ローカルのサブディレクトリ\u0026gt; git submodule add https://github.com/Vimux/Mainroad.git themes/mainroad themes/mainroad以下にmainroadがクローンされます。 更新 git submodule update 削除 git submodule deinit -f \u0026lt;サブモジュール\u0026gt;: submoduleを削除 git rm -f \u0026lt;サブモジュール\u0026gt;: gitの管理から削除 rm -rf .git/modules/\u0026lt;サブモジュール\u0026gt;: .gitからgit情報を削除 git submodule deinit themes/mainroad git rm -f themes/mainroad rm -rf .git/modules/themes/mainroad submoduleを追加したときに起こっていること submoduleを理解するために、どんなことが起こっているのかを整理しておきましょう。 追加されたファイルを確認 $ git status On branch master Changes to be committed: (use \u0026quot;git restore --staged \u0026lt;file\u0026gt;...\u0026quot; to unstage) new file: .gitmodules new file: themes/mainroad .gitmodulesファイルとthemes/mainroadディレクトリが追加されていることがわかります。 .gitmodulesファイルの中身 .gitmodulesの中身は以下のようになっています。 [submodule \u0026quot;themes/mainroad\u0026quot;] path = themes/mainroad url = https://github.com/Vimux/Mainroad.git path: ローカルのパス url: submoduleとして読み込んだリポジトリのURL .gitディレクトリ内への情報の追加 通常Gitを使っていると、.gitディレクトリが追加され、中にはcommitやconfigなどの情報が保存されます。 submoduleの場合は、modules以下に同様の情報が追加されます。 今回のサンプルの場合は、.git/modules/mainroadディレクトリに情報が追加されます。 差分チェック $ git diff --cached diff --git a/.gitmodules b/.gitmodules new file mode 100644 index 0000000..537ffba --- /dev/null +++ b/.gitmodules @@ -0,0 +1,3 @@ +[submodule \u0026quot;themes/mainroad\u0026quot;] + path = themes/mainroad + url = https://github.com/Vimux/Mainroad.git diff --git a/themes/mainroad b/themes/mainroad new file mode 160000 index 0000000..043befb --- /dev/null +++ b/themes/mainroad @@ -0,0 +1 @@ +Subproject commit 043befbc585e5a1d7859cfd1f1700d9a5a09cca8 Subproject commit 043befbc585e5a1d7859cfd1f1700d9a5a09cca8が重要です。 mainroadの043befbc585e5a1d7859cfd1f1700d9a5a09cca8コミットを themes/mainroadディレクトリにsubdmouleとして登録した という意味です。 さいごに 参照: Git submodule の基礎"
-},
-{
-url: "https://tech.choihack.com/post/gas/",
-title: "",
-date: "2021-07-19T08:45:56+09:00",
-body: ""
 },
 {
 url: "https://tech.choihack.com/post/gas/gas%E3%81%A7linebot%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/",
