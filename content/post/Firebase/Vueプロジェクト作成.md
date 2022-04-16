@@ -41,7 +41,7 @@ $ mkdir project-name
 $ cd project-name
 $ yarn init -y
 $ yarn add webpack webpack-cli
-$ webpack init
+$ npx webpack init
 ```
 
 更に、これでプロジェクトを作成した後に、 `firebase init` (firebase-toolsが必要)でfirebaseプロジェクトの設定を追加するのが良さそう。
