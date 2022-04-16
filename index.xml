@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>こつこつナレッジ</title><link>https://tech.choihack.com/</link><description>Recent content on こつこつナレッジ</description><generator>Hugo -- gohugo.io</generator><copyright>© - 2021 - こつこつナレッジ</copyright><lastBuildDate>Sun, 11 Jul 2021 23:23:10 +0900</lastBuildDate><atom:link href="https://tech.choihack.com/index.xml" rel="self" type="application/rss+xml"/><item><title>GASの備忘録</title><link>https://tech.choihack.com/post/gas/gas%E3%81%AE%E5%82%99%E5%BF%98%E9%8C%B2/</link><pubDate>Sat, 02 Apr 2022 17:48:34 +0900</pubDate><guid>https://tech.choihack.com/post/gas/gas%E3%81%AE%E5%82%99%E5%BF%98%E9%8C%B2/</guid><description>はじめに GASを使用するにあたって、結構細かい仕様が気になることがあります。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>こつこつナレッジ</title><link>https://tech.choihack.com/</link><description>Recent content on こつこつナレッジ</description><generator>Hugo -- gohugo.io</generator><copyright>© - 2021 - こつこつナレッジ</copyright><lastBuildDate>Sun, 11 Jul 2021 23:23:10 +0900</lastBuildDate><atom:link href="https://tech.choihack.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Vueプロジェクト作成</title><link>https://tech.choihack.com/post/firebase/vue%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E4%BD%9C%E6%88%90/</link><pubDate>Sat, 16 Apr 2022 17:36:40 +0900</pubDate><guid>https://tech.choihack.com/post/firebase/vue%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E4%BD%9C%E6%88%90/</guid><description>プロジェクト作成を楽したい プロジェクトを新規作成する場合に、ゼロから作成するよりも雛形を使いたい。
+使用したいモジュールは以下。
+Vue.js Webpack Firebase Sass TypeScript vue create コマンド：vue create
+自分で選択肢を選ぶながらプロジェクトを作成できる。
+最大の問題点は、webpackの設定ファイルがVue用に作成されたもので作られてしまう。
+気に食わない。
+vue init コマンド：vue init webpack-simple project-name
+指定したテンプレートを元にプロジェクトを作成できる。
+問題点は、パッケージのバージョンが古すぎる。
+ローカルのNode.jsのバージョンとマッチしないと、作成直後でもエラーが発生して動作しない。
+このコマンドはもう使えないと思って良いかもしれない。
+webpack-cli コマンド：webpack init
+webpackのプロジェクトを作成することができる。 問題点は、Vue.jsの設定は自分でしないといけないこと。
+結論 webpack-cli を使用するのが一番良さそう。
+$ mkdir project-name $ cd project-name $ yarn init -y $ yarn add webpack webpack-cli $ webpack init 更に、これでプロジェクトを作成した後に、 firebase init (firebase-toolsが必要)でfirebaseプロジェクトの設定を追加するのが良さそう。</description></item><item><title>GASの備忘録</title><link>https://tech.choihack.com/post/gas/gas%E3%81%AE%E5%82%99%E5%BF%98%E9%8C%B2/</link><pubDate>Sat, 02 Apr 2022 17:48:34 +0900</pubDate><guid>https://tech.choihack.com/post/gas/gas%E3%81%AE%E5%82%99%E5%BF%98%E9%8C%B2/</guid><description>はじめに GASを使用するにあたって、結構細かい仕様が気になることがあります。
 誰も気にしないような仕様を、備忘録として追記していきます。
 備忘録 getLastRowは関数も含む getLastRow で値を含む最後の行を取得できます。
 「値を含む」には、関数も含みます。
