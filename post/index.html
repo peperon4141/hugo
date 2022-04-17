@@ -12,7 +12,11 @@ vue init コマンド：vue init webpack-simple project-name
 webpack-cli コマンド：webpack init
 webpackのプロジェクトを作成することができる。 問題点は、Vue.jsの設定は自分でしないといけないこと。
 結論 webpack-cli を使用するのが一番良さそう。
-$ mkdir project-name $ cd project-name $ yarn init -y $ yarn add webpack webpack-cli $ npx webpack init 更に、これでプロジェクトを作成した後に、 firebase init (firebase-toolsが必要)でfirebaseプロジェクトの設定を追加するのが良さそう。...</p></section><footer class=article-card-footer><time>2022-04-16</time></footer></article></a><a class=entry-link href=https://tech.choihack.com/post/gas/gas%E3%81%AE%E5%82%99%E5%BF%98%E9%8C%B2/><article class=article-card><header class=article-card-header><h2>GASの備忘録</h2></header><section class=article-card-content><p>はじめに GASを使用するにあたって、結構細かい仕様が気になることがあります。
+$ mkdir project-name $ cd project-name $ yarn init -y $ yarn add webpack webpack-cli $ npx webpack init 更に、これでプロジェクトを作成した後に、 firebase init (firebase-toolsが必要)でfirebaseプロジェクトの設定を追加するのが良さそう。
+Vue.jsを追加する場合は、以下の記事が参考になりました。
+https://ics.media/entry/16329/#webpack-ts-vue
+Vue の追加 yarn add -D vue vue-loader @vue/compiler-sfc webpack.config.jsonに以下を追加
+const { VueLoaderPlugin } = require('vue-loader') const webpack = require('webpack') webpack....</p></section><footer class=article-card-footer><time>2022-04-16</time></footer></article></a><a class=entry-link href=https://tech.choihack.com/post/gas/gas%E3%81%AE%E5%82%99%E5%BF%98%E9%8C%B2/><article class=article-card><header class=article-card-header><h2>GASの備忘録</h2></header><section class=article-card-content><p>はじめに GASを使用するにあたって、結構細かい仕様が気になることがあります。
 誰も気にしないような仕様を、備忘録として追記していきます。
 備忘録 getLastRowは関数も含む getLastRow で値を含む最後の行を取得できます。
 「値を含む」には、関数も含みます。
