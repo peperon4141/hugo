@@ -2,8 +2,14 @@ var data = [
 {
 url: "https://tech.choihack.com/post/gas/",
 title: "",
-date: "2022-08-04T22:17:30+09:00",
+date: "2022-08-04T22:32:37+09:00",
 body: ""
+},
+{
+url: "https://tech.choihack.com/post/gas/%E3%82%B7%E3%83%BC%E3%83%88%E3%81%8C%E3%81%AA%E3%81%91%E3%82%8C%E3%81%B0%E4%BD%9C%E3%82%8B%E3%81%A8%E3%81%84%E3%81%86gas/",
+title: "シートがなければ作るというGAS",
+date: "2022-08-04T22:32:37+09:00",
+body: "シートがなければ作るというGAS きっかけ SpreadsheetでGASを使っていて、自分がよくやるのが月毎にシートを分割すること。 例えば、「2022/01」のシートにはその月の売上をGASで登録する。 「2022/02」になったら、自動でその名前のシートを作って、登録する。 便利だが、GASでシートがなければ作るというのが少し面倒だったので、ここにメモしておく。 やりたいこと 特定のシート名のシートが、そのスプレッドシートに存在するかを確認する。 もしなければ、テンプレートとなるシートをコピーして、シート名を設定する。 さらに、そのシートを一番左に移動する。 戻り値として、シートを返す。 function createSheetIfNotExist(ss, sheetName) { const sheet = ss.getSheetByName(sheetName) if (sheet) return sheet const templateSheet = ss.getSheetByName(\u0026#39;原本\u0026#39;) const newSheet = ss.insertSheet(sheetName, 1, {template: templateSheet}) return newSheet } insertSheet関数は、第２引数で新規シートの挿入位置を指定できる。 さらに、{template: templateSheet}のように、テンプレートのシートを指定するオプションがある。 まとめ しっかりGoogleのドキュメントを読めば、サクッと解決できた。"
 },
 {
 url: "https://tech.choihack.com/post/gas/spreadsheet%E3%81%AE%E7%94%BB%E5%83%8F%E3%81%8C%E5%8D%B0%E5%88%B7%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E5%95%8F%E9%A1%8C%E8%A7%A3%E6%B1%BA/",
