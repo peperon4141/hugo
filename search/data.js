@@ -1,15 +1,21 @@
 var data = [
 {
+url: "https://tech.choihack.com/post/gas/",
+title: "",
+date: "2022-08-04T22:17:30+09:00",
+body: ""
+},
+{
+url: "https://tech.choihack.com/post/gas/spreadsheet%E3%81%AE%E7%94%BB%E5%83%8F%E3%81%8C%E5%8D%B0%E5%88%B7%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E5%95%8F%E9%A1%8C%E8%A7%A3%E6%B1%BA/",
+title: "Spreadsheetの画像が印刷されない問題解決",
+date: "2022-08-04T22:17:30+09:00",
+body: "Spreadsheetの画像が印刷されない問題解決 問題 Spreadsheetで画像を表示していて、PDFにして印刷しようとすると画像が表示されなくなることがある。 原因はわかっていないが、推測ではGoogleのサーバーでPDFをレンダリングする際に、一定時間以上経過するとロードされなかった画像は無視してPDFを作成しているような気がする。 つまり、画像を含めてSpreadsheetをPDF化して印刷しようとしても、Googleサーバーのご機嫌次第では表示されなくなる。 これは結構困りもので、人によっては表示されたり、画像によっては表示されたりと解決が難しい。 そもそも画像を表示する方法 よく紹介されている画像を表示する方法としては、Googleドライブ上にファイルを上げて、その画像のファイルIDを取得して、以下のようにIMAGE関数で表示している。 IMAGE(\u0026quot;https://drive.google.com/uc?export=download\u0026amp;id={画像のファイルID}\u0026quot;) この方法では、PDFで印刷時に表示されない問題が発生する。 ちなみに、画像は誰でも見れる共有権限にしておかないと、IMAGE関数で表示できないので注意すること。 解決策 以下の方法で表示できた。 IMAGE(\u0026quot;https://drive.google.com/thumbnail?id={画像ファイルID}\u0026quot;) おそらくこのURLはGoogleドライブの画像のファイルのサムネイルとして、少し画質が悪いがデータ量が少ないものを表示することになる。 私のケースではこの画質でも十分だったので、問題解決。"
+},
+{
 url: "https://tech.choihack.com/post/firebase/vue%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E4%BD%9C%E6%88%90/",
 title: "Vueプロジェクト作成",
 date: "2022-04-16T17:36:40+09:00",
 body: "Vueプロジェクト作成 プロジェクト作成を楽したい プロジェクトを新規作成する場合に、ゼロから作成するよりも雛形を使いたい。 使用したいモジュールは以下。 Vue.js Webpack Firebase Sass TypeScript vue create コマンド：vue create 自分で選択肢を選ぶながらプロジェクトを作成できる。 最大の問題点は、webpackの設定ファイルがVue用に作成されたもので作られてしまう。 気に食わない。 vue init コマンド：vue init webpack-simple project-name 指定したテンプレートを元にプロジェクトを作成できる。 問題点は、パッケージのバージョンが古すぎる。 ローカルのNode.jsのバージョンとマッチしないと、作成直後でもエラーが発生して動作しない。 このコマンドはもう使えないと思って良いかもしれない。 webpack-cli コマンド：webpack init webpackのプロジェクトを作成することができる。 問題点は、Vue.jsの設定は自分でしないといけないこと。 結論 webpack-cli を使用するのが一番良さそう。 $ mkdir project-name $ cd project-name $ yarn init -y $ yarn add webpack webpack-cli $ npx webpack init 更に、これでプロジェクトを作成した後に、 firebase init (firebase-toolsが必要)でfirebaseプロジェクトの設定を追加するのが良さそう。 Vue.jsを追加する場合は、以下の記事が参考になりました。 https://ics.media/entry/16329/#webpack-ts-vue Vue の追加 yarn add -D vue vue-loader @vue/compiler-sfc webpack.config.jsonに以下を追加 const { VueLoaderPlugin } = require('vue-loader') const webpack = require('webpack') webpack.config.jsonのpluginsに以下を追加。 plugins: [ new VueLoaderPlugin(), new webpack.DefinePlugin({ __VUE_OPTIONS_API__: true, __VUE_PROD_DEVTOOLS__: false }), ... ], webpack.config.jsonのmodule.rulesに以下を追加。 module: { rules: [ { test: /\\.vue$/, loader: 'vue-loader' }, ... ] } index.jsに追加。 import { createApp } from 'vue'; import Hello from './hello.vue'; document.addEventListener('DOMContentLoaded', () =\u0026gt; { createApp(Hello).mount('#app'); });"
-},
-{
-url: "https://tech.choihack.com/post/gas/",
-title: "",
-date: "2022-04-02T17:48:34+09:00",
-body: ""
 },
 {
 url: "https://tech.choihack.com/post/gas/gas%E3%81%AE%E5%82%99%E5%BF%98%E9%8C%B2/",

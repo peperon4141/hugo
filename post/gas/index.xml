@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>こつこつナレッジ</title><link>https://tech.choihack.com/post/gas/</link><description>Recent content on こつこつナレッジ</description><generator>Hugo -- gohugo.io</generator><copyright>© - 2021 - こつこつナレッジ</copyright><lastBuildDate>Sat, 02 Apr 2022 17:48:34 +0900</lastBuildDate><atom:link href="https://tech.choihack.com/post/gas/index.xml" rel="self" type="application/rss+xml"/><item><title>GASの備忘録</title><link>https://tech.choihack.com/post/gas/gas%E3%81%AE%E5%82%99%E5%BF%98%E9%8C%B2/</link><pubDate>Sat, 02 Apr 2022 17:48:34 +0900</pubDate><guid>https://tech.choihack.com/post/gas/gas%E3%81%AE%E5%82%99%E5%BF%98%E9%8C%B2/</guid><description>はじめに GASを使用するにあたって、結構細かい仕様が気になることがあります。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>こつこつナレッジ</title><link>https://tech.choihack.com/post/gas/</link><description>Recent content on こつこつナレッジ</description><generator>Hugo -- gohugo.io</generator><copyright>© - 2021 - こつこつナレッジ</copyright><lastBuildDate>Thu, 04 Aug 2022 22:17:30 +0900</lastBuildDate><atom:link href="https://tech.choihack.com/post/gas/index.xml" rel="self" type="application/rss+xml"/><item><title>Spreadsheetの画像が印刷されない問題解決</title><link>https://tech.choihack.com/post/gas/spreadsheet%E3%81%AE%E7%94%BB%E5%83%8F%E3%81%8C%E5%8D%B0%E5%88%B7%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E5%95%8F%E9%A1%8C%E8%A7%A3%E6%B1%BA/</link><pubDate>Thu, 04 Aug 2022 22:17:30 +0900</pubDate><guid>https://tech.choihack.com/post/gas/spreadsheet%E3%81%AE%E7%94%BB%E5%83%8F%E3%81%8C%E5%8D%B0%E5%88%B7%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E5%95%8F%E9%A1%8C%E8%A7%A3%E6%B1%BA/</guid><description>問題 Spreadsheetで画像を表示していて、PDFにして印刷しようとすると画像が表示されなくなることがある。
+原因はわかっていないが、推測ではGoogleのサーバーでPDFをレンダリングする際に、一定時間以上経過するとロードされなかった画像は無視してPDFを作成しているような気がする。
+つまり、画像を含めてSpreadsheetをPDF化して印刷しようとしても、Googleサーバーのご機嫌次第では表示されなくなる。
+これは結構困りもので、人によっては表示されたり、画像によっては表示されたりと解決が難しい。
+そもそも画像を表示する方法 よく紹介されている画像を表示する方法としては、Googleドライブ上にファイルを上げて、その画像のファイルIDを取得して、以下のようにIMAGE関数で表示している。
+IMAGE(&amp;quot;https://drive.google.com/uc?export=download&amp;amp;id={画像のファイルID}&amp;quot;)
+この方法では、PDFで印刷時に表示されない問題が発生する。
+ちなみに、画像は誰でも見れる共有権限にしておかないと、IMAGE関数で表示できないので注意すること。
+解決策 以下の方法で表示できた。 IMAGE(&amp;quot;https://drive.google.com/thumbnail?id={画像ファイルID}&amp;quot;)
+おそらくこのURLはGoogleドライブの画像のファイルのサムネイルとして、少し画質が悪いがデータ量が少ないものを表示することになる。
+私のケースではこの画質でも十分だったので、問題解決。</description></item><item><title>GASの備忘録</title><link>https://tech.choihack.com/post/gas/gas%E3%81%AE%E5%82%99%E5%BF%98%E9%8C%B2/</link><pubDate>Sat, 02 Apr 2022 17:48:34 +0900</pubDate><guid>https://tech.choihack.com/post/gas/gas%E3%81%AE%E5%82%99%E5%BF%98%E9%8C%B2/</guid><description>はじめに GASを使用するにあたって、結構細かい仕様が気になることがあります。
 誰も気にしないような仕様を、備忘録として追記していきます。
 備忘録 getLastRowは関数も含む getLastRow で値を含む最後の行を取得できます。
 「値を含む」には、関数も含みます。
