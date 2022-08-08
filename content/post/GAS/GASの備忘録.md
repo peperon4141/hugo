@@ -18,3 +18,10 @@ GASを使用するにあたって、結構細かい仕様が気になること�
 GASで行を追加する際、関数が込みで行追加は面倒。  
 便利な関数が[copyTo](https://developers.google.com/apps-script/reference/spreadsheet/range#copytodestination,-copypastetype,-transposed)。  
 これを使うと関数だけコピーとか、値だけコピーができる。
+
+### GASの種類
+- コンテナバインド型：Googleドキュメント経由で作成されたGAS
+- スタンドアロン型：単体で作られたGAS
+https://developers.google.com/apps-script/guides/bound
+
+コンテナバインド型は一部特別な関数やイベントを使用することができる。
