@@ -15,7 +15,8 @@ IMAGE(&#34;https://drive.google.com/uc?export=download&id={画像のファイル
 「値を含む」には、関数も含みます。
 関数をコピーする GASで行を追加する際、関数が込みで行追加は面倒。
 便利な関数が copyTo 。
-これを使うと関数だけコピーとか、値だけコピーができる。...</p></section><footer class=article-card-footer><time>2022-04-02</time></footer></article></a><a class=next href=https://tech.choihack.com/post/gas/%E3%82%B7%E3%83%BC%E3%83%88%E3%81%8C%E3%81%AA%E3%81%91%E3%82%8C%E3%81%B0%E4%BD%9C%E3%82%8B%E3%81%A8%E3%81%84%E3%81%86gas/><article class=article-card><header class=article-card-header><h2>シートがなければ作るというGAS</h2></header><section class=article-card-content><p>きっかけ SpreadsheetでGASを使っていて、自分がよくやるのが月毎にシートを分割すること。
+これを使うと関数だけコピーとか、値だけコピーができる。
+GASの種類 コンテナバインド型：Googleドキュメント経由で作成されたGAS スタンドアロン型：単体で作られたGAS https://developers.google.com/apps-script/guides/bound コンテナバインド型は一部特別な関数やイベントを使用することができる。...</p></section><footer class=article-card-footer><time>2022-04-02</time></footer></article></a><a class=next href=https://tech.choihack.com/post/gas/%E3%82%B7%E3%83%BC%E3%83%88%E3%81%8C%E3%81%AA%E3%81%91%E3%82%8C%E3%81%B0%E4%BD%9C%E3%82%8B%E3%81%A8%E3%81%84%E3%81%86gas/><article class=article-card><header class=article-card-header><h2>シートがなければ作るというGAS</h2></header><section class=article-card-content><p>きっかけ SpreadsheetでGASを使っていて、自分がよくやるのが月毎にシートを分割すること。
 例えば、「2022/01」のシートにはその月の売上をGASで登録する。
 「2022/02」になったら、自動でその名前のシートを作って、登録する。
 便利だが、GASでシートがなければ作るというのが少し面倒だったので、ここにメモしておく。

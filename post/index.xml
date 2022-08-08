@@ -16,4 +16,19 @@ $ mkdir project-name $ cd project-name $ yarn init -y $ yarn add webpack webpack
 Vue.jsを追加する場合は、以下の記事が参考になりました。
 https://ics.media/entry/16329/#webpack-ts-vue
 Vue の追加 yarn add -D vue vue-loader @vue/compiler-sfc webpack.config.jsonに以下を追加
-const { VueLoaderPlugin } = require('vue-loader') const webpack = require('webpack') webpack.</description></item><item><title>FirebaseでハマったReference、Doc、Snapshot</title><link>https://tech.choihack.com/post/firebase/firebase%E3%81%A7%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9Freferencedocsnapshot/</link><pubDate>Mon, 07 Mar 2022 08:58:29 +0900</pubDate><guid>https://tech.choihack.com/post/firebase/firebase%E3%81%A7%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9Freferencedocsnapshot/</guid><description>参考 firestoreのreferenceとかsnapshotで混乱したので整理してみた</description></item></channel></rss>
+const { VueLoaderPlugin } = require('vue-loader') const webpack = require('webpack') webpack.</description></item><item><title>FirebaseでハマったReference、Doc、Snapshot</title><link>https://tech.choihack.com/post/firebase/firebase%E3%81%A7%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9Freferencedocsnapshot/</link><pubDate>Mon, 07 Mar 2022 08:58:29 +0900</pubDate><guid>https://tech.choihack.com/post/firebase/firebase%E3%81%A7%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9Freferencedocsnapshot/</guid><description>参考 firestoreのreferenceとかsnapshotで混乱したので整理してみた</description></item><item><title>FirebaseとVue.jsでアプリを作成する</title><link>https://tech.choihack.com/post/firebase/firebase%E3%81%A8vue.js%E3%81%A7%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B/</link><pubDate>Sun, 29 Aug 2021 13:23:07 +0900</pubDate><guid>https://tech.choihack.com/post/firebase/firebase%E3%81%A8vue.js%E3%81%A7%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B/</guid><description>はじめに FirebaseでTODOアプリを作成します。
+TODOアプリで一通りのFirebaseの機能を使ってみたいと思います。
+今回はFirebaseの中で以下のサービスを利用します。
+Authentication Cloud Firestore Hosting Yarn, Vue.js、Vue CLIを使用します。
+Vue CLIは以下でグローバルにインストールしておいて下さい。
+yarn global add @vue/cli firebaseのCLIは以下のコマンドでグローバルにインストールします。
+yarn global add firebase-tools アプリ作成 以下のコマンドでプロジェクトを作成します。
+オプションはお好みで選びます。
+vue create {プロジェクト名} プロジェクト作成後直後の状態で起動してみましょう！
+cd {プロジェクト名} yarn serve http://localhost:8080/ にアクセスすると初期状態のVueプロジェクトが確認できます。
+Vue用マテリアルデザインフレームワークとしてVuetifyを追加する。
+vue add vuetify 文法チェックをEslintにするのが好みです Component name &amp;quot;Home&amp;quot; hould always be multi-wordのようなエラーが出たらvue/multi-word-component-names': 0を.eslintrc.jsのrulesに追加する。 Firebaseプロジェクトを作成する Firebase にアクセスし、ログインします。 プロジェクトを追加をクリックし、名前を設定して、プロジェクトを作成します。 今回はこのプロジェクトでGoogleアナリティクスを有効にするをオフにしました。
+使用する機能を全て有効化しておきます。
+Authentication Hosting Cloud Firestore Authenticationは、Googleプロバイダを有効化しておきます。
+Cloud Firestoreのロケーションはお好みですが、私はasia-northeast1（東京）にしました。
+参考: リージョンとゾーン Firebaseをアプリに統合する firebaseをアプリに追加 yarn add -D firebase src/firebase.</description></item></channel></rss>
