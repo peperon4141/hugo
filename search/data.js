@@ -1,5 +1,17 @@
 var data = [
 {
+url: "https://tech.choihack.com/post/tradingview/",
+title: "",
+date: "2022-08-19T22:22:49+09:00",
+body: ""
+},
+{
+url: "https://tech.choihack.com/post/tradingview/%E8%87%AA%E5%8B%95%E5%A3%B2%E8%B2%B7%E6%96%B9%E6%B3%95/",
+title: "自動売買方法",
+date: "2022-08-19T22:22:49+09:00",
+body: "自動売買方法 はじめに TradingViewはトレードする場合かなり便利です。 様々なチャートとインジケータをweb上で閲覧可能。 Oandaと接続して、裁量トレードはできる。 ここまでは良いのですが、TradingViewだけで 自動売買 が現在未対応らしい。 残念すぎるだろ\u0026hellip; あきらめない 自動売買の選択肢で有力なのが、MT4・MT5を使用する方法です。 ですが、これには問題があり、基本的にはWindowsでこれらのソフトを稼働させ続ける環境を用意する必要があります。 Windows稼働の環境作りも面倒で、もっさりした環境でMT4・MT5を使いたくないですよね\u0026hellip; そこで、TradingViewを使ってFXをする方法を調査しました。 PineScript（TradingViewで使用されるインジケータ作成用の言語）でAlert発火 ↓ WebHookでGASにAlertのメッセージを飛ばす ↓ GASでメッセージを解析してOandaのAPIで取引を実行する トレード用のAPI トレード用に使用できるAPIの選択肢は少なく、有力なのはOandaです。 ただ、これも問題がありOandaのGold会員である必要があります。 Gold会員の維持は毎月＄50万のトレードを行っている必要があり、比較的ハードルが高いです。 最後に 日本国内では、未だにMT4が主流のようで、なかなか自動売買が楽にできる選択肢が増えないのが現状のようです。 TradingViewに頑張ってもらって、無料でTradingViewから自動売買ができるようになれば最高ですよね？ 近いうちにその日が来ることを望んでいます。"
+},
+{
 url: "https://tech.choihack.com/post/others/%E3%83%9E%E3%82%A4%E3%83%B3%E3%83%89%E3%83%9E%E3%83%83%E3%83%97%E8%AA%BF%E6%9F%BB/",
 title: "マインドマップ調査",
 date: "2022-08-18T09:15:20+09:00",
@@ -58,12 +70,6 @@ url: "https://tech.choihack.com/post/tradingview/binaryoption%E3%83%86%E3%82%B9%
 title: "BinaryOptionテストテンプレート",
 date: "2021-09-11T10:15:33+09:00",
 body: "BinaryOptionテストテンプレート はじめに バイオプと通常のFXとは全く異なるため、通常TradingViewではバイオプロジックの検証ができません。 ですが、指定した期間で強制決済した結果を集計することで、バイオプとしてのロジックを検証することができます。 今回は、テンプレートを見つけましたので確認していきます。 https://jp.tradingview.com/script/pvnR5RYJ-Binary-Options-Strategy-Template/ 解説 以下は終値が単純移動平均より上ならBUY、下ならSELLという単純なロジックだけでバイオプをした場合の検証です。 これを実際のロジックに置き換えて作る必要があります。 その前提で、このスクリプトを見ていきましょう。 //@version=4 strategy(\u0026#34;Binary Options Strategy Template\u0026#34;, overlay=true) // In this code we track the bar where a position was opened and close the position // aftera specified number of bars. The objective of this script is testing long/short signals // for knowing the amount of times it would turn a profit or not. // User input for amount of bars till close barsTillClose = input(5, minval=2, title=\u0026#34;Amount of Bars Till Close Position\u0026#34;) // SIMPLE ENTRY LOGIC (insert long/short signal here) sma = sma(close, 14) strategy.entry(\u0026#34;Long\u0026#34;, strategy.long, when=close \u0026gt; sma) strategy.entry(\u0026#34;Short\u0026#34;, strategy.long, when=close \u0026lt; sma) // Track the Entry Bar entryTime = float(na) timeClose = bool(na) entryTime := timeClose[1] ? na : strategy.position_size[0] \u0026gt; strategy.position_size[1] ? bar_index : entryTime[1] // See if we need to close timeClose := bar_index \u0026gt;= entryTime+(barsTillClose-2) strategy.close(\u0026#34;Long\u0026#34;, when=timeClose) strategy.close(\u0026#34;Short\u0026#34;, when=timeClose) plot(sma) エントリーロジック 単純な終値が単純移動平均線を超えるかどうかだけのロジックでエントリーを決めている。 // SIMPLE ENTRY LOGIC (insert long/short signal here) sma = sma(close, 14) strategy.entry(\u0026#34;Long\u0026#34;, strategy.long, when=close \u0026gt; sma) strategy.entry(\u0026#34;Short\u0026#34;, strategy.long, when=close \u0026lt; sma) sma: 単純移動平均線 strategy.entry : 構文: strategy.entry(id, long, qty, limit, stop, oca_name, oca_type, comment, when, alert_message) → void id(series[string]): 注文の識別子。識別子を指定する事で注文の変更やキャンセルが可能 long (bool): 市場ポジションの方向: strategy.longはロング。strategy.shortはショート when (bool): 注文の条件。条件がtrueの場合注文が発注される。条件がfalseの場合には何も起こらない 以前発注された同じIDの注文はキャンセルされない。 デフォルト値はtrue。 トラッキング // Track the Entry Bar entryTime = float(na) timeClose = bool(na) entryTime := timeClose[1] ? na : strategy.position_size[0] \u0026gt; strategy.position_size[1] ? bar_index : entryTime[1] // See if we need to close timeClose := bar_index \u0026gt;= entryTime+(barsTillClose-2) strategy.position_size : 現在の市場ポジションの方向とサイズ。値が0より大きい場合、市場ポジションは買い。値が0より少ない場合、市場ポジションは売り。 entryTime := timeClose[1] ? na : strategy.position_size[0] \u0026gt; strategy.position_size[1] ? bar_index : entryTime[1] １つ過去のバーでクローズしていればna エントリーした場合はbar_index それ以外は過去の値を継続 timeClose := bar_index \u0026gt;= entryTime+(barsTillClose-2) 現在のbar_indexがエントリーした時のbar_indexにbarsTillCloseを足して２で引いた値以上の場合に決済 決済ロジック バイオプの指定期間以上になったら決済する。 strategy.close(\u0026#34;Long\u0026#34;, when=timeClose) strategy.close(\u0026#34;Short\u0026#34;, when=timeClose) bar_index : type: series[integer] 現在のバーのインデックス。ナンバリングは0から始まり、最初のバーのインデックスは0 strategy.close : 構文: strategy.close(id, when, comment, qty, qty_percent, alert_message) → void"
-},
-{
-url: "https://tech.choihack.com/post/tradingview/",
-title: "",
-date: "2021-09-11T10:15:33+09:00",
-body: ""
 },
 {
 url: "https://tech.choihack.com/post/tradingview/binaryoption%E7%94%A8%E3%82%A4%E3%83%B3%E3%82%B8%E3%82%B1%E3%83%BC%E3%82%BF%E3%83%BC/",

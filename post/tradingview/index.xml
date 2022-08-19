@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>こつこつナレッジ</title><link>https://tech.choihack.com/post/tradingview/</link><description>Recent content on こつこつナレッジ</description><generator>Hugo -- gohugo.io</generator><copyright>© - 2021 - こつこつナレッジ</copyright><lastBuildDate>Sat, 11 Sep 2021 10:15:33 +0900</lastBuildDate><atom:link href="https://tech.choihack.com/post/tradingview/index.xml" rel="self" type="application/rss+xml"/><item><title>BinaryOptionテストテンプレート</title><link>https://tech.choihack.com/post/tradingview/binaryoption%E3%83%86%E3%82%B9%E3%83%88%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88/</link><pubDate>Sat, 11 Sep 2021 10:15:33 +0900</pubDate><guid>https://tech.choihack.com/post/tradingview/binaryoption%E3%83%86%E3%82%B9%E3%83%88%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88/</guid><description>はじめに バイオプと通常のFXとは全く異なるため、通常TradingViewではバイオプロジックの検証ができません。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>こつこつナレッジ</title><link>https://tech.choihack.com/post/tradingview/</link><description>Recent content on こつこつナレッジ</description><generator>Hugo -- gohugo.io</generator><copyright>© - 2021 - こつこつナレッジ</copyright><lastBuildDate>Fri, 19 Aug 2022 22:22:49 +0900</lastBuildDate><atom:link href="https://tech.choihack.com/post/tradingview/index.xml" rel="self" type="application/rss+xml"/><item><title>自動売買方法</title><link>https://tech.choihack.com/post/tradingview/%E8%87%AA%E5%8B%95%E5%A3%B2%E8%B2%B7%E6%96%B9%E6%B3%95/</link><pubDate>Fri, 19 Aug 2022 22:22:49 +0900</pubDate><guid>https://tech.choihack.com/post/tradingview/%E8%87%AA%E5%8B%95%E5%A3%B2%E8%B2%B7%E6%96%B9%E6%B3%95/</guid><description>はじめに TradingViewはトレードする場合かなり便利です。
+様々なチャートとインジケータをweb上で閲覧可能。
+Oandaと接続して、裁量トレードはできる。
+ここまでは良いのですが、TradingViewだけで 自動売買 が現在未対応らしい。
+残念すぎるだろ&amp;hellip;
+あきらめない 自動売買の選択肢で有力なのが、MT4・MT5を使用する方法です。
+ですが、これには問題があり、基本的にはWindowsでこれらのソフトを稼働させ続ける環境を用意する必要があります。
+Windows稼働の環境作りも面倒で、もっさりした環境でMT4・MT5を使いたくないですよね&amp;hellip;
+そこで、TradingViewを使ってFXをする方法を調査しました。
+PineScript（TradingViewで使用されるインジケータ作成用の言語）でAlert発火 ↓ WebHookでGASにAlertのメッセージを飛ばす ↓ GASでメッセージを解析してOandaのAPIで取引を実行する トレード用のAPI トレード用に使用できるAPIの選択肢は少なく、有力なのはOandaです。
+ただ、これも問題がありOandaのGold会員である必要があります。
+Gold会員の維持は毎月＄50万のトレードを行っている必要があり、比較的ハードルが高いです。
+最後に 日本国内では、未だにMT4が主流のようで、なかなか自動売買が楽にできる選択肢が増えないのが現状のようです。
+TradingViewに頑張ってもらって、無料でTradingViewから自動売買ができるようになれば最高ですよね？
+近いうちにその日が来ることを望んでいます。</description></item><item><title>BinaryOptionテストテンプレート</title><link>https://tech.choihack.com/post/tradingview/binaryoption%E3%83%86%E3%82%B9%E3%83%88%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88/</link><pubDate>Sat, 11 Sep 2021 10:15:33 +0900</pubDate><guid>https://tech.choihack.com/post/tradingview/binaryoption%E3%83%86%E3%82%B9%E3%83%88%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88/</guid><description>はじめに バイオプと通常のFXとは全く異なるため、通常TradingViewではバイオプロジックの検証ができません。
 ですが、指定した期間で強制決済した結果を集計することで、バイオプとしてのロジックを検証することができます。
 今回は、テンプレートを見つけましたので確認していきます。
 https://jp.tradingview.com/script/pvnR5RYJ-Binary-Options-Strategy-Template/
